@@ -28,12 +28,14 @@ jobs:
           python -m pip install --upgrade pip
           pip install selenium beautifulsoup4
 
-      # Set up Chrome for Selenium
-      - name: Set up Chromium and ChromeDriver
+      - name: Set up Chromium and Chromedriver
         run: |
           sudo apt-get update
-          sudo apt-get install -y chromium-chromedriver
-          sudo cp /usr/lib/chromium-browser/chromedriver /usr/bin
+          sudo apt-get install -y chromium-browser chromium-chromedriver
+          # Check if Chromedriver is already in /usr/bin before copying
+          if [ ! -f /usr/bin/chromedriver ]; then
+            sudo cp /usr/lib/chromium-browser/chromedriver /usr/bin
+          fi
 
       # Run the scraping script
       - name: Run scraping script
