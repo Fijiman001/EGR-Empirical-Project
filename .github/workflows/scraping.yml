@@ -30,12 +30,16 @@ jobs:
 
       - name: Set up Chromium and Chromedriver
         run: |
+          sudo apt update
+          sudo apt install google-chrome-stable
           sudo apt-get update
           sudo apt-get install -y chromium-browser chromium-chromedriver
           # Check if Chromedriver is already in /usr/bin before copying
           if [ ! -f /usr/bin/chromedriver ]; then
             sudo cp /usr/lib/chromium-browser/chromedriver /usr/bin
           fi
+          which google-chrome
+          which chromedriver
 
       # Run the scraping script
       - name: Run scraping script
