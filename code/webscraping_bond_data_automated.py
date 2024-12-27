@@ -65,8 +65,18 @@ chrome_options.add_argument("--headless")
 chrome_options.add_argument("--no-sandbox")
 chrome_options.add_argument("--disable-dev-shm-usage")
 
-# Specify the Chrome binary location
-chrome_options.binary_location = "/usr/bin/google-chrome"
+# Fallback: Try common locations for Chrome
+possible_paths = ["/usr/bin/google-chrome", "/snap/bin/chromium", "/usr/local/bin/google-chrome"]
+for path in possible_paths:
+    try:
+        with open(path) as f:
+            chrome_options.binary_location = path
+            break
+    except FileNotFoundError:
+        pass
+
+if not chrome_options.binary_location:
+    raise FileNotFoundError("No valid Chrome binary found on the system.")
 
 # Set up the ChromeDriver service
 service = Service("/usr/bin/chromedriver")
@@ -172,8 +182,18 @@ chrome_options.add_argument("--headless")
 chrome_options.add_argument("--no-sandbox")
 chrome_options.add_argument("--disable-dev-shm-usage")
 
-# Specify the Chrome binary location
-chrome_options.binary_location = "/usr/bin/google-chrome"
+# Fallback: Try common locations for Chrome
+possible_paths = ["/usr/bin/google-chrome", "/snap/bin/chromium", "/usr/local/bin/google-chrome"]
+for path in possible_paths:
+    try:
+        with open(path) as f:
+            chrome_options.binary_location = path
+            break
+    except FileNotFoundError:
+        pass
+
+if not chrome_options.binary_location:
+    raise FileNotFoundError("No valid Chrome binary found on the system.")
 
 # Set up the ChromeDriver service
 service = Service("/usr/bin/chromedriver")
