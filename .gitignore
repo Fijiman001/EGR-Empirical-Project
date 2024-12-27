@@ -1,3 +1,6 @@
+# Ignore Data file, on google drive
+data/
+
 # History files
 .Rhistory
 .Rapp.history
