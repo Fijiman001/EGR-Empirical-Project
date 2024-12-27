@@ -32,11 +32,13 @@ jobs:
         run: |
           sudo apt update
           sudo apt install -y google-chrome-stable
-          sudo apt install -y chromium-chromedriver
-          ln -s /usr/bin/chromedriver /usr/local/bin/chromedriver  # Create a symlink for compatibility
-          ln -s /usr/bin/google-chrome /usr/local/bin/google-chrome  # Ensure Chrome is accessible
+          sudo apt install -y chromium-browser chromium-chromedriver
+          ln -sf /snap/bin/chromium /usr/bin/google-chrome  # Symlink snap binary to standard location
+          ln -sf /usr/bin/chromedriver /usr/local/bin/chromedriver  # Ensure ChromeDriver is accessible
           which google-chrome
           which chromedriver
+          ls -l /usr/bin/google-chrome
+          ls -l /usr/local/bin/chromedriver
 
       # Run the scraping script
       - name: Run scraping script
