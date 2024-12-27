@@ -1,0 +1,54 @@
+name: Scrape Green Bond Data
+
+on:
+  schedule:
+    # Runs at 0 minutes past the hour, every hour, Monday, Wednesday, and Friday
+    - cron: '0 8-18 * * 1-5'  # Modify this as per your desired schedule
+
+  workflow_dispatch:  # Allows you to manually trigger this workflow from GitHub UI
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest  # Use the latest version of Ubuntu for the environment
+
+    steps:
+      # Check out the repository
+      - name: Check out the repository
+        uses: actions/checkout@v2
+
+      # Set up Python
+      - name: Set up Python 3.x
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'  # Use Python 3.x version
+
+      # Install necessary packages
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install selenium beautifulsoup4
+
+      # Set up Chrome for Selenium
+      - name: Set up Chromium and ChromeDriver
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y chromium-chromedriver
+          sudo cp /usr/lib/chromium-browser/chromedriver /usr/bin
+
+      # Run the scraping script
+      - name: Run scraping script
+        env:
+          DISPLAY: ":99"  # Set DISPLAY for headless Chromium
+        run: |
+          python code/webscraping_bond_data.py  # Replace with the name of your script
+
+      # Upload saved files to repo
+      - name: Upload generated CSV files
+        uses: actions/upload-artifact@v2
+        with:
+          name: scraped-data
+          path: |
+            green_bonds_data_*.csv
+            green_bonds_partial_data_*.csv
+            all_bonds_data_*.csv
+            all_bonds_partial_data_*.csv
