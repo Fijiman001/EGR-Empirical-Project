@@ -43,7 +43,7 @@ jobs:
         env:
           DISPLAY: ":99"  # Set DISPLAY for headless Chromium
         run: |
-          python code/webscraping_bond_data.py  # Replace with the name of your script
+          python code/webscraping_bond_data_automated.py  # Replace with the name of your script
 
       # Upload saved files to repo
       - name: Upload generated CSV files
