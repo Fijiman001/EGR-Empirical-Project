@@ -28,16 +28,13 @@ jobs:
           python -m pip install --upgrade pip
           pip install selenium beautifulsoup4
 
-      - name: Set up Chromium and Chromedriver
+      - name: Install Chrome and ChromeDriver
         run: |
           sudo apt update
-          sudo apt install google-chrome-stable
-          sudo apt-get update
-          sudo apt-get install -y chromium-browser chromium-chromedriver
-          # Check if Chromedriver is already in /usr/bin before copying
-          if [ ! -f /usr/bin/chromedriver ]; then
-            sudo cp /usr/lib/chromium-browser/chromedriver /usr/bin
-          fi
+          sudo apt install -y google-chrome-stable
+          sudo apt install -y chromium-chromedriver
+          ln -s /usr/bin/chromedriver /usr/local/bin/chromedriver  # Create a symlink for compatibility
+          ln -s /usr/bin/google-chrome /usr/local/bin/google-chrome  # Ensure Chrome is accessible
           which google-chrome
           which chromedriver
 
