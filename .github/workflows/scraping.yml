@@ -67,6 +67,8 @@ jobs:
       # Push artifacts to the data directory in the repository
       - name: Push files to repository
         if: success()
+        env:
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
@@ -80,5 +82,3 @@ jobs:
           git add data/
           git commit -m "Add scraped data from ${{ env.DATE }}"
           git push
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
