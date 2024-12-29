@@ -1,5 +1,5 @@
 # Ignore Data file, on google drive
-data/
+# data/
 
 # History files
 .Rhistory
