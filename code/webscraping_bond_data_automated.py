@@ -87,6 +87,9 @@ driver = webdriver.Chrome(service=service, options=chrome_options)
 # URL to scrape
 url = "https://www.boerse-frankfurt.de/anleihen/green-bonds"
 
+# Initialize an empty list to store all bonds
+all_bonds = []
+
 try:
     # Open the website
     driver.get(url)
@@ -100,9 +103,6 @@ try:
     # Click the "100" button
     hundred_button.click()
     time.sleep(3)
-
-    # Initialize an empty list to store all bonds
-    all_bonds = []
 
     # Find the number of pages
     page_buttons = driver.find_elements(By.XPATH, "//button[contains(@class, 'page-bar-type-button page-bar-type-button-width-auto btn btn-lg ng-star-inserted') and not(@disabled)]")
@@ -204,6 +204,9 @@ driver = webdriver.Chrome(service=service, options=chrome_options)
 # URL to scrape
 url = "https://www.boerse-frankfurt.de/anleihen/most-traded"
 
+# Initialize an empty list to store all bonds
+all_bonds = []
+
 try:
     # Open the website
     driver.get(url)
@@ -220,9 +223,6 @@ try:
     # Click the "100" button
     hundred_button.click()
     time.sleep(5)
-
-    # Initialize an empty list to store all bonds
-    all_bonds = []
 
     # Find the number of pages
     page_buttons = driver.find_elements(By.XPATH, "//button[contains(@class, 'page-bar-type-button page-bar-type-button-width-auto btn btn-lg ng-star-inserted') and not(@disabled)]")
