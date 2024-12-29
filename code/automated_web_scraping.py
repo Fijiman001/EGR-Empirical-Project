@@ -46,9 +46,9 @@ shutil.which("chromedriver")
 
 # Configure Chrome options
 chrome_options = Options()
-chrome_options.add_argument("--headless")
-chrome_options.add_argument("--no-sandbox")
-chrome_options.add_argument("--disable-dev-shm-usage")
+chrome_options.add_argument("--headless=new")  # Use new headless mode
+chrome_options.add_argument("--disable-blink-features=AutomationControlled")
+chrome_options.add_argument("--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.5735.90 Safari/537.36")
 
 # Fallback: Try common locations for Chrome
 possible_paths = ["/usr/bin/google-chrome", "/snap/bin/chromium", "/usr/local/bin/google-chrome"]
@@ -79,35 +79,34 @@ try:
     # Open the website
     driver.get(url)
 
-    # Check if needed
-    time.sleep(5)
-
-    # <button _ngcontent-boerse-frankfurt-c115
     # Wait for the "100" button to be visible and clickable
-    wait = WebDriverWait(driver, 1)
+    wait = WebDriverWait(driver, 15)
     hundred_button = wait.until(
         EC.element_to_be_clickable((By.XPATH, "//button[contains(@class, 'page-bar-type-button btn btn-lg ng-star-inserted') and text()='100']"))
     )
+    driver.save_screenshot(f"screenshot_100_{timestamp}.png") # test
     # Click the "100" button
     hundred_button.click()
-    time.sleep(5)
+
+    # Wait for the page to load
+    wait.until(EC.presence_of_element_located((By.XPATH, "//div[contains(@class, 'table-responsive')]")))
 
     # Find the number of pages
     page_buttons = driver.find_elements(By.XPATH, "//button[contains(@class, 'page-bar-type-button page-bar-type-button-width-auto btn btn-lg ng-star-inserted') and not(@disabled)]")
-    total_pages = int(page_buttons[-1].text.strip())  # Extract the number from the last button, this button should always be showing the maximum amount of pages
+    total_pages = int(page_buttons[-1].text.strip())  # Extract the number from the last button
     print(f"Total pages: {total_pages}")
-
+    
     # Loop through all pages, skipping the first one
     for page in range(1, total_pages + 1):
       try:
 
         # Wait for the page button to be clickable and click it
-        if page != 1:
-          page_button = wait.until(
-            EC.element_to_be_clickable((By.XPATH, f"//button[contains(@class, 'page-bar-type-button page-bar-type-button-width-auto btn btn-lg ng-star-inserted') and text()='{page}']"))
-          )
-          page_button.click()
-          time.sleep(5)  # Allow time for the page to load, check how long is optimal
+       if page != 1:
+            page_button = wait.until(
+                EC.element_to_be_clickable((By.XPATH, f"//button[contains(@class, 'page-bar-type-button page-bar-type-button-width-auto btn btn-lg ng-star-inserted') and text()='{page}']"))
+            )
+            page_button.click()
+            wait.until(EC.presence_of_element_located((By.XPATH, "//div[contains(@class, 'table-responsive')]")))
             
         # Extract page source and parse with BeautifulSoup
         page_source = driver.page_source
@@ -199,22 +198,20 @@ try:
     # Open the website
     driver.get(url)
 
-    # Check if needed
-    time.sleep(5)
-
-    # <button _ngcontent-boerse-frankfurt-c115
     # Wait for the "100" button to be visible and clickable
-    wait = WebDriverWait(driver, 1)
+    wait = WebDriverWait(driver, 15)
     hundred_button = wait.until(
         EC.element_to_be_clickable((By.XPATH, "//button[contains(@class, 'page-bar-type-button btn btn-lg ng-star-inserted') and text()='100']"))
     )
     # Click the "100" button
     hundred_button.click()
-    time.sleep(5)
+
+    # Wait for the page to load
+    wait.until(EC.presence_of_element_located((By.XPATH, "//div[contains(@class, 'table-responsive')]")))
 
     # Find the number of pages
     page_buttons = driver.find_elements(By.XPATH, "//button[contains(@class, 'page-bar-type-button page-bar-type-button-width-auto btn btn-lg ng-star-inserted') and not(@disabled)]")
-    total_pages = int(page_buttons[-1].text.strip())  # Extract the number from the last button, this button should always be showing the maximum amount of pages
+    total_pages = int(page_buttons[-1].text.strip())  # Extract the number from the last button
     print(f"Total pages: {total_pages}")
 
     # Loop through all pages, skipping the first one, limiting to 20 pages, so the 2000 most traded bonds
@@ -223,11 +220,11 @@ try:
 
         # Wait for the page button to be clickable and click it
         if page != 1:
-          page_button = wait.until(
-            EC.element_to_be_clickable((By.XPATH, f"//button[contains(@class, 'page-bar-type-button page-bar-type-button-width-auto btn btn-lg ng-star-inserted') and text()='{page}']"))
-          )
-          page_button.click()
-          time.sleep(5)  # Allow time for the page to load, check how long is optimal
+            page_button = wait.until(
+                EC.element_to_be_clickable((By.XPATH, f"//button[contains(@class, 'page-bar-type-button page-bar-type-button-width-auto btn btn-lg ng-star-inserted') and text()='{page}']"))
+            )
+            page_button.click()
+            wait.until(EC.presence_of_element_located((By.XPATH, "//div[contains(@class, 'table-responsive')]")))
 
         # Extract page source and parse with BeautifulSoup
         page_source = driver.page_source
