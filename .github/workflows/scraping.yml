@@ -8,6 +8,9 @@ on:
 jobs:
   scrape:
     runs-on: ubuntu-latest
+  autoscrape:
+    # The type of runner that the job will run on
+    runs-on: windows-latest
 
     steps:
       # Check out the repository
@@ -27,25 +30,6 @@ jobs:
           sudo apt-get install -y wget unzip
           python -m pip install --upgrade pip
           pip install selenium beautifulsoup4
-
-      # Install Google Chrome and ChromeDriver
-      - name: Install Chrome and ChromeDriver
-        run: |
-          wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-          echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
-          sudo apt-get update
-          sudo apt-get install -y google-chrome-stable
-          CHROME_VERSION=$(google-chrome --version | grep -oP "\d+\.\d+\.\d+\.\d+")
-          CHROME_MAJOR_VERSION=$(echo $CHROME_VERSION | cut -d. -f1)
-          CHROMEDRIVER_VERSION=$(curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_${CHROME_MAJOR_VERSION}")
-          wget -q "https://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux64.zip" -O chromedriver_linux64.zip
-          unzip chromedriver_linux64.zip
-          sudo mv chromedriver /usr/local/bin/
-          chmod +x /usr/local/bin/chromedriver
-
-          # Verify installations
-          google-chrome --version
-          chromedriver --version
 
       # Run the scraping script
       - name: Run scraping script
