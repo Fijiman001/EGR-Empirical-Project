@@ -1,17 +1,30 @@
-"""# Packages & Function to Get Data"""
-
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.action_chains import ActionChains
 from bs4 import BeautifulSoup
 from datetime import datetime
 import csv
 import time
-import shutil
+
+# Configure Chrome options for headless execution
+def configure_driver():
+    chrome_options = Options()
+    chrome_options.add_argument("--headless")  # Run in headless mode
+    chrome_options.add_argument("--no-sandbox")
+    chrome_options.add_argument("--disable-dev-shm-usage")
+    chrome_options.add_argument("--disable-blink-features=AutomationControlled")
+    chrome_options.add_argument(
+        "--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.5735.90 Safari/537.36"
+    )
+
+    # Set up the ChromeDriver service
+    service = Service("/usr/bin/chromedriver")
+    driver = webdriver.Chrome(service=service, options=chrome_options)
+    return driver
+
 
 # Function to extract bond data from the current page
 def extract_bond_data(soup):
@@ -19,267 +32,134 @@ def extract_bond_data(soup):
     bonds = []
 
     if bond_table:
-        rows = bond_table.find_all("tr")  # Get all rows in the table
-
-        # Iterate over each row (skip the header row)
-        for row in rows[1:]:
-            cols = row.find_all("td")  # Get all columns in the row
-            if len(cols) >= 6:  # Ensure there are enough columns
-                bond_info = {
-                    "Name": cols[0].text.strip(),
-                    "WKN": cols[1].text.strip(),
-                    "Last Price": cols[2].text.strip(),
-                    "Date/Time Last Price": cols[3].text.strip(),
-                    "Volume in Euro": cols[4].text.strip(),
-                    "+/- %": cols[5].text.strip(),
-                    "Coupon": cols[12].text.strip(),
-                    "Currency": cols[13].text.strip(),
-                    "YTM": cols[14].text.strip()
-                }
-                bonds.append(bond_info)
+        rows = bond_table.find_all("tr")[1:]  # Skip header row
+        for row in rows:
+            cols = row.find_all("td")
+            if len(cols) >= 6:
+                bonds.append(
+                    {
+                        "Name": cols[0].text.strip(),
+                        "WKN": cols[1].text.strip(),
+                        "Last Price": cols[2].text.strip(),
+                        "Date/Time Last Price": cols[3].text.strip(),
+                        "Volume in Euro": cols[4].text.strip(),
+                        "+/- %": cols[5].text.strip(),
+                        "Coupon": cols[12].text.strip() if len(cols) > 12 else "",
+                        "Currency": cols[13].text.strip() if len(cols) > 13 else "",
+                        "YTM": cols[14].text.strip() if len(cols) > 14 else "",
+                    }
+                )
     return bonds
 
-"""# Green bond data"""
+# Core scraping function
+def scrape_bonds(url, output_file, page_limit=None):
+    driver = configure_driver()
+    all_bonds = []
+    timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 
-# Check if Chromedriver is available on system path
-shutil.which("chromedriver")
-
-# Configure Chrome options
-chrome_options = Options()
-chrome_options.add_argument("--headless=new")  # Use new headless mode
-chrome_options.add_argument("--disable-blink-features=AutomationControlled")
-chrome_options.add_argument("--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.5735.90 Safari/537.36")
-
-# Fallback: Try common locations for Chrome
-possible_paths = ["/usr/bin/google-chrome", "/snap/bin/chromium", "/usr/local/bin/google-chrome"]
-for path in possible_paths:
     try:
-        with open(path) as f:
-            chrome_options.binary_location = path
-            break
-    except FileNotFoundError:
-        pass
+        driver.get(url)
+        wait = WebDriverWait(driver, 15)
 
-if not chrome_options.binary_location:
-    raise FileNotFoundError("No valid Chrome binary found on the system.")
+        # Click through Cookie Selection
+        cookie_button = WebDriverWait(driver,10).until(
+            EC.element_to_be_clickable((By.ID, "cookie-hint-btn-decline"))
+        )
+        cookie_button.click()
+        print("Cookie banner handled successfully (Declined).")
+    except Exception as e:
+        print(f"Cookie banner not found or already handled: {e}")
 
-# Set up the ChromeDriver service
-service = Service("/usr/bin/chromedriver")
+        # Click the "100" button to show 100 rows per page
+        hundred_button = wait.until(
+            EC.element_to_be_clickable((By.XPATH,"//button[contains(@class, 'page-bar-type-button') and text()='100']")))
+        driver.execute_script("arguments[0].scrollIntoView(true);", hundred_button)
+        hundred_button.click()
+        time.sleep(2)
 
-# Initialize the driver
-driver = webdriver.Chrome(service=service, options=chrome_options)
-
-# URL to scrape
-url = "https://www.boerse-frankfurt.de/anleihen/green-bonds"
-
-# Initialize an empty list to store all bonds
-all_bonds = []
-
-# Get the current date and time for the file name
-timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-
-try:
-    # Open the website
-    driver.get(url)
-
-    # Wait for the "100" button to be visible and clickable
-    wait = WebDriverWait(driver, 15)
-    hundred_button = wait.until(
-        EC.element_to_be_clickable((By.XPATH, "//button[contains(@class, 'page-bar-type-button btn btn-lg ng-star-inserted') and text()='100']"))
-    )
-    driver.execute_script("arguments[0].scrollIntoView(true);", hundred_button)
-    time.sleep(1)  # Give time for the scroll to complete
-    driver.save_screenshot(f"screenshot_100_{timestamp}.png") # test
-    # Click the "100" button
-    hundred_button.click()
-
-    # Wait for the page to load
-    wait.until(EC.presence_of_element_located((By.XPATH, "//div[contains(@class, 'table-responsive')]")))
-
-    # Find the number of pages
-    page_buttons = driver.find_elements(By.XPATH, "//button[contains(@class, 'page-bar-type-button page-bar-type-button-width-auto btn btn-lg ng-star-inserted') and not(@disabled)]")
-    total_pages = int(page_buttons[-1].text.strip())  # Extract the number from the last button
-    print(f"Total pages: {total_pages}")
-    
-    # Loop through all pages, skipping the first one
-    for page in range(1, total_pages + 1):
-      try:
-
-        # Wait for the page button to be clickable and click it
-        if page != 1:
-            page_button = wait.until(
-                EC.element_to_be_clickable((By.XPATH, f"//button[contains(@class, 'page-bar-type-button page-bar-type-button-width-auto btn btn-lg ng-star-inserted') and text()='{page}']"))
+        # Wait for the page to load
+        wait.until(
+            EC.presence_of_element_located(
+                (By.XPATH, "//div[contains(@class, 'table-responsive')]")
             )
-            driver.execute_script("arguments[0].scrollIntoView(true);", page_button)
-            time.sleep(1)  # Give time for the scroll to complete
-            page_button.click()
-            wait.until(EC.presence_of_element_located((By.XPATH, "//div[contains(@class, 'table-responsive')]")))
-            
-        # Extract page source and parse with BeautifulSoup
-        page_source = driver.page_source
-        soup = BeautifulSoup(page_source, "html.parser")
+        )
 
-        # Extract data from the current page
-        bonds = extract_bond_data(soup)
-        all_bonds.extend(bonds)
+        # Get total number of pages
+        page_buttons = driver.find_elements(
+            By.XPATH,
+            "//button[contains(@class, 'page-bar-type-button') and not(@disabled)]",
+        )
+        total_pages = min(
+            int(page_buttons[-1].text.strip()), page_limit or float("inf")
+        )
+        print(f"Total pages: {total_pages}")
 
-        # Loop count
-        print(f"Loop {page}")
+        # Loop through pages
+        for page in range(1, total_pages + 1):
+            try:
+                if page != 1:
+                    page_button = wait.until(
+                        EC.element_to_be_clickable(
+                            (
+                                By.XPATH,
+                                f"//button[contains(@class, 'page-bar-type-button') and text()='{page}']",
+                            )
+                        )
+                    )
+                    driver.execute_script(
+                        "arguments[0].scrollIntoView(true);", page_button
+                    )
+                    page_button.click()
+                    wait.until(
+                        EC.presence_of_element_located(
+                            (By.XPATH, "//div[contains(@class, 'table-responsive')]")
+                        )
+                    )
 
-      except Exception as e:
-        print(f"An error occurred on page {page}: {e}")
-        break  # Exit the loop if there is an error
+                # Parse current page
+                soup = BeautifulSoup(driver.page_source, "html.parser")
+                bonds = extract_bond_data(soup)
+                all_bonds.extend(bonds)
+                print(f"Page {page} scraped successfully.")
 
-    # Def file name
-    file_name = f"green_bonds_data_{timestamp}.csv"
+            except Exception as page_error:
+                print(f"Error on page {page}: {page_error}")
+                break
 
-    # Save all the extracted data to a CSV file
-    with open(file_name, "w", newline="", encoding="utf-8") as csvfile:
-        fieldnames = ["Name", "WKN", "Last Price", "Date/Time Last Price", "Volume in Euro", "+/- %", "Coupon", "Currency", "YTM"]
-        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        # Save results to CSV
+        with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
+            fieldnames = [
+                "Name",
+                "WKN",
+                "Last Price",
+                "Date/Time Last Price",
+                "Volume in Euro",
+                "+/- %",
+                "Coupon",
+                "Currency",
+                "YTM",
+            ]
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+            writer.writeheader()
+            writer.writerows(all_bonds)
+        print(f"Data saved to {output_file}")
 
-        writer.writeheader()  # Write the header row
-        writer.writerows(all_bonds)  # Write all bond data rows
+    except Exception as main_error:
+        print(f"Critical error: {main_error}")
 
-    print("Bond data has been saved to 'green_bonds_data.csv'")
+    finally:
+        driver.quit()
 
-except Exception as e:
-    print(f"Critical error: {e}")
-
-    # Def file name
-    file_name = f"green_bonds_partial_data_{timestamp}.csv"
-
-    # Save the collected data so far
-    with open(file_name, "w", newline="", encoding="utf-8") as csvfile:
-        fieldnames = ["Name", "WKN", "Last Price", "Date/Time Last Price", "Volume in Euro", "+/- %", "Coupon", "Currency", "YTM"]
-        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-
-        writer.writeheader()  # Write the header row
-        writer.writerows(all_bonds)  # Write collected bond data rows so far
-
-    print("Partial bond data has been saved to 'green_bonds_partial_data.csv'")
-
-finally:
-    # Close the browser
-    driver.quit()
-
-"""# All Bonds"""
-
-# Check if Chromedriver is available on system path
-shutil.which("chromedriver")
-
-# Configure Chrome options
-chrome_options = Options()
-chrome_options.add_argument("--headless")
-chrome_options.add_argument("--no-sandbox")
-chrome_options.add_argument("--disable-dev-shm-usage")
-
-# Fallback: Try common locations for Chrome
-possible_paths = ["/usr/bin/google-chrome", "/snap/bin/chromium", "/usr/local/bin/google-chrome"]
-for path in possible_paths:
-    try:
-        with open(path) as f:
-            chrome_options.binary_location = path
-            break
-    except FileNotFoundError:
-        pass
-
-if not chrome_options.binary_location:
-    raise FileNotFoundError("No valid Chrome binary found on the system.")
-
-# Set up the ChromeDriver service
-service = Service("/usr/bin/chromedriver")
-
-# Initialize the driver
-driver = webdriver.Chrome(service=service, options=chrome_options)
-
-# URL to scrape
-url = "https://www.boerse-frankfurt.de/anleihen/most-traded"
-
-# Initialize an empty list to store all bonds
-all_bonds = []
-# Get the current date and time for the file name
-timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-
-try:
-    
-    # Open the website
-    driver.get(url)
-
-    # Wait for the "100" button to be visible and clickable
-    wait = WebDriverWait(driver, 15)
-    hundred_button = wait.until(
-        EC.element_to_be_clickable((By.XPATH, "//button[contains(@class, 'page-bar-type-button btn btn-lg ng-star-inserted') and text()='100']"))
+# Main execution
+if __name__ == "__main__":
+    # Scrape green bonds
+    scrape_bonds(
+        url="https://www.boerse-frankfurt.de/anleihen/green-bonds",
+        output_file="green_bonds_data.csv",
     )
-    driver.execute_script("arguments[0].scrollIntoView(true);", hundred_button)
-    time.sleep(1)  # Give time for the scroll to complete
-    # Click the "100" button
-    hundred_button.click()
-
-    # Wait for the page to load
-    wait.until(EC.presence_of_element_located((By.XPATH, "//div[contains(@class, 'table-responsive')]")))
-
-    # Find the number of pages
-    page_buttons = driver.find_elements(By.XPATH, "//button[contains(@class, 'page-bar-type-button page-bar-type-button-width-auto btn btn-lg ng-star-inserted') and not(@disabled)]")
-    total_pages = int(page_buttons[-1].text.strip())  # Extract the number from the last button
-    print(f"Total pages: {total_pages}")
-
-    # Loop through all pages, skipping the first one, limiting to 20 pages, so the 2000 most traded bonds
-    for page in range(1, min(total_pages + 1, 21)):
-      try:
-
-        # Wait for the page button to be clickable and click it
-        if page != 1:
-            page_button = wait.until(
-                EC.element_to_be_clickable((By.XPATH, f"//button[contains(@class, 'page-bar-type-button page-bar-type-button-width-auto btn btn-lg ng-star-inserted') and text()='{page}']"))
-            )
-            driver.execute_script("arguments[0].scrollIntoView(true);", page_button)
-            time.sleep(1)  # Give time for the scroll to complete
-            page_button.click()
-            wait.until(EC.presence_of_element_located((By.XPATH, "//div[contains(@class, 'table-responsive')]")))
-
-        # Extract page source and parse with BeautifulSoup
-        page_source = driver.page_source
-        soup = BeautifulSoup(page_source, "html.parser")
-
-        # Extract data from the current page
-        bonds = extract_bond_data(soup)
-        all_bonds.extend(bonds)
-
-        # Loop count
-        print(f"Loop {page}")
-
-      except Exception as e:
-        print(f"An error occurred on page {page}: {e}")
-        break  # Exit the loop if there is an error
-
-    file_name = f"all_bonds_data_{timestamp}.csv"
-
-    # Save all the extracted data to a CSV file
-    with open(file_name, "w", newline="", encoding="utf-8") as csvfile:
-        fieldnames = ["Name", "WKN", "Last Price", "Date/Time Last Price", "Volume in Euro", "+/- %", "Coupon", "Currency", "YTM"]
-        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-
-        writer.writeheader()  # Write the header row
-        writer.writerows(all_bonds)  # Write all bond data rows
-
-    print("Bond data has been saved to 'all_bonds_data.csv'")
-
-except Exception as e:
-    print(f"Critical error: {e}")
-
-    file_name = f"all_bonds_partial_data_{timestamp}.csv"
-
-    # Save the collected data so far
-    with open(file_name, "w", newline="", encoding="utf-8") as csvfile:
-        fieldnames = ["Name", "WKN", "Last Price", "Date/Time Last Price", "Volume in Euro", "+/- %", "Coupon", "Currency", "YTM"]
-        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-
-        writer.writeheader()  # Write the header row
-        writer.writerows(all_bonds)  # Write collected bond data rows so far
-
-    print("Partial bond data has been saved to 'all_bonds_partial_data.csv'")
-
-finally:
-    # Close the browser
-    driver.quit()
+    # Scrape all bonds (limit to 20 pages)
+    scrape_bonds(
+        url="https://www.boerse-frankfurt.de/anleihen/most-traded",
+        output_file="most_traded_bonds_data.csv",
+        page_limit=20,
+    )
