@@ -24,12 +24,11 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y wget unzip
-          sudo apt-get install -y xvfb
+          sudo apt-get install -y wget unzip xvfb google-chrome-stable
           wget -N https://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_linux64.zip
           unzip chromedriver_linux64.zip -d /usr/local/bin/
           python -m pip install --upgrade pip
-          pip install selenium beautifulsoup4
+          pip install selenium beautifulsoup4 undetected-chromedriver
 
       # Set up display for headless Chrome
       - name: Start Xvfb
@@ -42,7 +41,7 @@ jobs:
         env:
           DISPLAY: ":99"  # Needed for headless Chrome
         run: |
-          python code/automated_web_scraping.py
+          xvfb-run -a python code/automated_web_scraping.py
 
       # List generated files for debugging
       - name: List generated CSV files
@@ -59,10 +58,8 @@ jobs:
         with:
           name: scraped-data-${{ env.DATE }}
           path: |
-            green_bonds_data_*.csv
-            green_bonds_partial_data_*.csv
-            all_bonds_data_*.csv
-            all_bonds_partial_data_*.csv
+            *.csv
+            *.png
 
       # Push artifacts to the data directory in the repository
       - name: Push files to repository
