@@ -68,8 +68,6 @@ def scrape_bonds(url, output_file, page_limit=20):
         cookie_button.click()
         print("Cookie banner handled successfully (Declined).")
 
-        # Wait for overlay to disapear
-        driver.save_screenshot("debug_overlay_screenshot.png")
         WebDriverWait(driver, 5).until(
         EC.invisibility_of_element_located((By.CSS_SELECTOR, ".wrapper[_ngcontent-boerse-frankfurt-c97]"))
         )
@@ -121,6 +119,10 @@ def scrape_bonds(url, output_file, page_limit=20):
                         "arguments[0].scrollIntoView(true);", page_button
                     )
                     page_button.click()
+                    WebDriverWait(driver, 5).until(
+                        EC.invisibility_of_element_located((By.CSS_SELECTOR, ".wrapper[_ngcontent-boerse-frankfurt-c97]"))
+                    )
+                    print(f"Overlay for page {page} loaded successfully.")
                     wait.until(
                         EC.presence_of_element_located(
                             (By.XPATH, "//div[contains(@class, 'table-responsive')]")
@@ -135,7 +137,7 @@ def scrape_bonds(url, output_file, page_limit=20):
 
             except Exception as page_error:
                 print(f"Error on page {page}: {page_error}")
-                driver.save_screenshot("error_page.png") # test
+                driver.save_screenshot(f"error_page_{output_file}.png") # test
                 break
 
         # Save results to CSV
