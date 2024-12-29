@@ -2,15 +2,12 @@ name: Scrape Green Bond Data
 
 on:
   schedule:
-    - cron: '0 8-18 * * 1-5'  # Runs every hour during business hours, Monday to Friday
+    - cron: '0 9-17 * * 1-5'  # Runs every hour during business hours, Monday to Friday
   workflow_dispatch:  # Allows manual triggering from GitHub UI
 
 jobs:
-  scrape:
+  scraping:
     runs-on: ubuntu-latest
-  autoscrape:
-    # The type of runner that the job will run on
-    runs-on: windows-latest
 
     steps:
       # Check out the repository
