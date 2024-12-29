@@ -72,10 +72,10 @@ jobs:
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git checkout main
           mkdir -p data
-          cp green_bonds_data_*.csv data/
-          cp green_bonds_partial_data_*.csv data/
-          cp all_bonds_data_*.csv data/
-          cp all_bonds_partial_data_*.csv data/
+          cp green_bonds_data_*.csv data/ || true
+          cp green_bonds_partial_data_*.csv data/ || true
+          cp all_bonds_data_*.csv data/ || true
+          cp all_bonds_partial_data_*.csv data/ || true
           git add data/
           git commit -m "Add scraped data from ${{ env.DATE }}"
           git push
