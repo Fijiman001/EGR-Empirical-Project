@@ -52,7 +52,7 @@ def extract_bond_data(soup):
     return bonds
 
 # Core scraping function
-def scrape_bonds(url, output_file, page_limit=None):
+def scrape_bonds(url, output_file, page_limit=20):
     driver = configure_driver()
     all_bonds = []
     timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
@@ -62,18 +62,30 @@ def scrape_bonds(url, output_file, page_limit=None):
         wait = WebDriverWait(driver, 15)
 
         # Click through Cookie Selection
-        cookie_button = WebDriverWait(driver,10).until(
+        cookie_button = WebDriverWait(driver, 5).until(
             EC.element_to_be_clickable((By.ID, "cookie-hint-btn-decline"))
         )
         cookie_button.click()
         print("Cookie banner handled successfully (Declined).")
+
+        # Wait for overlay to disapear
+        WebDriverWait(driver, 5).until(
+        EC.invisibility_of_element_located((By.CSS_SELECTOR, ".wrapper[_ngcontent-boerse-frankfurt-c97]"))
+        )
+        print("Overlay disappeared before 100 button")
 
         # Click the "100" button to show 100 rows per page
         hundred_button = wait.until(
             EC.element_to_be_clickable((By.XPATH,"//button[contains(@class, 'page-bar-type-button') and text()='100']")))
         driver.execute_script("arguments[0].scrollIntoView(true);", hundred_button)
         hundred_button.click()
-        time.sleep(2)
+        time.sleep(10)
+
+        # Wait for overlay to disapear
+        WebDriverWait(driver, 5).until(
+        EC.invisibility_of_element_located((By.CSS_SELECTOR, ".wrapper[_ngcontent-boerse-frankfurt-c97]"))
+        )
+        print("Overlay disappeared before Pages button")
 
         # Wait for the page to load
         wait.until(
@@ -122,6 +134,7 @@ def scrape_bonds(url, output_file, page_limit=None):
 
             except Exception as page_error:
                 print(f"Error on page {page}: {page_error}")
+                driver.save_screenshot("error_page.png") # test
                 break
 
         # Save results to CSV
@@ -145,6 +158,7 @@ def scrape_bonds(url, output_file, page_limit=None):
 
     except Exception as main_error:
         print(f"Critical error: {main_error}")
+        driver.save_screenshot("error_main.png") # test
 
     finally:
         driver.quit()
