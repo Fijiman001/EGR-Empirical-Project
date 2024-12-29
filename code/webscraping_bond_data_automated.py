@@ -93,7 +93,8 @@ all_bonds = []
 try:
     # Open the website
     driver.get(url)
-
+    time.sleep(5)
+    
     # Wait for the "100" button to be visible and clickable
     wait = WebDriverWait(driver, 5)
     hundred_button = wait.until(
@@ -219,7 +220,7 @@ try:
     driver.get(url)
 
     # Check if needed
-    time.sleep(5)
+    time.sleep(10)
 
     # Wait for the "100" button to be visible and clickable
     wait = WebDriverWait(driver, 5)
