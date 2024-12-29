@@ -80,11 +80,9 @@ try:
     driver.get(url)
 
     # Wait for the button to be visible
-    wait = WebDriverWait(driver, 5)
-    hundred_button = wait.until(
-        EC.element_to_be_clickable((By.XPATH, "//button[contains(@class, 'page-bar-type-button btn btn-lg ng-star-inserted') and text()='100']"))
-    )
-
+    time.sleep(5)
+    hundred_button = driver.find_elements((By.XPATH, "//button[contains(@class, 'page-bar-type-button btn btn-lg ng-star-inserted') and text()='100']"))
+    
     # Click the "100" button
     hundred_button.click()
     time.sleep(5)
@@ -100,9 +98,7 @@ try:
 
         # Wait for the page button to be clickable and click it
         if page != 1:
-          page_button = wait.until(
-            EC.element_to_be_clickable((By.XPATH, f"//button[contains(@class, 'page-bar-type-button page-bar-type-button-width-auto btn btn-lg ng-star-inserted') and text()='{page}']"))
-          )
+          page_button = driver.find_elements((By.XPATH, f"//button[contains(@class, 'page-bar-type-button page-bar-type-button-width-auto btn btn-lg ng-star-inserted') and text()='{page}']"))
           # click next page button
           page_button.click()
           time.sleep(5)  # Allow time for the page to load, check how long is optimal, 2 seconds to be safe
@@ -196,13 +192,11 @@ all_bonds = []
 try:
     # Open the website
     driver.get(url)
-    
-    # Wait for the button to be visible
-    wait = WebDriverWait(driver, 10)
-    hundred_button = wait.until(
-        EC.element_to_be_clickable((By.XPATH, "//button[contains(@class, 'page-bar-type-button btn btn-lg ng-star-inserted') and text()='100']"))
-    )
 
+    # Wait for website to load
+    time.sleep(5)
+    hundred_button = driver.find_elements((By.XPATH, "//button[contains(@class, 'page-bar-type-button btn btn-lg ng-star-inserted') and text()='100']"))
+    
     # Click the "100" button
     hundred_button.click()
     time.sleep(5)
@@ -218,12 +212,10 @@ try:
 
         # Wait for the page button to be clickable and click it
         if page != 1:
-          page_button = wait.until(
-            EC.element_to_be_clickable((By.XPATH, f"//button[contains(@class, 'page-bar-type-button page-bar-type-button-width-auto btn btn-lg ng-star-inserted') and text()='{page}']"))
-          )
-          # Allow time for scroll to complete
+          page_button = driver.find_elements((By.XPATH, f"//button[contains(@class, 'page-bar-type-button page-bar-type-button-width-auto btn btn-lg ng-star-inserted') and text()='{page}']"))
+          # click next page button
           page_button.click()
-          time.sleep(5)  # Allow time for the page to load, check how long is optimal
+          time.sleep(5)
 
         # Extract page source and parse with BeautifulSoup
         page_source = driver.page_source
