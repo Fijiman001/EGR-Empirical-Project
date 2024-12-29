@@ -69,6 +69,7 @@ def scrape_bonds(url, output_file, page_limit=20):
         print("Cookie banner handled successfully (Declined).")
 
         # Wait for overlay to disapear
+        driver.save_screenshot("debug_overlay_screenshot.png")
         WebDriverWait(driver, 5).until(
         EC.invisibility_of_element_located((By.CSS_SELECTOR, ".wrapper[_ngcontent-boerse-frankfurt-c97]"))
         )
