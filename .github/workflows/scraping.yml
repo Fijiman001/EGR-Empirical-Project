@@ -36,7 +36,7 @@ jobs:
         run: |
           export DISPLAY=:99.0
           Xvfb :99 -screen 0 1920x1080x16 &
-          
+
       # Run the scraping script
       - name: Run scraping script
         env:
@@ -44,10 +44,10 @@ jobs:
         run: |
           python code/webscraping_bond_data_automated.py
 
-        # List generated files for debugging
+      # List generated files for debugging
       - name: List generated CSV files
         run: ls -lah *.csv
-          
+
       # Get the current date
       - name: Get current date
         id: date
@@ -63,3 +63,21 @@ jobs:
             green_bonds_partial_data_*.csv
             all_bonds_data_*.csv
             all_bonds_partial_data_*.csv
+
+      # Push artifacts to the data directory in the repository
+      - name: Push files to repository
+        if: success()
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git checkout main
+          mkdir -p data
+          cp green_bonds_data_*.csv data/
+          cp green_bonds_partial_data_*.csv data/
+          cp all_bonds_data_*.csv data/
+          cp all_bonds_partial_data_*.csv data/
+          git add data/
+          git commit -m "Add scraped data from ${{ env.DATE }}"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
