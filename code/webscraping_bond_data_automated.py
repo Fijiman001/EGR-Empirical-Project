@@ -22,6 +22,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.action_chains import ActionChains
 from bs4 import BeautifulSoup
 from datetime import datetime
 import csv
@@ -93,20 +94,27 @@ all_bonds = []
 try:
     # Open the website
     driver.get(url)
-    time.sleep(5)
-    
-    # Wait for the "100" button to be visible and clickable
-    wait = WebDriverWait(driver, 5)
+
+    # Wait for the button to be visible
+    wait = WebDriverWait(driver, 10)
     hundred_button = wait.until(
         EC.element_to_be_clickable((By.XPATH, "//button[contains(@class, 'page-bar-type-button btn btn-lg ng-star-inserted') and text()='100']"))
     )
-    
-    # Scroll to the "100" button to ensure it is clickable
+
+    # Scroll to the button
     driver.execute_script("arguments[0].scrollIntoView(true);", hundred_button)
-    time.sleep(1)  # Allow time for scroll to complete
+    time.sleep(1)
+
+    # Try clicking using ActionChains
+    try:
+        actions = ActionChains(driver)
+        actions.move_to_element(hundred_button).click().perform()
+    except Exception as e:
+        print(f"ActionChains failed, falling back to JavaScript: {e}")
+        driver.execute_script("arguments[0].click();", hundred_button)
 
     # Click the "100" button
-    hundred_button.click()
+    # hundred_button.click()
     time.sleep(5)
 
     # Find the number of pages
@@ -218,22 +226,27 @@ all_bonds = []
 try:
     # Open the website
     driver.get(url)
-
-    # Check if needed
-    time.sleep(10)
-
-    # Wait for the "100" button to be visible and clickable
-    wait = WebDriverWait(driver, 5)
+    
+    # Wait for the button to be visible
+    wait = WebDriverWait(driver, 10)
     hundred_button = wait.until(
         EC.element_to_be_clickable((By.XPATH, "//button[contains(@class, 'page-bar-type-button btn btn-lg ng-star-inserted') and text()='100']"))
     )
-    
-    # Scroll to the "100" button to ensure it is clickable
+
+    # Scroll to the button
     driver.execute_script("arguments[0].scrollIntoView(true);", hundred_button)
-    time.sleep(1)  # Allow time for scroll to complete
+    time.sleep(1)
+
+    # Try clicking using ActionChains
+    try:
+        actions = ActionChains(driver)
+        actions.move_to_element(hundred_button).click().perform()
+    except Exception as e:
+        print(f"ActionChains failed, falling back to JavaScript: {e}")
+        driver.execute_script("arguments[0].click();", hundred_button)
 
     # Click the "100" button
-    hundred_button.click()
+    # hundred_button.click()
     time.sleep(5)
 
     # Find the number of pages
