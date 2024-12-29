@@ -148,7 +148,7 @@ try:
         writer.writeheader()  # Write the header row
         writer.writerows(all_bonds)  # Write all bond data rows
 
-    print("Bond data has been saved to 'Green_bonds_data.csv'")
+    print("Bond data has been saved to 'green_bonds_data.csv'")
 
 except Exception as e:
     print(f"Critical error: {e}")
@@ -165,7 +165,7 @@ except Exception as e:
         writer.writeheader()  # Write the header row
         writer.writerows(all_bonds)  # Write collected bond data rows so far
 
-    print("Partial bond data has been saved to 'Green_bonds_partial_data.csv'")
+    print("Partial bond data has been saved to 'green_bonds_partial_data.csv'")
 
 finally:
     # Close the browser
@@ -258,7 +258,7 @@ try:
 
     # Get the current date and time for the file name
     timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-    file_name = f"All_bonds_data_{timestamp}.csv"
+    file_name = f"all_bonds_data_{timestamp}.csv"
 
     # Save all the extracted data to a CSV file
     with open(file_name, "w", newline="", encoding="utf-8") as csvfile:
@@ -275,7 +275,7 @@ except Exception as e:
 
     # Get the current date and time for the file name
     timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-    file_name = f"All_bonds_partial_data_{timestamp}.csv"
+    file_name = f"all_bonds_partial_data_{timestamp}.csv"
 
     # Save the collected data so far
     with open(file_name, "w", newline="", encoding="utf-8") as csvfile:
