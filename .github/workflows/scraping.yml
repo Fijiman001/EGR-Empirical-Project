@@ -2,14 +2,12 @@ name: Scrape Green Bond Data
 
 on:
   schedule:
-    # Runs at 0 minutes past the hour, every hour, Monday, Wednesday, and Friday
-    - cron: '0 8-18 * * 1-5'  # Modify this as per your desired schedule
-
-  workflow_dispatch:  # Allows you to manually trigger this workflow from GitHub UI
+    - cron: '0 8-18 * * 1-5'  # Runs every hour during business hours, Monday to Friday
+  workflow_dispatch:  # Allows manual triggering from GitHub UI
 
 jobs:
   scrape:
-    runs-on: ubuntu-22.04  # Use the latest version of Ubuntu for the environment
+    runs-on: ubuntu-latest
 
     steps:
       # Check out the repository
@@ -17,38 +15,48 @@ jobs:
         uses: actions/checkout@v3
 
       # Set up Python
-      - name: Set up Python 3.x
+      - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.x'  # Use Python 3.x version
+          python-version: '3.10'  # Specify a Python version
 
       # Install necessary packages
       - name: Install dependencies
         run: |
+          sudo apt-get update
+          sudo apt-get install -y wget unzip
           python -m pip install --upgrade pip
           pip install selenium beautifulsoup4
 
+      # Install Google Chrome and ChromeDriver
       - name: Install Chrome and ChromeDriver
         run: |
-          sudo apt update
-          sudo apt install -y google-chrome-stable
-          sudo apt install -y chromium-browser chromium-chromedriver
-          ln -sf /snap/bin/chromium /usr/bin/google-chrome  # Symlink snap binary to standard location
-          ln -sf /usr/bin/chromedriver /usr/local/bin/chromedriver  # Ensure ChromeDriver is accessible
-          which google-chrome
-          which chromedriver
-          ls -l /usr/bin/google-chrome
-          ls -l /usr/local/bin/chromedriver
+          # Download and install the latest stable Google Chrome
+          wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+          echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
+          sudo apt-get update
+          sudo apt-get install -y google-chrome-stable
+
+          # Download ChromeDriver matching the installed Chrome version
+          CHROME_VERSION=$(google-chrome --version | awk '{print $3}' | cut -d'.' -f1)
+          wget -N https://chromedriver.storage.googleapis.com/$CHROME_VERSION.0.5481.77/chromedriver_linux64.zip
+          unzip chromedriver_linux64.zip
+          sudo mv chromedriver /usr/local/bin/
+          sudo chmod +x /usr/local/bin/chromedriver
+
+          # Verify installations
+          google-chrome --version
+          chromedriver --version
 
       # Run the scraping script
       - name: Run scraping script
         env:
-          DISPLAY: ":99"  # Set DISPLAY for headless Chromium
+          DISPLAY: ":99"  # Needed for headless Chrome
         run: |
-          python code/webscraping_bond_data_automated.py  # Replace with the name of your script
+          python code/webscraping_bond_data_automated.py
 
-      # Upload saved files to repo
-      - name: Upload generated CSV files
+      # Upload generated CSV files
+      - name: Upload CSV files
         uses: actions/upload-artifact@v3
         with:
           name: scraped-data
