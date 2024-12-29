@@ -101,7 +101,8 @@ def scrape_bonds(url, output_file, page_limit=20):
         total_pages = min(
             int(page_buttons[-1].text.strip()), page_limit or float("inf")
         )
-        print(f"Total pages: {total_pages}")
+        print(f"Total pages varaible: {total_pages}")
+        print(f"Total pages shown on website: {page_buttons[-1].text.strip()}")
 
         # Loop through pages
         for page in range(1, total_pages + 1):
