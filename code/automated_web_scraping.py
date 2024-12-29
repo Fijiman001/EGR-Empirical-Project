@@ -127,7 +127,8 @@ def scrape_bonds(url, output_file, page_limit=None):
                 break
 
         # Save results to CSV
-        with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
+        file_name = f"{output_file}_{timestamp}.csv"
+        with open(file_name, "w", newline="", encoding="utf-8") as csvfile:
             fieldnames = [
                 "Name",
                 "WKN",
@@ -142,7 +143,7 @@ def scrape_bonds(url, output_file, page_limit=None):
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writeheader()
             writer.writerows(all_bonds)
-        print(f"Data saved to {output_file}")
+        print(f"Data saved to {file_name}")
 
     except Exception as main_error:
         print(f"Critical error: {main_error}")
@@ -160,6 +161,6 @@ if __name__ == "__main__":
     # Scrape all bonds (limit to 20 pages)
     scrape_bonds(
         url="https://www.boerse-frankfurt.de/anleihen/most-traded",
-        output_file="most_traded_bonds_data.csv",
+        output_file="all_bonds_data.csv",
         page_limit=20,
     )
