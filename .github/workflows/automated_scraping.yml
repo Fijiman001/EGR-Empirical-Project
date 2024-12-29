@@ -1,4 +1,4 @@
-name: Scrape Green Bond Data
+name: Test Scrape Bond Data
 
 on:
   schedule:
