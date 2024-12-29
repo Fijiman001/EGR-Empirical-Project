@@ -2,7 +2,7 @@ name: Scrape Green Bond Data
 
 on:
   schedule:
-    - cron: '0 8-18 * * 1-5'  # Runs every hour during business hours, Monday to Friday
+    - cron: '0 8-16 * * 1-5'  # Runs every hour during business hours, Monday to Friday
   workflow_dispatch:  # Allows manual triggering from GitHub UI
 
 jobs:
@@ -36,7 +36,7 @@ jobs:
         run: |
           export DISPLAY=:99.0
           Xvfb :99 -screen 0 1920x1080x16 &
-
+          
       # Run the scraping script
       - name: Run scraping script
         env:
@@ -44,11 +44,20 @@ jobs:
         run: |
           python code/webscraping_bond_data_automated.py
 
+        # List generated files for debugging
+      - name: List generated CSV files
+        run: ls -lah *.csv
+          
+      # Get the current date
+      - name: Get current date
+        id: date
+        run: echo "DATE=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
+
       # Upload generated CSV files
       - name: Upload CSV files
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
-          name: scraped-data
+          name: scraped-data-${{ env.DATE }}
           path: |
             green_bonds_data_*.csv
             green_bonds_partial_data_*.csv
