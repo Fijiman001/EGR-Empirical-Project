@@ -75,6 +75,9 @@ url = "https://www.boerse-frankfurt.de/anleihen/green-bonds"
 # Initialize an empty list to store all bonds
 all_bonds = []
 
+# Get the current date and time for the file name
+timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+
 try:
     # Open the website
     driver.get(url)
@@ -84,6 +87,8 @@ try:
     hundred_button = wait.until(
         EC.element_to_be_clickable((By.XPATH, "//button[contains(@class, 'page-bar-type-button btn btn-lg ng-star-inserted') and text()='100']"))
     )
+    driver.execute_script("arguments[0].scrollIntoView(true);", hundred_button)
+    time.sleep(1)  # Give time for the scroll to complete
     driver.save_screenshot(f"screenshot_100_{timestamp}.png") # test
     # Click the "100" button
     hundred_button.click()
@@ -105,6 +110,8 @@ try:
             page_button = wait.until(
                 EC.element_to_be_clickable((By.XPATH, f"//button[contains(@class, 'page-bar-type-button page-bar-type-button-width-auto btn btn-lg ng-star-inserted') and text()='{page}']"))
             )
+            driver.execute_script("arguments[0].scrollIntoView(true);", page_button)
+            time.sleep(1)  # Give time for the scroll to complete
             page_button.click()
             wait.until(EC.presence_of_element_located((By.XPATH, "//div[contains(@class, 'table-responsive')]")))
             
@@ -123,8 +130,7 @@ try:
         print(f"An error occurred on page {page}: {e}")
         break  # Exit the loop if there is an error
 
-    # Get the current date and time for the file name
-    timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+    # Def file name
     file_name = f"green_bonds_data_{timestamp}.csv"
 
     # Save all the extracted data to a CSV file
@@ -140,8 +146,7 @@ try:
 except Exception as e:
     print(f"Critical error: {e}")
 
-    # Get the current date and time for the file name
-    timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+    # Def file name
     file_name = f"green_bonds_partial_data_{timestamp}.csv"
 
     # Save the collected data so far
@@ -193,8 +198,11 @@ url = "https://www.boerse-frankfurt.de/anleihen/most-traded"
 
 # Initialize an empty list to store all bonds
 all_bonds = []
+# Get the current date and time for the file name
+timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 
 try:
+    
     # Open the website
     driver.get(url)
 
@@ -203,6 +211,8 @@ try:
     hundred_button = wait.until(
         EC.element_to_be_clickable((By.XPATH, "//button[contains(@class, 'page-bar-type-button btn btn-lg ng-star-inserted') and text()='100']"))
     )
+    driver.execute_script("arguments[0].scrollIntoView(true);", hundred_button)
+    time.sleep(1)  # Give time for the scroll to complete
     # Click the "100" button
     hundred_button.click()
 
@@ -223,6 +233,8 @@ try:
             page_button = wait.until(
                 EC.element_to_be_clickable((By.XPATH, f"//button[contains(@class, 'page-bar-type-button page-bar-type-button-width-auto btn btn-lg ng-star-inserted') and text()='{page}']"))
             )
+            driver.execute_script("arguments[0].scrollIntoView(true);", page_button)
+            time.sleep(1)  # Give time for the scroll to complete
             page_button.click()
             wait.until(EC.presence_of_element_located((By.XPATH, "//div[contains(@class, 'table-responsive')]")))
 
@@ -241,8 +253,6 @@ try:
         print(f"An error occurred on page {page}: {e}")
         break  # Exit the loop if there is an error
 
-    # Get the current date and time for the file name
-    timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
     file_name = f"all_bonds_data_{timestamp}.csv"
 
     # Save all the extracted data to a CSV file
@@ -258,8 +268,6 @@ try:
 except Exception as e:
     print(f"Critical error: {e}")
 
-    # Get the current date and time for the file name
-    timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
     file_name = f"all_bonds_partial_data_{timestamp}.csv"
 
     # Save the collected data so far
