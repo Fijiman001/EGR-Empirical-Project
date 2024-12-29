@@ -76,8 +76,9 @@ jobs:
           cp green_bonds_partial_data_*.csv data/ || true
           cp all_bonds_data_*.csv data/ || true
           cp all_bonds_partial_data_*.csv data/ || true
+          cp scraped-data-* data/ || true
           git add data/
           git commit -m "Add scraped data from ${{ env.DATE }}"
           git push
         env:
-          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
