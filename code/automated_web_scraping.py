@@ -101,7 +101,7 @@ try:
       try:
 
         # Wait for the page button to be clickable and click it
-       if page != 1:
+        if page != 1:
             page_button = wait.until(
                 EC.element_to_be_clickable((By.XPATH, f"//button[contains(@class, 'page-bar-type-button page-bar-type-button-width-auto btn btn-lg ng-star-inserted') and text()='{page}']"))
             )
