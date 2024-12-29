@@ -67,8 +67,6 @@ def scrape_bonds(url, output_file, page_limit=None):
         )
         cookie_button.click()
         print("Cookie banner handled successfully (Declined).")
-    except Exception as e:
-        print(f"Cookie banner not found or already handled: {e}")
 
         # Click the "100" button to show 100 rows per page
         hundred_button = wait.until(
@@ -156,11 +154,11 @@ if __name__ == "__main__":
     # Scrape green bonds
     scrape_bonds(
         url="https://www.boerse-frankfurt.de/anleihen/green-bonds",
-        output_file="green_bonds_data.csv",
+        output_file="green_bonds_data",
     )
     # Scrape all bonds (limit to 20 pages)
     scrape_bonds(
         url="https://www.boerse-frankfurt.de/anleihen/most-traded",
-        output_file="all_bonds_data.csv",
+        output_file="all_bonds_data",
         page_limit=20,
     )
