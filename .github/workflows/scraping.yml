@@ -1,8 +1,6 @@
 name: Scrape Green Bond Data
 
 on:
-  schedule:
-    - cron: '0 8-16 * * 1-5'  # Runs every hour during business hours, Monday to Friday
   workflow_dispatch:  # Allows manual triggering from GitHub UI
 
 jobs:
