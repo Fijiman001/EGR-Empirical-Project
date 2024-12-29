@@ -99,10 +99,14 @@ try:
     hundred_button = wait.until(
         EC.element_to_be_clickable((By.XPATH, "//button[contains(@class, 'page-bar-type-button btn btn-lg ng-star-inserted') and text()='100']"))
     )
+    
+    # Scroll to the "100" button to ensure it is clickable
+    driver.execute_script("arguments[0].scrollIntoView(true);", hundred_button)
+    time.sleep(1)  # Allow time for scroll to complete
 
     # Click the "100" button
     hundred_button.click()
-    time.sleep(3)
+    time.sleep(5)
 
     # Find the number of pages
     page_buttons = driver.find_elements(By.XPATH, "//button[contains(@class, 'page-bar-type-button page-bar-type-button-width-auto btn btn-lg ng-star-inserted') and not(@disabled)]")
@@ -118,6 +122,9 @@ try:
           page_button = wait.until(
             EC.element_to_be_clickable((By.XPATH, f"//button[contains(@class, 'page-bar-type-button page-bar-type-button-width-auto btn btn-lg ng-star-inserted') and text()='{page}']"))
           )
+          # Scroll to the page button to ensure it is clickable
+          driver.execute_script("arguments[0].scrollIntoView(true);", page_button)
+          time.sleep(1)  # Allow time for scroll to complete
           page_button.click()
           time.sleep(5)  # Allow time for the page to load, check how long is optimal, 2 seconds to be safe
 
@@ -214,12 +221,16 @@ try:
     # Check if needed
     time.sleep(5)
 
-    # <button _ngcontent-boerse-frankfurt-c115
     # Wait for the "100" button to be visible and clickable
-    wait = WebDriverWait(driver, 1)
+    wait = WebDriverWait(driver, 5)
     hundred_button = wait.until(
         EC.element_to_be_clickable((By.XPATH, "//button[contains(@class, 'page-bar-type-button btn btn-lg ng-star-inserted') and text()='100']"))
     )
+    
+    # Scroll to the "100" button to ensure it is clickable
+    driver.execute_script("arguments[0].scrollIntoView(true);", hundred_button)
+    time.sleep(1)  # Allow time for scroll to complete
+
     # Click the "100" button
     hundred_button.click()
     time.sleep(5)
@@ -238,6 +249,8 @@ try:
           page_button = wait.until(
             EC.element_to_be_clickable((By.XPATH, f"//button[contains(@class, 'page-bar-type-button page-bar-type-button-width-auto btn btn-lg ng-star-inserted') and text()='{page}']"))
           )
+          driver.execute_script("arguments[0].scrollIntoView(true);", page_button)
+          time.sleep(1)  # Allow time for scroll to complete
           page_button.click()
           time.sleep(5)  # Allow time for the page to load, check how long is optimal
 
