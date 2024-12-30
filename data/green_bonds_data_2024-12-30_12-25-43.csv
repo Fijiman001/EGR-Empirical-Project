@@ -1,0 +1,432 @@
+Name,WKN,Last Price,Date/Time Last Price,Volume in Euro,+/- %,Coupon,Currency,YTM
+"EnBW International Finance B.V. 4,049% 22/29",A3LBKC,"104,74",30.12.24 11:15,104.740,"0,12","4,05%",Euro,-
+"RWE AG 4,125% 23/35",A30V84,"103,60",30.12.24 13:03,72.782,"-0,19","4,13%",Euro,-
+Renewi PLC 3% 21/27,A3KTUZ,"102,00",30.12.24 08:13,10.200,"4,08","3,00%",Euro,-
+"RWE AG 0,625% 21/31",A3E5VA,"85,20",30.12.24 09:56,8.520,"0,00","0,63%",Euro,-
+"European Investment Bank (EIB) 2,75% 23/28",A3LD6J,"101,46",30.12.24 13:03,5.072,"0,01","2,75%",Euro,-
+"E.ON SE 0,6% 21/32",A3H3J4,"83,14",30.12.24 08:00,4.988,"-0,01","0,60%",Euro,-
+"Volkswagen Leasing GmbH 4,5% 23/26",A3514T,"101,74",30.12.24 09:49,4.070,"0,24","4,50%",Euro,-
+Asian Development Bank (ADB) 6% 21/26,A3KLBC,"93,00",30.12.24 08:02,2.160,"-0,08","6,00%",Real (Brasilien),-
+"European Investment Bank (EIB) 1,125% 18/32",A191F3,"95,24",30.12.24 10:39,1.905,"6,51","1,13%",Euro,-
+"International Bank for Reconstruction and Development 2,9% 18/25",A2RURL,"97,51",30.12.24 09:08,0,"-0,25","2,90%",Australische Dollar,-
+"European Investment Bank (EIB) 4,75% 23/33",A3LDAB,"99,78",30.12.24 11:50,0,"-0,04","4,75%",Australische Dollar,-
+"VGP N.V. 1,625% 22/27",A3K01K,"96,16",30.12.24 09:08,0,"-0,26","1,63%",Euro,-
+"International Finance Corp. 4,5% 23/26",A3LMAB,"102,21",30.12.24 13:03,0,"0,03","4,50%",Canadische Dollar,-
+"Quebec, Provinz 2,6% 18/25",A1927F,"99,67",30.12.24 11:50,0,"-0,01","2,60%",Canadische Dollar,"3,02%"
+"BASF SE 0,25% 20/27",A289DC,"94,50",30.12.24 13:03,0,"0,01","0,25%",Euro,-
+"Deutsche Wohnen SE 0,5% 21/31",A3H25P,"84,31",30.12.24 11:45,0,"0,24","0,50%",Euro,-
+"Deutsche Wohnen SE 1,3% 21/41",A3H25Q,"68,84",30.12.24 11:45,0,"0,09","1,30%",Euro,-
+"Vonovia SE 2,375% 22/32",A3MQS7,"91,62",30.12.24 08:05,0,"-0,48","2,38%",Euro,-
+"Commerzbank AG 0,75% 20/26",CB0HRQ,"99,37",30.12.24 10:47,0,"0,51","0,75%",Euro,-
+Commerzbank AG 3% 22/27,CZ45W5,"100,08",30.12.24 10:47,0,"0,47","3,00%",Euro,-
+"Landesbank Baden-Württemberg 0,25% 21/28",LB2V7C,"90,32",30.12.24 09:08,0,"-0,47","0,25%",Euro,-
+"NRW.BANK 0,875% 15/25",NWB0AC,"98,36",30.12.24 09:08,0,"-0,24","0,88%",Euro,"-0,77%"
+"NRW.BANK 0,375% 16/26",NWB0AD,"96,30",30.12.24 13:03,0,"0,04","0,38%",Euro,"1,86%"
+"NRW.BANK 0,5% 17/27",NWB0AE,"94,65",30.12.24 09:08,0,"-0,31","0,50%",Euro,"1,90%"
+"NRW.BANK 0,75% 18/28",NWB0AF,"94,14",30.12.24 13:03,0,"0,03","0,75%",Euro,"2,37%"
+"NRW.BANK 0,625% 19/29",NWB0AG,"92,52",30.12.24 12:59,0,"0,01","0,63%",Euro,"2,47%"
+"NRW.BANK 0,000% 19/29",NWB0AH,"88,15",30.12.24 09:08,0,"-0,38",-,Euro,-
+"NRW.BANK 0,000% 20/30",NWB0AJ,"87,52",30.12.24 10:47,0,"-0,01",-,Euro,-
+"NRW.BANK 0,000% 21/31",NWB0AL,"84,49",30.12.24 09:08,0,"-0,62",-,Euro,-
+"NRW.BANK 0,000% 21/31",NWB0AN,"83,13",30.12.24 09:08,0,"-0,58",-,Euro,-
+"NRW.BANK 0,25% 22/32",NWB0AQ,"83,18",30.12.24 08:05,0,"-0,34","0,25%",Euro,-
+"NRW.BANK 1,625% 22/32",NWB0AR,"91,47",30.12.24 09:08,0,"-0,61","1,63%",Euro,-
+NRW.BANK 3% 23/30,NWB0AU,"101,89",30.12.24 13:03,0,"-0,11","3,00%",Euro,-
+"Air Liquide Finance S.A. 0,375% 21/31",A3KRNQ,"84,29",30.12.24 09:08,0,"-0,60","0,38%",Euro,-
+"Scatec ASA 11,29% 23/27",A3LEFQ,"107,00",25.04.24 16:20,0,"0,00","11,29%",Norwegische Kronen,-
+"Asian Development Bank (ADB) 1,75% 16/26",A18429,"95,42",30.12.24 09:08,0,"-0,22","1,75%",US-Dollar,"4,28%"
+"Banco BTG Pactual S.A. 2,75% 21/26",A287JN,"95,38",30.12.24 09:08,0,"0,09","2,75%",US-Dollar,-
+"International Bank for Reconstruction and Development 3,125% 18/25",A2RUJE,"98,63",30.12.24 08:05,0,"0,04","3,13%",US-Dollar,"4,10%"
+Klabin Austria GmbH 7% 19/49,A2R0AJ,"99,38",30.12.24 09:08,0,"-0,87","7,00%",US-Dollar,-
+"Suzano Austria GmbH 5,75% 16/26",A1833U,"99,94",30.12.24 12:59,0,"0,05","5,75%",US-Dollar,-
+"International Bank for Reconstruction and Development 5,25% 15/25",A18268,"97,48",30.12.24 13:03,0,"0,05","5,25%",Mexikanische Pesos,"9,09%"
+"Merlin Properties SOCIMI S.A. 1,75% 17/25",A19HY7,"98,82",30.12.24 09:08,0,"-0,23","1,75%",Euro,-
+"European Investment Bank (EIB) 0,875% 18/25",A19U9P,"99,31",30.12.24 09:08,0,"-0,24","0,88%",Schwedische Kronen,-
+"Polen, Republik 1,125% 18/26",A19VY7,"97,63",30.12.24 13:03,0,"-0,02","1,13%",Euro,"2,17%"
+"European Investment Bank (EIB) 2,875% 18/25",A19ZWJ,"99,10",30.12.24 09:08,0,"-0,23","2,88%",US-Dollar,"3,03%"
+"Iberdrola Finanzas S.A. 1,25% 18/26",A192S8,"97,43",30.12.24 09:08,0,"-0,32","1,25%",Euro,-
+"Kreditanstalt für Wiederaufbau 0,5% 18/26",A2LQLU,"97,12",30.12.24 13:03,0,"0,02","0,50%",Euro,-
+"EnBW International Finance B.V. 1,875% 18/33",A2RTNC,"88,37",30.12.24 12:59,0,"-0,06","1,88%",Euro,-
+"Hera S.p.A. 0,875% 19/27",A2R4JM,"95,17",30.12.24 12:59,0,"-0,06","0,88%",Euro,-
+A2A S.p.A. 1% 19/29,A2R43M,"91,73",30.12.24 12:59,0,"-0,05","1,00%",Euro,-
+"Asian Development Bank (ADB) 0,625% 19/26",A2R9DH,"92,96",30.12.24 09:08,0,"-0,26","0,63%",Britische Pfund,-
+"Asian Development Bank (ADB) 0,000% 19/29",A2R9GZ,"88,29",30.12.24 09:08,0,"-0,39",-,Euro,-
+"Eurogrid GmbH 1,113% 20/32",A289DG,"85,55",30.12.24 13:03,0,"-0,22","1,11%",Euro,-
+"Ungarn, Republik 1,75% 20/35",A28X86,"79,15",30.12.24 13:03,0,"-0,54","1,75%",Euro,-
+International Bank for Reconstruction and Development 4% 20/25,A28YNN,"39,58",26.08.22 22:57,0,"0,00","4,00%","Rubel (Russische Föderation, Conv.-Rate 1000:1)",-
+"European Investment Bank (EIB) 0,01% 20/35",A28Y4M,"73,47",30.12.24 10:45,0,"-0,12","0,01%",Euro,-
+"Landwirtschaftliche Rentenbank 0,000% 20/27",A2LQQZ,"93,80",30.12.24 13:03,0,"0,04",-,Euro,-
+"Instituto de Credito Oficial 0,000% 20/26",A28395,"96,74",30.12.24 09:08,0,"-0,25",-,Euro,-
+"Stora Enso Oyj 0,625% 20/30",A285YE,"84,43",30.12.24 09:08,0,"-0,44","0,63%",Euro,-
+"International Bank for Reconstruction and Development 5,75% 21/28",A287QG,"80,95",30.12.24 13:03,0,"-0,48","5,75%",Real (Brasilien),-
+"International Bank for Reconstruction and Development 4,5% 21/26",A287WM,"96,74",30.12.24 11:50,0,"0,03","4,50%",Südafrikanische Rand,-
+"Orsted A/S 2,5%",A3KLYP,"73,49",30.12.24 13:03,0,"-0,07","2,50%",Britische Pfund,-
+"International Bank for Reconstruction and Development 12,25% 21/26",A28Z3H,"69,00",30.12.24 08:21,0,"-8,00","12,25%",Türkische Lira,-
+"AXA S.A. 1,375% 21/41",A3KN91,"85,89",30.12.24 09:08,0,"-0,74","1,38%",Euro,-
+"ProLogis International Funding II S.A. 0,75% 21/33",A3KNAN,"79,85",30.12.24 09:08,0,"-0,83","0,75%",Euro,-
+"European Investment Bank (EIB) 0,25% 21/26",A3KNVW,"97,37",30.12.24 11:50,0,"0,01","0,25%",Schwedische Kronen,-
+ZF Finance GmbH 2% 21/27,A3E5KP,"93,69",30.12.24 09:08,0,"-0,35","2,00%",Euro,-
+"Landesbank Hessen-Thüringen Girozentrale 0,375% 21/29",HLB2P8,"88,18",30.12.24 13:03,0,"-0,07","0,38%",Euro,-
+"EEW Energy from Waste GmbH 0,361% 21/26",A3E5QZ,"95,31",30.12.24 09:08,0,"-0,25","0,36%",Euro,-
+"EUROFIMA Europäische Gesellschaft für die Finanzierung von Eisen 0,01% 21/28",A3KSV0,"91,62",30.12.24 08:59,0,"0,01","0,01%",Euro,-
+"Terna Rete Elettrica Nazionale S.p.A. 0,375% 21/29",A3KSW1,"87,86",30.12.24 09:08,0,"-0,40","0,38%",Euro,-
+"Industrial & Commercial Bank of China [Asia] Ltd. 1,625% 21/26",A3KX3L,"93,91",30.12.24 09:08,0,"-0,18","1,63%",US-Dollar,-
+"Power Finance Corp. Ltd. 1,841% 21/28",A3KWCY,"91,82",30.12.24 09:08,0,"-0,53","1,84%",Euro,-
+"Branicks Group AG 2,25% 21/26",A3MP5C,"59,64",30.12.24 08:17,0,"-0,85","2,25%",Euro,-
+"ZF Finance GmbH 2,25% 21/28",A3MP6J,"91,16",30.12.24 09:08,0,"-0,46","2,25%",Euro,-
+"E.ON SE 0,875% 22/34",A3MP81,"80,25",30.12.24 08:05,0,"-0,52","0,88%",Euro,-
+De Volksbank N.V. 7%,A3K6H8,"104,24",30.12.24 08:59,0,"0,00","7,00%",Euro,-
+"Iberdrola Finanzas S.A. 1,375% 22/32",A3K3DA,"88,60",30.12.24 11:06,0,"-0,36","1,38%",Euro,-
+"BASF SE 1,5% 22/31",A3MQYV,"90,98",30.12.24 12:59,0,"0,00","1,50%",Euro,-
+"E.ON SE 1,625% 22/31",A3MQY9,"91,36",30.12.24 13:03,0,"0,00","1,63%",Euro,-
+"Koninklijke Philips N.V. 2,125% 22/29",A3K46A,"96,04",30.12.24 12:59,0,"-0,01","2,13%",Euro,-
+"KommuneKredit 1,5% 22/29",A3K57H,"95,67",30.12.24 09:08,0,"-0,36","1,50%",Euro,-
+Kreditanstalt für Wiederaufbau 2% 22/29,A4SAV9,"97,31",30.12.24 09:08,0,"-0,33","2,00%",Euro,-
+"Landesbank Hessen-Thüringen Girozentrale 2,625% 22/27",HLB2QJ,"98,02",30.12.24 13:03,0,"-0,43","2,63%",Euro,-
+"Mizuho Financial Group Inc. 3,49% 22/27",A3K81T,"101,41",30.12.24 09:08,0,"-0,31","3,49%",Euro,-
+"SKF AB 3,125% 22/28",A3K9CD,"100,49",30.12.24 09:08,0,"-0,37","3,13%",Euro,-
+"Volkswagen International Finance N.V. 4,125% 22/25",A3LA6A,"100,87",30.12.24 11:45,0,"-0,02","4,13%",Euro,-
+"Volkswagen International Finance N.V. 4,375% 22/30",A3LA6C,"103,00",30.12.24 08:05,0,"-0,26","4,38%",Euro,-
+"Iberdrola Finanzas S.A. 3,125% 22/28",A3LBMP,"101,15",30.12.24 13:03,0,"-0,17","3,13%",Euro,-
+"European Investment Bank (EIB) 9,25% 23/33",A3LDYP,"97,78",30.12.24 08:45,0,"0,00","9,25%",Mexikanische Pesos,-
+"SpareBank 1 Sor-Norge ASA 3,75% 23/27",A3LDC1,"102,22",30.12.24 08:59,0,"-0,04","3,75%",Euro,-
+"A2A S.p.A. 4,375% 23/34",A3LDQX,"105,66",30.12.24 12:59,0,"0,01","4,38%",Euro,-
+"Orsted A/S 3,75% 23/30",A3LEU2,"102,66",30.12.24 13:03,0,"-0,09","3,75%",Euro,-
+Siemens Energy Finance B.V. 4% 23/26,A3LFSG,"100,84",30.12.24 09:08,0,"-0,27","4,00%",Euro,-
+"Volkswagen International Finance N.V. 4,25% 23/29",A3LFX2,"102,75",30.12.24 08:05,0,"-0,26","4,25%",Euro,-
+"Kreditanstalt für Wiederaufbau 2,75% 23/30",A4SAXV,"101,24",30.12.24 13:03,0,"0,00","2,75%",Euro,-
+"UniCredit Bank Czech Republic and Slovakia a.s. 3,75% 23/28",A3LJ6R,"102,77",30.12.24 08:05,0,"-0,09","3,75%",Euro,-
+"DS Smith PLC 4,5% 23/30",A3LLG0,"105,14",30.12.24 08:59,0,"-0,12","4,50%",Euro,-
+"SpareBank 1 Sor-Norge ASA 4,875% 23/28",A3LMBU,"105,13",30.12.24 09:08,0,"-0,45","4,88%",Euro,-
+"Mizuho Financial Group Inc. 4,608% 23/30",A3LMES,"106,19",30.12.24 09:08,0,"-0,51","4,61%",Euro,-
+"Amprion GmbH 3,875% 23/28",A3514E,"102,56",30.12.24 12:59,0,"0,01","3,88%",Euro,-
+"Amprion GmbH 4,125% 23/34",A3514F,"104,68",30.12.24 12:59,0,"-0,13","4,13%",Euro,-
+"Mercedes-Benz Group AG 0,75% 21/33",A3H3JM,"81,91",30.12.24 08:59,0,"0,01","0,75%",Euro,-
+"Berlin Hyp AG 0,01% 20/28",BHY0GD,"91,26",30.12.24 09:08,0,"-0,31","0,01%",Euro,-
+"Berlin Hyp AG 0,01% 21/28",BHY0GE,"92,08",30.12.24 09:08,0,"-0,30","0,01%",Euro,-
+"Berlin Hyp AG 1,25% 22/25",BHY0GK,"99,09",30.12.24 10:47,0,"0,01","1,25%",Euro,-
+Berlin Hyp AG 3% 23/33,BHY0GM,"101,25",30.12.24 13:03,0,"-0,05","3,00%",Euro,-
+"Berlin Hyp AG 0,375% 22/27",BHY0GN,"95,42",30.12.24 08:05,0,"-0,10","0,38%",Euro,-
+"Berlin Hyp AG 2,875% 23/30",BHY0GT,"100,44",30.12.24 09:08,0,"-0,48","2,88%",Euro,-
+"Berlin Hyp AG 0,01% 20/30",BHY0GX,"85,96",30.12.24 10:47,0,"0,02","0,01%",Euro,-
+"Commerzbank AG 5,25% 23/29",CZ439B,"106,00",30.12.24 10:47,0,"0,44","5,25%",Euro,-
+"DZ BANK AG Deutsche Zentral-Genossenschaftsbank, Frankfurt am Main 0,4% 21/28",DFK0RN,"89,95",30.12.24 12:13,0,"0,07","0,40%",Euro,-
+"Deutsche Bank AG 1,375% 20/26",DL19VD,"98,50",30.12.24 12:59,0,"0,02","1,38%",Euro,-
+"Caja Rural de Navarra Sociedad Cooperativa de Credito 0,75% 22/29",A3K188,"92,10",30.12.24 13:03,0,"0,03","0,75%",Euro,-
+"Caisse Francaise de Financement Local 0,1% 19/29",A2R908,"87,32",30.12.24 09:08,0,"-0,39","0,10%",Euro,-
+"Caixa Geral de Depósitos S.A. 2,875% 22/26",A3K6H0,"99,28",30.12.24 09:08,0,"-0,22","2,88%",Euro,-
+"Asian Development Bank (ADB) 2,375% 17/27",A19MRK,"95,01",30.12.24 13:03,0,"0,08","2,38%",US-Dollar,"4,21%"
+"Asian Development Bank (ADB) 3,125% 18/28",A2RR9D,"95,67",30.12.24 13:03,0,"0,01","3,13%",US-Dollar,"4,42%"
+"Chile, Republik 3,5% 19/50",A2R33G,"68,43",30.12.24 10:30,0,"-0,15","3,50%",US-Dollar,-
+"Israel, Staat 4,5% 23/33",A3LCYL,"90,75",30.12.24 09:08,0,"-0,42","4,50%",US-Dollar,-
+"Kreditanstalt für Wiederaufbau 1,75% 19/29",A2YNRB,"88,00",30.12.24 09:08,0,"-0,20","1,75%",US-Dollar,"4,62%"
+"Kreditanstalt für Wiederaufbau 0,75% 20/30",A289QP,"81,21",30.12.24 10:30,0,"0,67","0,75%",US-Dollar,"4,45%"
+"Kreditanstalt für Wiederaufbau 0,75% 21/26",A3H243,"97,29",30.12.24 11:50,0,"-0,01","0,75%",Canadische Dollar,-
+"Investment Energy Resources Ltd. 6,25% 21/29",A3KP0N,"95,30",30.12.24 09:08,0,"-0,33","6,25%",US-Dollar,-
+"Nederlandse Waterschapsbank N.V. 2,375% 16/26",A18ZD5,"97,12",30.12.24 09:08,0,"-0,21","2,38%",US-Dollar,"4,70%"
+"Iberdrola International B.V. 1,125% 16/26",A180HH,"98,12",30.12.24 08:59,0,"-0,09","1,13%",Euro,"2,48%"
+"Iberdrola International B.V. 0,375% 16/25",A1856Y,"98,39",30.12.24 13:03,0,"0,01","0,38%",Euro,"2,50%"
+"Merlin Properties SOCIMI S.A. 1,875% 16/26",A188JM,"98,41",30.12.24 12:59,0,"-0,04","1,88%",Euro,"2,54%"
+Iberdrola Finanzas S.A. 1% 17/25,A19D5N,"99,60",30.12.24 08:05,0,"0,02","1,00%",Euro,-
+"Iberdrola Finanzas S.A. 1,25% 17/27",A19N0Y,"96,76",30.12.24 13:03,0,"-0,09","1,25%",Euro,-
+"E.ON International Finance B.V. 1,25% 17/27",A19QW4,"96,00",30.12.24 12:59,0,"-0,03","1,25%",Euro,"2,62%"
+"Covivio S.A. 2,375% 18/28",A19WHX,"98,85",30.12.24 09:08,0,"-0,40","2,38%",Euro,-
+"KommuneKredit 0,75% 18/28",A1921P,"94,16",30.12.24 09:08,0,"-0,35","0,75%",Euro,"2,31%"
+Terna Rete Elettrica Nazionale S.p.A. 1% 19/26,A2R0KD,"97,52",30.12.24 12:59,0,"-0,05","1,00%",Euro,-
+European Investment Bank (EIB) 1% 19/42,A2R0K6,"71,04",30.12.24 11:00,0,"-0,28","1,00%",Euro,"3,05%"
+"Koninklijke Philips N.V. 0,5% 19/26",A2R2K7,"96,88",30.12.24 13:03,0,"-0,10","0,50%",Euro,"2,59%"
+"Orsted A/S 1,75%",A2SA9D,"93,87",30.12.24 12:59,0,"0,04","1,75%",Euro,-
+"Kreditanstalt für Wiederaufbau 0,875% 19/26",A2TEEG,"93,93",30.12.24 11:50,0,"-0,02","0,88%",Britische Pfund,"4,43%"
+"Generali S.p.A. 2,124% 19/30",A2R8HE,"93,47",30.12.24 09:08,0,"-0,48","2,12%",Euro,-
+"SR-Boligkreditt A.S. 0,01% 19/26",A2R80H,"95,63",30.12.24 09:08,0,"-0,27","0,01%",Euro,"2,41%"
+"Coöperatieve Rabobank U.A. 0,25% 19/26",A2R9SM,"95,49",30.12.24 13:03,0,"-0,03","0,25%",Euro,-
+"SKF AB 0,875% 19/29",A2R966,"91,19",30.12.24 13:03,0,"-0,10","0,88%",Euro,-
+"Telia Company AB 1,375% 20/81",A28TEC,"96,71",30.12.24 08:05,0,"-0,02","1,38%",Euro,-
+"E.ON SE 0,375% 20/27",A254QR,"94,31",30.12.24 11:06,0,"-0,08","0,38%",Euro,-
+"UBS AG 0,45% 20/25",A28XCV,"98,57",30.12.24 09:08,0,"-0,25","0,45%",Euro,-
+Nederlandse Waterschapsbank N.V. 1% 20/30,A28XVR,"81,99",30.12.24 09:08,0,"-0,33","1,00%",US-Dollar,-
+"ProLogis International Funding II S.A. 1,625% 20/32",A28YBX,"87,61",30.12.24 09:08,0,"-0,73","1,63%",Euro,-
+"Sparebanken Vest Boligkreditt AS 0,01% 20/27",A28ZK9,"94,01",30.12.24 08:59,0,"-0,03","0,01%",Euro,-
+"EUROFIMA Europäische Gesellschaft für die Finanzierung von Eisen 0,000% 20/26",A280DV,"96,29",30.12.24 08:59,0,"0,00",-,Euro,-
+"Münchener Rückversicherungs-Gesellschaft AG in München 1,25% 20/41",A289EQ,"86,71",30.12.24 13:03,0,"-0,12","1,25%",Euro,-
+"KommuneKredit 0,125% 20/40",A281Y7,"63,26",30.12.24 08:59,0,"-0,47","0,13%",Euro,-
+"ERG S.p.A. 0,5% 20/27",A282EE,"93,50",30.12.24 12:59,0,"-0,15","0,50%",Euro,-
+"Kreditanstalt für Wiederaufbau 5,8% 21/28",A289HJ,"93,49",30.12.24 13:03,0,"0,01","5,80%",Südafrikanische Rand,-
+"ACEA S.p.A. 0,000% 21/25",A288DW,"97,69",30.12.24 12:59,0,"0,04",-,Euro,-
+"Iberdrola International B.V. 1,825%",A3KLJT,"90,58",30.12.24 08:05,0,"-0,04","1,83%",Euro,-
+"Iberdrola International B.V. 1,45%",A3KLJU,"95,36",30.12.24 09:08,0,"-0,83","1,45%",Euro,-
+"International Bank for Reconstruction and Development 5,31% 21/26",A3KLFF,"96,88",30.12.24 09:08,0,"-0,25","5,31%",Südafrikanische Rand,-
+"International Bank for Reconstruction and Development 4,5% 21/26",A3KM7L,"96,98",30.12.24 13:03,0,"-0,03","4,50%",Indonesische Rupiah,-
+"De Volksbank N.V. 0,375% 21/28",A3KMLE,"91,01",30.12.24 09:08,0,"-0,39","0,38%",Euro,-
+"Kreditanstalt für Wiederaufbau 1,125% 21/25",A289JC,"98,01",30.12.24 11:50,0,"0,56","1,13%",Norwegische Kronen,-
+"Bank of China Ltd. [Luxembourg Branch] 1,4% 21/26",A3KP8U,"95,07",30.12.24 09:08,0,"-0,21","1,40%",US-Dollar,-
+"Metlen Energy & Metals S.A. 2,25% 21/26",A3KP96,"98,78",30.12.24 13:03,0,"0,16","2,25%",Euro,-
+"European Investment Bank (EIB) 1,25% 21/27",A3KQD0,"94,12",30.12.24 08:05,0,"0,00","1,25%",Norwegische Kronen,-
+"G City Europe Ltd. 3,625%",A3KQD3,"68,87",30.12.24 09:08,0,"-0,82","3,63%",Euro,-
+"Raiffeisen Bank International AG 1,375% 21/33",A3KSH7,"90,75",30.12.24 09:08,0,"-0,45","1,38%",Euro,-
+"De Volksbank N.V. 0,25% 21/26",A3KSXY,"95,98",30.12.24 09:08,0,"-0,26","0,25%",Euro,-
+"UniCredit S.p.A. 0,8% 21/29",A3KTD7,"92,64",30.12.24 08:05,0,"-0,15","0,80%",Euro,-
+"Kreditanstalt für Wiederaufbau 0,000% 21/31",A3E5G6,"84,56",30.12.24 13:03,0,"-0,01",-,Euro,-
+"Piraeus Bank S.A. 3,875% 21/27",A3KYEL,"101,24",30.12.24 09:08,0,"-0,27","3,88%",Euro,-
+"Iberdrola Finanzas S.A. 1,575%",A3KY3E,"93,90",30.12.24 12:59,0,"-0,20","1,58%",Euro,-
+"SpareBank 1 Sor-Norge ASA 0,25% 21/26",A3KYQD,"95,14",30.12.24 09:08,0,"-0,25","0,25%",Euro,-
+"A.P.Moeller-Maersk A/S 0,75% 21/31",A3KZE3,"85,01",30.12.24 08:05,0,"-0,35","0,75%",Euro,-
+"Talanx AG 1,75% 21/42",TLX310,"86,61",30.12.24 13:03,0,"-0,05","1,75%",Euro,-
+"International Bank for Reconstruction and Development 6,75% 22/27",A3K07X,"27,87",26.08.22 22:58,0,"0,00","6,75%","Rubel (Russische Föderation, Conv.-Rate 1000:1)",-
+"International Bank for Reconstruction and Development 6,875% 22/29",A3K0P0,"91,33",30.12.24 13:03,0,"0,08","6,88%",Mexikanische Pesos,-
+"European Investment Bank (EIB) 0,05% 22/29",A3K1QT,"89,00",30.12.24 09:08,0,"0,00","0,05%",Euro,-
+"Telia Company AB 2,75% 22/83",A3K3R8,"96,64",30.12.24 08:05,0,"0,00","2,75%",Euro,-
+"ASML Holding N.V. 2,25% 22/32",A3K5LQ,"96,47",30.12.24 11:06,0,"-0,12","2,25%",Euro,-
+"Kreditanstalt für Wiederaufbau 1,375% 22/32",A3E5J6,"91,70",30.12.24 08:59,0,"-0,24","1,38%",Euro,-
+"European Investment Bank (EIB) 1,5% 22/32",A3K5TE,"92,38",30.12.24 08:05,0,"-0,30","1,50%",Euro,-
+"Evonik Industries AG 2,25% 22/27",A30VJM,"98,37",30.12.24 08:05,0,"-0,11","2,25%",Euro,-
+"Volvo Car AB 4,25% 22/28",A3K55S,"102,13",30.12.24 12:59,0,"0,07","4,25%",Euro,-
+"Orsted A/S 2,25% 22/28",A3K6A0,"97,35",30.12.24 12:59,0,"-0,05","2,25%",Euro,-
+AB Svensk Exportkredit 2% 22/27,A3K63X,"98,50",30.12.24 09:08,0,"-0,34","2,00%",Euro,-
+"Ceske Drahy AS 5,625% 22/27",A3LADJ,"105,61",30.12.24 12:59,0,"-0,04","5,63%",Euro,-
+"Eurogrid GmbH 3,279% 22/31",A30VMY,"99,46",30.12.24 09:08,0,"-0,79","3,28%",Euro,-
+"SpareBank 1 Sor-Norge ASA 2,875% 22/25",A3K9DR,"99,95",30.12.24 11:06,0,"0,04","2,88%",Euro,-
+"SpareBank 1 SMN 3,125% 22/25",A3K9NC,"100,49",30.12.24 08:59,0,"0,11","3,13%",Euro,-
+"Nederlandse Waterschapsbank N.V. 2,75% 22/27",A3LA5H,"100,54",30.12.24 13:03,0,"-0,20","2,75%",Euro,-
+"EnBW International Finance B.V. 3,625% 22/26",A3LBKB,"101,47",30.12.24 12:59,0,"-0,08","3,63%",Euro,-
+Banco BPM S.p.A. 6% 22/28,A3LBEP,"104,90",30.12.24 12:59,0,"0,06","6,00%",Euro,-
+"Iberdrola Finanzas S.A. 4,875%",A3LDDY,"103,13",30.12.24 08:59,0,"-0,12","4,88%",Euro,-
+"ZF Finance GmbH 5,75% 23/26",A30V8W,"101,17",30.12.24 09:08,0,"-0,31","5,75%",Euro,-
+"East Japan Railway Co. 4,11% 23/43",A3LEG0,"104,15",30.12.24 09:08,0,"-1,08","4,11%",Euro,-
+Intesa Sanpaolo S.p.A. 5% 23/28,A3LE1E,"103,73",30.12.24 08:59,0,"-0,02","5,00%",Euro,-
+Intesa Sanpaolo S.p.A. 4% 23/26,A3LHY5,"101,11",30.12.24 09:08,0,"-0,26","4,00%",Euro,-
+"Volkswagen International Finance N.V. 7,5%",A3LMPT,"107,23",30.12.24 09:08,0,"-0,18","7,50%",Euro,-
+"Volkswagen International Finance N.V. 7,875%",A3LMPU,"111,18",30.12.24 08:05,0,"-0,01","7,88%",Euro,-
+"Kreditanstalt für Wiederaufbau 4,25% 23/28",A4SAYJ,"103,39",30.12.24 13:03,0,"0,07","4,25%",Canadische Dollar,-
+"Landwirtschaftliche Rentenbank 3,25% 23/33",A31RTB,"104,20",30.12.24 10:47,0,"-0,04","3,25%",Euro,-
+"European Investment Bank (EIB) 0,75% 21/27",A287CD,"91,66",30.12.24 11:50,0,"-0,02","0,75%",Australische Dollar,-
+"European Investment Bank (EIB) 4,2% 23/28",A3LD8J,"99,88",30.12.24 11:50,0,"-0,03","4,20%",Australische Dollar,-
+"Belfius Bank S.A. 0,375% 21/27",A3KR7Y,"93,96",30.12.24 09:08,0,"-0,37","0,38%",Euro,-
+"VGP N.V. 2,25% 22/30",A3K01L,"91,30",30.12.24 12:59,0,"0,01","2,25%",Euro,-
+"Argenta Spaarbank N.V. 1,375% 22/29",A3K11F,"94,04",30.12.24 09:08,0,"-0,39","1,38%",Euro,-
+"Elia Transmission Belgium N.V. 3,625% 23/33",A3LC6J,"102,14",30.12.24 12:59,0,"-0,14","3,63%",Euro,-
+"Quebec, Provinz 3,65% 22/32",A3K5YD,"100,08",30.12.24 11:50,0,"-0,23","3,65%",Canadische Dollar,-
+"Amprion GmbH 3,45% 22/27",A30VPL,"101,47",30.12.24 11:06,0,"-0,04","3,45%",Euro,-
+"Amprion GmbH 3,971% 22/32",A30VPM,"103,39",30.12.24 12:59,0,"0,03","3,97%",Euro,-
+Vonovia SE 5% 22/30,A30VQB,"108,31",30.12.24 11:45,0,"-0,07","5,00%",Euro,-
+"EWE AG 0,25% 21/28",A3E5L9,"91,30",30.12.24 09:08,0,"0,00","0,25%",Euro,-
+"Evonik Industries AG 1,375% 21/81",A3E5WW,"95,61",30.12.24 08:05,0,"0,03","1,38%",Euro,-
+"DZ BANK AG Deutsche Zentral-Genossenschaftsbank, Frankfurt am Main 0,05% 20/27",DFK0GB,"91,61",30.12.24 12:13,0,"0,06","0,05%",Euro,-
+"Deutsche Bank AG 1,875% 22/28",DL19WL,"96,94",30.12.24 09:08,0,"-0,36","1,88%",Euro,-
+"Deutsche Bank AG 3,25% 22/28",DL19WU,"99,77",30.12.24 08:05,0,"-0,10","3,25%",Euro,-
+"Europäische Union 0,4% 21/37",A3K4C4,"73,41",30.12.24 09:08,0,"-1,06","0,40%",Euro,-
+"Europäische Union 1,25% 22/43",A3K4DG,"71,66",30.12.24 09:08,0,"-1,16","1,25%",Euro,-
+"Europäische Union 2,625% 22/48",A3K4DM,"88,10",30.12.24 09:08,0,"-1,65","2,63%",Euro,-
+"Europäische Union 2,75% 22/33",A3K4DW,"99,85",30.12.24 12:20,0,"-0,05","2,75%",Euro,-
+"Credit Agricole Italia S.p.A. 0,125% 21/33",A3KM40,"78,10",30.12.24 09:08,0,"-0,60","0,13%",Euro,-
+"Caixa Geral de Depósitos S.A. 5,75% 22/28",A3LAWP,"107,15",30.12.24 13:03,0,"-0,01","5,75%",Euro,-
+"European Investment Bank (EIB) 2,375% 17/27",A19H0E,"94,96",30.12.24 09:08,0,"-0,21","2,38%",US-Dollar,"4,58%"
+"European Investment Bank (EIB) 3,75% 23/33",A3LD6X,"94,06",30.12.24 10:30,0,"-0,04","3,75%",US-Dollar,-
+"International Bank for Reconstruction and Development 2,125% 15/25",A1ZXG1,"99,59",30.12.24 13:03,0,"0,01","2,13%",US-Dollar,"4,20%"
+Kreditanstalt für Wiederaufbau 1% 21/26,A3MQEL,"94,35",30.12.24 10:30,0,"0,01","1,00%",US-Dollar,-
+"European Investment Bank (EIB) 1,25% 14/26",A1ZN73,"98,37",30.12.24 13:03,0,"0,03","1,25%",Euro,-
+Unibail-Rodamco-Westfield SE 1% 15/25,A1ZZ0Q,"99,21",30.12.24 09:08,0,"-0,23","1,00%",Euro,-
+"KommuneKredit 0,75% 17/27",A19H8K,"96,32",30.12.24 13:03,0,"0,04","0,75%",Euro,"2,32%"
+"European Investment Bank (EIB) 1,5% 17/47",A19KYP,"73,71",30.12.24 09:08,0,"-1,42","1,50%",Euro,-
+"Naturgy Finance Iberia S.A. 0,875% 17/25",A19R7B,"99,23",30.12.24 13:03,0,"-0,04","0,88%",Euro,"0,27%"
+"ProLogis International Funding II S.A. 1,75% 18/28",A19XGM,"96,42",30.12.24 13:03,0,"-0,03","1,75%",Euro,"2,88%"
+"Chile, Republik 0,83% 19/31",A2R4F8,"84,51",30.12.24 08:05,0,"-0,25","0,83%",Euro,-
+"Ignitis Group UAB 1,875% 18/28",A1926T,"94,08",30.12.24 12:59,0,"-0,05","1,88%",Euro,"3,15%"
+"Iberdrola International B.V. 3,25%",A2RXL8,"99,75",30.12.24 12:59,0,"0,00","3,25%",Euro,-
+"ProLogis International Funding II S.A. 2,375% 18/30",A2RTZC,"95,21",30.12.24 13:03,0,"-0,46","2,38%",Euro,-
+"ENEL Finance International N.V. 1,5% 19/25",A2RWNF,"99,17",30.12.24 11:06,0,"-0,01","1,50%",Euro,"2,80%"
+"ERG S.p.A. 1,875% 19/25",A2R0KV,"99,42",30.12.24 12:59,0,"0,01","1,88%",Euro,-
+"Kreditanstalt für Wiederaufbau 0,01% 19/27",A2TED0,"94,74",30.12.24 08:05,0,"-0,02","0,01%",Euro,-
+"ProLogis International Funding II S.A. 0,875% 19/29",A2R4FW,"90,73",30.12.24 11:45,0,"-0,08","0,88%",Euro,-
+"EnBW Energie Baden-Württemberg AG 1,625% 19/79",A2YPEQ,"94,87",30.12.24 08:59,0,"0,01","1,63%",Euro,-
+"Nederlandse Waterschapsbank N.V. 0,000% 19/34",A2R8HB,"75,22",27.12.24 17:17,0,"0,00",-,Euro,-
+"Japan Finance Organization for Municipalities 0,05% 20/27",A28TED,"94,74",30.12.24 09:08,0,"-0,39","0,05%",Euro,-
+E.ON SE 1% 20/25,A289E0,"98,74",30.12.24 13:03,0,"-0,03","1,00%",Euro,-
+"De Volksbank N.V. 1,75% 20/30",A280AJ,"98,92",30.12.24 11:06,0,"0,01","1,75%",Euro,-
+"Terna Rete Elettrica Nazionale S.p.A. 0,75% 20/32",A280DH,"83,12",30.12.24 12:59,0,"-0,08","0,75%",Euro,-
+"Kreditanstalt für Wiederaufbau 0,000% 20/28",A2TEF9,"91,72",30.12.24 08:59,0,"0,02",-,Euro,-
+"Hamburger Hochbahn AG 0,125% 21/31",A289Q6,"84,08",30.12.24 13:03,0,"-0,39","0,13%",Euro,-
+"Volkswagen International Finance N.V. 0,875% 20/28",A282U1,"91,25",30.12.24 13:03,0,"-0,13","0,88%",Euro,-
+"Unipol Gruppo S.p.A. 3,25% 20/30",A282SR,"99,64",30.12.24 12:59,0,"0,00","3,25%",Euro,-
+International Bank for Reconstruction and Development 12% 21/26,A287SR,"92,82",30.12.24 12:59,0,"0,03","12,00%",Türkische Lira,-
+European Investment Bank (EIB) 1% 21/28,A2871D,"93,84",30.12.24 13:03,0,"0,17","1,00%",Canadische Dollar,-
+"Kreditanstalt für Wiederaufbau 4,4% 21/25",A289HP,"95,84",30.12.24 11:50,0,"0,00","4,40%",Mexikanische Pesos,-
+"Japan Finance Organization for Municipalities 0,01% 21/28",A3KLAA,"92,19",30.12.24 09:08,0,"-0,34","0,01%",Euro,-
+"ACEA S.p.A. 0,25% 21/30",A288DX,"85,56",30.12.24 12:59,0,"-0,08","0,25%",Euro,-
+"Orsted A/S 1,5%",A3KLYQ,"83,15",30.12.24 08:05,0,"0,07","1,50%",Euro,-
+"SPAREBANK 1 ØSTLANDET 0,125% 21/28",A3KMMC,"91,27",30.12.24 09:08,0,"-0,38","0,13%",Euro,-
+"European Investment Bank (EIB) 0,01% 21/30",A3KM45,"86,27",30.12.24 10:45,0,"-0,02","0,01%",Euro,-
+"Kreditanstalt für Wiederaufbau 0,25% 21/26",A289JG,"96,21",30.12.24 11:50,0,"0,01","0,25%",Schwedische Kronen,-
+"Nidec Corp. 0,046% 21/26",A3KN3L,"96,56",30.12.24 09:08,0,"-0,27","0,05%",Euro,-
+"Kreditanstalt für Wiederaufbau 0,000% 21/29",A289JL,"89,96",30.12.24 09:08,0,"-0,38",-,Euro,-
+"EUROFIMA Europäische Gesellschaft für die Finanzierung von Eisen 0,5% 21/41",A3KPNS,"65,66",30.12.24 08:59,0,"-0,17","0,50%",Euro,-
+"Merlin Properties SOCIMI S.A. 1,375% 21/30",A3KRXC,"91,28",30.12.24 13:03,0,"-0,25","1,38%",Euro,-
+"Derichebourg S.A. 2,25% 21/28",A3KSQM,"95,78",30.12.24 09:08,0,"-0,17","2,25%",Euro,-
+Bayerische Landesbank 1% 21/31,BLB8DM,"94,37",30.12.24 09:08,0,"-0,43","1,00%",Euro,-
+"Landwirtschaftliche Rentenbank 0,000% 21/31",A27DLN,"84,48",30.12.24 13:03,0,"0,01",-,Euro,-
+"Lar Espana Real Estate SOCIMI S.A. 1,75% 21/26",A3KUAY,"99,70",30.12.24 09:08,0,"-0,16","1,75%",Euro,-
+"BAWAG P.S.K. Bank für Arbeit und Wirtschaft und Österreichische Postsparkasse AG 0,01% 21/29",A3KVKB,"87,70",30.12.24 09:08,0,"-0,36","0,01%",Euro,-
+"EnBW Energie Baden-Württemberg AG 1,375% 21/81",A3MP4X,"91,62",30.12.24 08:05,0,"0,04","1,38%",Euro,-
+"mBank S.A. 0,966% 21/27",A3KWEY,"94,66",30.12.24 13:03,0,"0,05","0,97%",Euro,-
+"International Bank for Reconstruction and Development 7,25% 22/27",A3K071,"95,23",30.12.24 10:05,0,"-0,08","7,25%",Mexikanische Pesos,-
+"P3 Group S.a.r.l. 0,875% 22/26",A3K1GW,"97,66",30.12.24 11:06,0,"-0,06","0,88%",Euro,-
+"P3 Group S.a.r.l. 1,625% 22/29",A3K1GX,"92,43",30.12.24 09:08,0,"-0,41","1,63%",Euro,-
+"International Bank for Reconstruction and Development 6,75% 22/29",A3K1WX,"95,77",30.12.24 13:03,0,"-0,01","6,75%",Südafrikanische Rand,-
+"International Bank for Reconstruction and Development 9,5% 22/29",A3K1S8,"87,48",30.12.24 13:03,0,"-0,77","9,50%",Real (Brasilien),-
+"E.ON SE 0,875% 22/25",A3MQY8,"99,97",30.12.24 08:05,0,"0,00","0,88%",Euro,-
+"Bank of China Ltd. [Luxembourg Branch] 1,5% 22/25",A3K4ZH,"98,62",30.12.24 09:08,0,"-0,26","1,50%",Euro,-
+"De Volksbank N.V. 2,375% 22/27",A3K41N,"98,96",30.12.24 13:03,0,"0,01","2,38%",Euro,-
+"ProLogis International Funding II S.A. 3,125% 22/31",A3K5ZM,"98,53",30.12.24 13:03,0,"0,08","3,13%",Euro,-
+"Volkswagen International Finance N.V. 3,125% 22/25",A3K61G,"99,94",30.12.24 12:59,0,"0,01","3,13%",Euro,-
+"Landwirtschaftliche Rentenbank 1,9% 22/32",A3UFV9,"94,75",30.12.24 08:59,0,"-0,08","1,90%",Euro,-
+"Intesa Sanpaolo S.p.A. 4,75% 22/27",A3K81S,"103,87",30.12.24 12:59,0,"-0,03","4,75%",Euro,-
+"BAWAG P.S.K. Bank für Arbeit und Wirtschaft und Österreichische Postsparkasse AG 4,125% 23/27",A3LC3Z,"102,14",30.12.24 13:03,0,"-0,12","4,13%",Euro,-
+"EUROFIMA Europäische Gesellschaft für die Finanzierung von Eisen 3,125% 22/31",A3LA5F,"102,54",30.12.24 13:03,0,"-0,02","3,13%",Euro,-
+"Volkswagen International Finance N.V. 4,25% 22/28",A3LA6B,"102,61",30.12.24 08:05,0,"-0,17","4,25%",Euro,-
+"Covestro AG 4,75% 22/28",A30VQX,"105,90",30.12.24 12:59,0,"-0,07","4,75%",Euro,-
+"Ungarn, Republik 5% 22/27",A3LBMA,"103,66",30.12.24 12:20,0,"0,02","5,00%",Euro,-
+"Iberdrola Finanzas S.A. 3,375% 22/32",A3LBMQ,"101,26",30.12.24 08:05,0,"-0,43","3,38%",Euro,-
+"International Finance Corp. 3,375% 22/27",A3LGKS,"97,54",30.12.24 11:50,0,"-0,04","3,38%",Norwegische Kronen,-
+Länsförsäkringar Bank AB 4% 23/27,A3LC57,"101,91",30.12.24 09:08,0,"-0,32","4,00%",Euro,-
+"ACEA S.p.A. 3,875% 23/31",A3LDC6,"103,16",30.12.24 12:59,0,"-0,05","3,88%",Euro,-
+Landesbank Hessen-Thüringen Girozentrale 4% 23/30,HLB2QR,"103,18",30.12.24 13:03,0,"-0,13","4,00%",Euro,-
+"Intesa Sanpaolo S.p.A. 5,625% 23/33",A3LE1F,"112,24",30.12.24 09:08,0,"-0,58","5,63%",Euro,-
+"Generali S.p.A. 5,399% 23/33",A3LGSY,"110,11",30.12.24 09:08,0,"-0,48","5,40%",Euro,-
+"Stora Enso Oyj 4,25% 23/29",A3LJB8,"103,23",30.12.24 12:59,0,"0,02","4,25%",Euro,-
+"Nova Ljubljanska Banka d.d. 7,125% 23/27",A3LKGM,"105,44",30.12.24 09:08,0,"-0,26","7,13%",Euro,-
+"Kreditanstalt für Wiederaufbau 4,875% 23/31",A4SAX4,"101,55",30.12.24 11:50,0,"-0,12","4,88%",Britische Pfund,-
+"East Japan Railway Co. 3,976% 23/32",A3LMP1,"105,33",30.12.24 08:05,0,"-0,43","3,98%",Euro,-
+"E.ON SE 3,75% 23/29",A351VG,"102,90",30.12.24 09:08,0,"-0,36","3,75%",Euro,-
+"Kreditanstalt für Wiederaufbau 3,5% 23/30",A4SAYF,"103,79",30.12.24 11:50,0,"-0,05","3,50%",Schwedische Kronen,-
+"Volkswagen Leasing GmbH 4,625% 23/29",A3514U,"103,70",30.12.24 09:08,0,"-0,28","4,63%",Euro,-
+"European Investment Bank (EIB) 3,3% 17/28",A19L78,"97,44",30.12.24 11:50,0,"-0,02","3,30%",Australische Dollar,-
+"VGP N.V. 1,5% 21/29",A3KPB1,"90,87",30.12.24 13:03,0,"-0,29","1,50%",Euro,-
+"Belfius Bank S.A. 3,875% 23/28",A3LJTA,"102,89",30.12.24 09:08,0,"-0,35","3,88%",Euro,-
+"Asian Development Bank (ADB) 0,75% 21/26",A3KLL0,"97,46",30.12.24 11:50,0,"0,55","0,75%",Canadische Dollar,-
+"Ontario, Provinz 2,65% 18/25",A19VPK,"99,58",30.12.24 09:08,0,"-0,25","2,65%",Canadische Dollar,-
+"Quebec, Provinz 1,85% 20/27",A28TLW,"97,39",30.12.24 11:50,0,"-0,02","1,85%",Canadische Dollar,-
+"Mercedes-Benz Group AG 0,75% 20/30",A289QR,"87,04",30.12.24 09:08,0,"-0,51","0,75%",Euro,-
+"Vonovia SE 0,625% 21/31",A3E5FR,"84,09",30.12.24 08:05,0,"-0,46","0,63%",Euro,-
+"SIGNA Development Finance S.C.S. 5,5% 21/26",A3KS5R,"10,00",30.12.24 09:08,0,"0,00","5,50%",Euro,-
+"Mercedes-Benz International Finance B.V. 3,5% 23/26",A3LH6T,"100,59",30.12.24 09:08,0,"-0,27","3,50%",Euro,-
+"Mercedes-Benz International Finance B.V. 3,7% 23/31",A3LH6U,"102,84",30.12.24 12:59,0,"-0,01","3,70%",Euro,-
+"Landesbank Baden-Württemberg 0,375% 19/26",LB2CLH,"95,51",30.12.24 12:59,0,"-0,08","0,38%",Euro,-
+"Landesbank Baden-Württemberg 1,5% 20/25",LB2CQX,"99,07",30.12.24 09:08,0,"-0,22","1,50%",Britische Pfund,-
+"Landesbank Baden-Württemberg 1,125% 20/25",LB2CU8,"95,76",30.12.24 09:08,0,"-0,34","1,13%",Britische Pfund,-
+"New Immo Holding S.A. 2,75% 19/26",A2SAYM,"95,41",30.12.24 09:08,0,"-0,26","2,75%",Euro,-
+"Caisse Francaise de Financement Local 3,125% 22/27",A3LBDB,"101,18",30.12.24 09:08,0,"-0,30","3,13%",Euro,-
+"Banco BPM S.p.A. 0,75% 22/27",A3K296,"95,49",30.12.24 09:08,0,"-0,26","0,75%",Euro,-
+"Aker Horizons ASA 7,95% 21/25",A3KLNA,"99,32",30.12.24 09:08,0,"-0,25","7,95%",Norwegische Kronen,-
+"European Investment Bank (EIB) 2,125% 16/26",A18Z2Y,"96,73",30.12.24 09:08,0,"-0,22","2,13%",US-Dollar,-
+"European Investment Bank (EIB) 0,75% 20/30",A282R9,"81,15",30.12.24 13:03,0,"0,12","0,75%",US-Dollar,-
+"European Investment Bank (EIB) 1,625% 21/31",A3KQX0,"83,80",30.12.24 08:05,0,"-0,10","1,63%",US-Dollar,-
+"International Finance Corp. 2,125% 16/26",A18ZRG,"96,88",30.12.24 09:08,0,"-0,22","2,13%",US-Dollar,-
+"Japan Bank for International Cooperation 4,38% 22/27",A3K94B,"98,80",30.12.24 09:08,0,"-0,19","4,38%",US-Dollar,-
+"Münchener Rückversicherungs-Gesellschaft AG in München 5,875% 22/42",A3MQV3,"100,96",30.12.24 09:08,0,"-0,34","5,88%",US-Dollar,-
+"Rumo Luxembourg Sàrl 5,25% 20/28",A28ZLC,"96,10",30.12.24 12:59,0,"0,24","5,25%",US-Dollar,-
+Nederlandse Waterschapsbank N.V. 1% 15/25,A1Z5ZQ,"98,58",30.12.24 09:08,0,"-0,24","1,00%",Euro,"0,62%"
+"European Investment Bank (EIB) 1,5% 17/27",A1V3A4,"97,84",30.12.24 11:50,0,"0,53","1,50%",Schwedische Kronen,"2,40%"
+"Kreditanstalt für Wiederaufbau 0,25% 17/25",A2AAJN,"98,77",30.12.24 08:18,0,"-0,08","0,25%",Euro,"1,72%"
+Ignitis Group UAB 2% 17/27,A19LD4,"95,96",30.12.24 13:03,0,"-0,25","2,00%",Euro,"3,28%"
+"Merlin Properties SOCIMI S.A. 2,375% 17/29",A19N7V,"96,97",30.12.24 09:08,0,"-0,32","2,38%",Euro,-
+"ENEL Finance International N.V. 1,125% 18/26",A19UUM,"97,20",30.12.24 09:08,0,"-0,33","1,13%",Euro,"2,38%"
+"SpareBank 1 Boligkreditt AS 0,5% 18/25",A19VKN,"99,80",30.12.24 13:03,0,"0,01","0,50%",Euro,-
+"Kreditanstalt für Wiederaufbau 1,375% 18/28",A2E4JT,"96,36",30.12.24 12:59,0,"0,01","1,38%",Schwedische Kronen,"2,42%"
+"Asian Development Bank (ADB) 0,35% 18/25",A193A2,"98,46",30.12.24 09:08,0,"-0,24","0,35%",Euro,-
+"International Bank for Reconstruction and Development 0,625% 18/27",A2RUFV,"95,24",30.12.24 11:06,0,"0,00","0,63%",Euro,-
+"Polen, Republik 1% 19/29",A2RYWG,"93,77",30.12.24 12:20,0,"-0,04","1,00%",Euro,-
+"Polen, Republik 2% 19/49",A2RYWH,"71,87",30.12.24 09:08,0,"-1,06","2,00%",Euro,"3,44%"
+"Nordea Bank Abp 0,375% 19/26",A2R2UV,"96,90",30.12.24 10:47,0,"0,53","0,38%",Euro,"2,44%"
+"Mitsubishi UFJ Financial Group Inc. 0,848% 19/29",A2R5JZ,"90,57",30.12.24 09:08,0,"-0,45","0,85%",Euro,"2,90%"
+"E.ON SE 0,35% 19/30",A2YNX0,"87,83",30.12.24 11:45,0,"0,05","0,35%",Euro,"2,78%"
+"SpareBank 1 SMN 0,125% 19/26",A2R7CX,"95,18",30.12.24 09:08,0,"-0,31","0,13%",Euro,-
+"Raiffeisen Bank International AG 0,375% 19/26",A2R76H,"95,49",30.12.24 08:05,0,"0,00","0,38%",Euro,-
+"EUROFIMA Europäische Gesellschaft für die Finanzierung von Eisen 0,15% 19/34",A2R8NY,"76,52",30.12.24 08:59,0,"-0,09","0,15%",Euro,-
+"KommuneKredit 0,625% 19/39",A2SAJL,"70,38",30.12.24 09:08,0,"-1,08","0,63%",Euro,-
+"Merlin Properties SOCIMI S.A. 1,875% 19/34",A2SA9P,"85,45",30.12.24 13:03,0,"-0,22","1,88%",Euro,-
+"European Investment Bank (EIB) 1,9% 20/25",A28SEB,"99,86",30.12.24 13:03,0,"0,01","1,90%",Canadische Dollar,-
+"Red Eléctrica Financiaciones S.A.U. 0,375% 20/28",A28R5E,"92,32",30.12.24 09:08,0,"-0,28","0,38%",Euro,-
+"EUROFIMA Europäische Gesellschaft für die Finanzierung von Eisen 0,1% 20/30",A28XE6,"87,21",30.12.24 09:08,0,"-0,52","0,10%",Euro,-
+"Merlin Properties SOCIMI S.A. 2,375% 20/27",A28ZT1,"98,33",30.12.24 09:08,0,"-0,42","2,38%",Euro,-
+"Volkswagen International Finance N.V. 1,25% 20/32",A282U2,"83,09",30.12.24 13:03,0,"-0,24","1,25%",Euro,-
+"National Bank of Greece S.A. 2,75% 20/26",A283HP,"99,59",30.12.24 13:03,0,"-0,04","2,75%",Euro,-
+"Volvo Car AB 2,5% 20/27",A283HB,"97,31",30.12.24 09:08,0,"-0,44","2,50%",Euro,-
+"Mizuho Financial Group Inc. 0,214% 20/25",A283GD,"97,46",30.12.24 12:59,0,"0,01","0,21%",Euro,-
+International Bank for Reconstruction and Development 5% 21/26,A287ST,"92,08",30.12.24 13:03,0,"0,01","5,00%",Real (Brasilien),-
+"International Bank for Reconstruction and Development 4,25% 21/26",A287WL,"93,14",30.12.24 09:08,0,"0,02","4,25%",Mexikanische Pesos,-
+"SpareBank 1 SMN 0,01% 21/28",A3KLX2,"91,14",30.12.24 09:08,0,"-0,33","0,01%",Euro,-
+"Intesa Sanpaolo S.p.A. 0,75% 21/28",A3KM9J,"92,77",30.12.24 09:08,0,"-0,34","0,75%",Euro,"3,04%"
+"Kreditanstalt für Wiederaufbau 0,625% 21/25",A289JH,"95,73",30.12.24 09:08,0,"-0,19","0,63%",Zloty (Polen),-
+"Instituto de Credito Oficial 0,000% 21/27",A3KSMW,"94,52",30.12.24 11:06,0,"0,01",-,Euro,-
+"SpareBank 1 Sor-Norge ASA 0,375% 21/27",A3KTYL,"95,82",30.12.24 09:08,0,"-0,25","0,38%",Euro,-
+"China Merchants Bank Co. Ltd. [Luxembourg Branch] 1,25% 21/26",A3KVNY,"93,68",30.12.24 09:08,0,"-0,20","1,25%",US-Dollar,-
+Münchener Rückversicherungs-Gesellschaft AG in München 1% 21/42,A3E5WY,"82,91",30.12.24 11:45,0,"-0,18","1,00%",Euro,-
+"ERG S.p.A. 0,875% 21/31",A3KV7C,"84,28",30.12.24 12:59,0,"0,13","0,88%",Euro,-
+"Sparebanken Vest Boligkreditt AS 0,01% 21/26",A3KW84,"95,66",30.12.24 11:06,0,"0,02","0,01%",Euro,-
+"Lar Espana Real Estate SOCIMI S.A. 1,843% 21/28",A3KX77,"99,58",30.12.24 09:08,0,"-0,04","1,84%",Euro,-
+"Bayerische Landesbank 1,375% 21/32",BLB8DN,"92,54",30.12.24 10:47,0,"0,19","1,38%",Euro,-
+"RWE AG 0,5% 21/28",A3MP70,"91,62",30.12.24 13:03,0,"0,26","0,50%",Euro,-
+RWE AG 1% 21/33,A3MP71,"80,96",30.12.24 13:03,0,"0,27","1,00%",Euro,-
+"Nordea Bank Abp 1,125% 22/27",A3K2B2,"96,50",30.12.24 11:06,0,"-0,05","1,13%",Euro,-
+"ProLogis International Funding II S.A. 2,75% 22/32",A3K2JS,"83,99",30.12.24 09:08,0,"-0,52","2,75%",Britische Pfund,-
+ProLogis International Funding II S.A. 3% 22/42,A3K2GW,"67,85",30.12.24 09:08,0,"-0,83","3,00%",Britische Pfund,-
+"Generali S.p.A. 5,8% 22/32",A3K7AL,"112,07",30.12.24 12:59,0,"0,04","5,80%",Euro,-
+"RWE AG 2,125% 22/26",A30VJE,"99,05",30.12.24 11:45,0,"-0,15","2,13%",Euro,-
+"Orsted A/S 2,875% 22/33",A3K6A1,"94,97",30.12.24 13:03,0,"-0,30","2,88%",Euro,-
+"A2A S.p.A. 2,5% 22/26",A3K6QS,"99,23",30.12.24 09:08,0,"-0,24","2,50%",Euro,-
+"Volkswagen International Finance N.V. 3,75% 22/27",A3K61H,"101,17",30.12.24 09:08,0,"-0,33","3,75%",Euro,-
+Ayvens S.A. 4% 22/27,A3K7BA,"102,14",30.12.24 09:08,0,"-0,33","4,00%",Euro,-
+"Raiffeisen Bank International AG 4,125% 22/25",A3K81Y,"100,50",30.12.24 09:08,0,"-0,27","4,13%",Euro,-
+"ProLogis International Funding II S.A. 3,625% 22/30",A3K811,"101,44",30.12.24 13:03,0,"-0,09","3,63%",Euro,-
+"Orsted A/S 3,25% 22/31",A3K88F,"99,58",30.12.24 13:03,0,"-0,13","3,25%",Euro,-
+"Orsted A/S 5,125% 22/34",A3K88G,"94,95",30.12.24 09:08,0,"-0,44","5,13%",Britische Pfund,-
+"Orsted A/S 5,375% 22/42",A3K88H,"90,33",30.12.24 09:08,0,"-0,68","5,38%",Britische Pfund,-
+"Citigroup Inc. 3,713% 22/28",A3K9PF,"101,96",30.12.24 08:05,0,"-0,12","3,71%",Euro,-
+"Kreditanstalt für Wiederaufbau 3,875% 22/25",A4SAWY,"99,50",30.12.24 13:03,0,"0,23","3,88%",Britische Pfund,-
+"Orsted A/S 5,25%",A3LB0K,"103,58",30.12.24 13:03,0,"0,02","5,25%",Euro,-
+"Japan Finance Organization for Municipalities 3,375% 23/28",A3LEGZ,"101,74",30.12.24 09:08,0,"-0,30","3,38%",Euro,-
+"E.ON SE 3,875% 23/35",A30V8B,"101,49",30.12.24 09:08,0,"-0,66","3,88%",Euro,-
+"RWE AG 3,625% 23/29",A30V83,"102,49",30.12.24 12:59,0,"0,00","3,63%",Euro,-
+"Kreditanstalt für Wiederaufbau 2,75% 23/33",A4SAW7,"100,23",30.12.24 09:08,0,"-0,62","2,75%",Euro,-
+"ProLogis International Funding II S.A. 4,625% 23/35",A3LEHF,"106,87",30.12.24 12:59,0,"-0,08","4,63%",Euro,-
+"Orsted A/S 3,625% 23/26",A3LEU1,"100,81",30.12.24 13:03,0,"0,00","3,63%",Euro,-
+"Orsted A/S 4,125% 23/35",A3LEU3,"103,17",30.12.24 12:59,0,"0,05","4,13%",Euro,-
+"Siemens Energy Finance B.V. 4,25% 23/29",A3LFSH,"103,24",30.12.24 12:59,0,"-0,06","4,25%",Euro,-
+"Intesa Sanpaolo S.p.A. 4,875% 23/30",A3LHY6,"106,94",30.12.24 12:59,0,"-0,03","4,88%",Euro,-
+"Iberdrola Finanzas S.A. 3,625% 23/33",A3LKWK,"102,10",30.12.24 12:59,0,"0,05","3,63%",Euro,-
+"DS Smith PLC 4,375% 23/27",A3LLGZ,"103,27",30.12.24 11:06,0,"-0,04","4,38%",Euro,-
+"East Japan Railway Co. 4,389% 23/43",A3LMP0,"108,47",30.12.24 12:59,0,"-0,37","4,39%",Euro,-
+E.ON SE 4% 23/33,A351VH,"104,05",30.12.24 11:45,0,"-0,13","4,00%",Euro,-
+"ZF Europe Finance B.V. 6,125% 23/29",A3LNA1,"101,34",30.12.24 12:59,0,"0,00","6,13%",Euro,-
+"Volkswagen Leasing GmbH 4,75% 23/31",A3514V,"104,69",30.12.24 09:08,0,"-0,31","4,75%",Euro,-
+"Ethias Vie 6,75% 23/33",A3LHD9,"114,24",30.12.24 09:08,0,"0,38","6,75%",Euro,-
+"Crédit Mutuel Arkéa 4,25% 22/32",A3LBS5,"103,40",30.12.24 09:08,0,"-1,01","4,25%",Euro,-
+"Arkéa Home Loans SFH S.A. 3,25% 23/33",A3LJL8,"101,22",30.12.24 09:08,0,"-0,56","3,25%",Euro,-
+"Mowi ASA 4,656% 20/25",A28SW1,"97,87",30.12.24 12:59,0,"-0,02","4,66%",Euro,-
+"Asian Development Bank (ADB) 2,125% 15/25",A1ZYV1,"99,50",30.12.24 10:30,0,"0,01","2,13%",US-Dollar,-
+"European Bank for Reconstruction and Development 1,5% 20/25",A28TLR,"99,64",30.12.24 10:30,0,"0,52","1,50%",US-Dollar,-
+"European Investment Bank (EIB) 1,625% 19/29",A2R83C,"87,82",30.12.24 10:30,0,"0,58","1,63%",US-Dollar,-
+"Consorcio Transmantaro S.A. 4,7% 19/34",A2R000,"91,97",30.12.24 09:08,0,"-0,30","4,70%",US-Dollar,-
+"Kommunalbanken AS 2,125% 15/25",A1ZWN2,"99,46",30.12.24 09:08,0,"-0,25","2,13%",US-Dollar,"4,68%"
+"European Investment Bank (EIB) 0,5% 16/37",A1866N,"73,46",30.12.24 13:03,0,"-0,12","0,50%",Euro,-
+"Jujuy, Province of... 8,375% 17/27",A19PFV,"87,00",30.12.24 12:59,0,"0,00","8,38%",US-Dollar,-
+"Iberdrola Finanzas S.A. 0,875% 20/25",A28VN1,"98,83",30.12.24 09:08,0,"-0,25","0,88%",Euro,-
+"E.ON SE 0,875% 20/31",A289XM,"86,63",30.12.24 08:05,0,"-0,26","0,88%",Euro,-
+"EnBW Energie Baden-Württemberg AG 1,875% 20/80",A289QA,"97,38",30.12.24 11:45,0,"0,26","1,88%",Euro,-
+"Atrium Finance PLC 2,625% 21/27",A3KLFL,"86,51",30.12.24 09:08,0,"-0,53","2,63%",Euro,-
+"Nordea Bank Abp 0,5% 21/31",A3KNMS,"84,85",30.12.24 09:08,0,"-0,67","0,50%",Euro,-
+"Nederlandse Waterschapsbank N.V. 0,5% 21/51",A3KPVU,"51,21",30.12.24 09:08,0,"-1,92","0,50%",Euro,-
+"Red Eléctrica Financiaciones S.A.U. 0,5% 21/33",A3KQ83,"80,83",30.12.24 09:08,0,"-1,08","0,50%",Euro,-
+Raiffeisenbank a.s. 1% 21/28,A3KR77,"92,99",30.12.24 09:08,0,"-0,36","1,00%",Euro,-
+"Banca Popolare di Sondrio S.p.A. 1,25% 21/27",A3KTYN,"96,82",30.12.24 09:08,0,"-0,18","1,25%",Euro,-
+"International Bank for Reconstruction and Development 6,25% 21/26",A3KXK3,"94,14",30.12.24 13:03,0,"-0,02","6,25%",Mexikanische Pesos,-
+A2A S.p.A. 1% 21/33,A3KX7Y,"80,83",30.12.24 12:59,0,"0,02","1,00%",Euro,-
+"European Investment Bank (EIB) 0,000% 21/27",A3KZU2,"93,46",30.12.24 08:05,0,"-0,04",-,Euro,-
+"SPAREBANK 1 ØSTLANDET 1,75% 22/27",A3K4WL,"97,23",30.12.24 09:08,0,"-0,39","1,75%",Euro,-
+"RWE AG 2,75% 22/30",A30VJF,"97,90",30.12.24 09:08,0,"-0,06","2,75%",Euro,-
+"Redeia Corporacion S.A. 4,625%",A3LDNJ,"102,69",30.12.24 12:59,0,"0,00","4,63%",Euro,-
+"De Volksbank N.V. 4,875% 23/30",A3LE1X,"105,72",30.12.24 09:08,0,"-0,56","4,88%",Euro,-
+"Volkswagen International Finance N.V. 3,875% 23/26",A3LFX1,"100,42",30.12.24 09:08,0,"-0,21","3,88%",Euro,-
+Nederlandse Waterschapsbank N.V. 3% 23/33,A3LGS3,"101,38",30.12.24 13:03,0,"-0,12","3,00%",Euro,-
+"Terna Rete Elettrica Nazionale S.p.A. 3,875% 23/33",A3LK4T,"102,70",30.12.24 12:59,0,"-0,13","3,88%",Euro,-
+"mBank S.A. 8,375% 23/27",A3LM4A,"106,92",30.12.24 08:05,0,"0,25","8,38%",Euro,-
