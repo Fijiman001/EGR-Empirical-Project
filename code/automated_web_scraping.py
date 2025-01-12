@@ -59,21 +59,25 @@ def scrape_bonds(url, output_file, page_limit=20):
 
     try:
         driver.get(url)
-        wait = WebDriverWait(driver, 15)
+        wait = WebDriverWait(driver, 5)
 
-        # Click through Cookie Selection
-        cookie_button = WebDriverWait(driver, 5).until(
-            EC.element_to_be_clickable((By.ID, "cookie-hint-btn-decline"))
-        )
-        cookie_button.click()
-        print("Cookie banner handled successfully (Declined).")
+        # Cookie Handler
+        try:
+            cookie_button = wait.until(
+                EC.element_to_be_clickable((By.ID, "cookie-hint-btn-decline"))
+            )
+            cookie_button.click()
+            print("Cookie banner handled successfully (Declined).")
+        except TimeoutException:
+            print("Cookie banner not found. Skipping...")
 
-        WebDriverWait(driver, 5).until(
-        EC.invisibility_of_element_located((By.CSS_SELECTOR, ".wrapper[_ngcontent-boerse-frankfurt-c97]"))
+        wait.until(
+            EC.invisibility_of_element_located((By.CSS_SELECTOR, ".wrapper[_ngcontent-boerse-frankfurt-c97]"))
         )
         print("Overlay disappeared before 100 button")
 
         # Click the "100" button to show 100 rows per page
+        wait = WebDriverWait(driver, 15)
         hundred_button = wait.until(
             EC.element_to_be_clickable((By.XPATH,"//button[contains(@class, 'page-bar-type-button') and text()='100']")))
         driver.execute_script("arguments[0].scrollIntoView(true);", hundred_button)
@@ -81,8 +85,9 @@ def scrape_bonds(url, output_file, page_limit=20):
         time.sleep(10)
 
         # Wait for overlay to disapear
-        WebDriverWait(driver, 5).until(
-        EC.invisibility_of_element_located((By.CSS_SELECTOR, ".wrapper[_ngcontent-boerse-frankfurt-c97]"))
+        wait = WebDriverWait(driver, 5)
+        wait.until(
+            EC.invisibility_of_element_located((By.CSS_SELECTOR, ".wrapper[_ngcontent-boerse-frankfurt-c97]"))
         )
         print("Overlay disappeared before Pages button")
 
