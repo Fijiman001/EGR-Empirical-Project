@@ -50,25 +50,24 @@ def extract_bond_data(driver, url):
     bond_data = {"URL": url}  # Start with URL for traceability
 
     try:
-        cookie_button = WebDriverWait(driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, "//button[contains(text(), 'Decline')]"))
-        )
-        cookie_button.click()
-        print("Cookie banner handled successfully (Declined).")
-    except TimeoutException:
-        print("Cookie banner not found. Skipping...")
+        # Handle cookie banner if it appears
+        try:
+            cookie_button = WebDriverWait(driver, 10).until(
+                EC.element_to_be_clickable((By.XPATH, "//button[contains(text(), 'Decline')]"))
+            )
+            cookie_button.click()
+            print("Cookie banner handled successfully (Declined).")
+        except TimeoutException:
+            print("Cookie banner not found. Skipping...")
 
-    try:
         # Wait for the data table to load
         WebDriverWait(driver, 10).until(
             EC.presence_of_element_located((By.XPATH, "//div[@_ngcontent-boerse-frankfurt-c151]"))
         )
 
-        # Add location of c151
-
         # Define the data points and their XPaths
         data_points = {
-            "time": "//div[@_ngcontent-boerse-frankfurt-c151]//td[contains(@class, 'widget-table-cell text-right') and text()[contains(.25, ':')]]",
+            "time": "//div[@_ngcontent-boerse-frankfurt-c151]//td[contains(@class, 'widget-table-cell text-right') and text()[contains(., ':')]]",
             "bid": "//div[@_ngcontent-boerse-frankfurt-c151]//td[contains(@class, 'widget-table-cell askBidLimit') and not(contains(@class, 'text-right'))]",
             "ask": "//div[@_ngcontent-boerse-frankfurt-c151]//td[contains(@class, 'widget-table-cell askBidLimit text-right')]",
             "bid_for_x_nominal": "//div[@_ngcontent-boerse-frankfurt-c151]//td[contains(@class, 'widget-table-cell') and text()[contains(., 'für')] and not(contains(@class, 'text-right'))]",
@@ -80,16 +79,21 @@ def extract_bond_data(driver, url):
         # Loop through each data point and extract the text
         for key, xpath in data_points.items():
             try:
-                element = driver.find_element(By.XPATH, xpath)
-                text = element.text.strip()
-                if key in ["bid_for_x_nominal", "ask_for_x_nominal"]:
-                    match = re.search(r'\d+', text)  # Find the first numeric value
-                    bond_data[key] = int(match.group()) if match else 0  # Default to 0 if no number is found
+                # Use find_elements to handle multiple matches and select the first one
+                elements = driver.find_elements(By.XPATH, xpath)
+                if elements:
+                    text = elements[0].text.strip()  # Get the first element's text
+                    if key in ["bid_for_x_nominal", "ask_for_x_nominal"]:
+                        match = re.search(r'\d+', text)  # Extract only the numeric value
+                        bond_data[key] = int(match.group()) if match else 0  # Default to 0 if no number is found
+                    else:
+                        bond_data[key] = text  # Save the full text for other fields
                 else:
-                    bond_data[key] = text  # Save the full text for other fields
+                    bond_data[key] = "N/A"  # Handle missing elements gracefully
 
-            except NoSuchElementException:
+            except Exception as inner_e:
                 bond_data[key] = "N/A"  # Handle missing data gracefully
+                print(f"Error extracting data for {key}: {inner_e}")
 
     except TimeoutException:
         print(f"Timeout: Failed to load data on page {url}")
@@ -135,7 +139,7 @@ try:
         EC.element_to_be_clickable((By.XPATH, "//button[contains(@class, 'page-bar-type-button btn btn-lg ng-star-inserted') and text()='100']"))
     )
     hundred_button.click()
-    time.sleep(3)
+    time.sleep(5)
 
     # Variable to store bond links
     all_bond_links = []
@@ -144,6 +148,7 @@ try:
         By.XPATH,
         "//button[contains(@class, 'page-bar-type-button page-bar-type-button-width-auto btn btn-lg ng-star-inserted') and not(@disabled)]",
     )
+    page_limit = 10 # Limit to 1000 bonds for now
     total_pages = min(
         int(page_buttons[-1].text.strip()), page_limit or float("inf")
     )
@@ -157,7 +162,7 @@ try:
                     EC.element_to_be_clickable((By.XPATH, f"//button[contains(@class, 'page-bar-type-button page-bar-type-button-width-auto btn btn-lg ng-star-inserted') and text()='{page}']"))
                 )
                 page_button.click()
-                time.sleep(3)
+                time.sleep(5)
 
             page_source = driver.page_source
             soup = BeautifulSoup(page_source, "html.parser")
@@ -192,12 +197,13 @@ except Exception as e:
 
 # Export the DataFrame to a CSV file even if errors occur
 finally:
-    # Create a DataFrame from the data
-    df = pd.DataFrame(detailed_bonds_data)
-    # Save to CSV
-    csv_file = f"bond_spread_data_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv"
-    df.to_csv(csv_file, index=False)
-    print(f"Data saved to {csv_file}")
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    # # Create a DataFrame from the data
+    # df = pd.DataFrame(detailed_bonds_data)
+    # # Save to CSV
+    # csv_file = f"bond_spread_data_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv"
+    # df.to_csv(csv_file, index=False)
+    # print(f"Data saved to {csv_file}")
 
     # Save bond links as a backup
     df_links = pd.DataFrame(all_bond_links, columns=["Bond Links"])
@@ -228,7 +234,7 @@ def create_driver():
 
     # don't return anything
 
-urls = all_bond_links[:100] # your list of urls
+urls = all_bond_links # your list of urls
 
 # number of processes to use
 # can be more than the number of CPUs
