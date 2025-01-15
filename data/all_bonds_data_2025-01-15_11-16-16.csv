@@ -1,0 +1,601 @@
+Name,WKN,Last Price,Date/Time Last Price,Volume in Euro,+/- %,Coupon,Currency,YTM
+"Deutschland, Bundesrepublik 2,8% 23/25",BU2201,"100,06",15.01.25 11:10,"3,21 Mio.","0,00","2,80%",Euro,-
+"Deutschland, Bundesrepublik 0,000% 24/25",BU0E14,"99,76",15.01.25 10:00,"1,93 Mio.","0,01",-,Euro,-
+"Deutschland, Bundesrepublik 1% 15/25",110238,"99,15",15.01.25 11:12,"1,49 Mio.","0,00","1,00%",Euro,"2,50%"
+"Deutschland, Bundesrepublik 3,1% 23/25",BU2202,"100,38",15.01.25 11:13,"1,22 Mio.","-0,01","3,10%",Euro,-
+"Deutschland, Bundesrepublik 0,5% 16/26",110239,"98,11",15.01.25 11:16,946.768,"-0,01","0,50%",Euro,"2,29%"
+"Türkei, Republik 6,625% 14/45",A1ZDS6,"83,20",15.01.25 11:38,812.103,"0,80","6,63%",US-Dollar,"8,62%"
+"Deutschland, Bundesrepublik 0,000% 20/25",103071,"98,30",15.01.25 11:14,491.475,"-0,01",-,Euro,-
+"Deutschland, Bundesrepublik 3,1% 23/25",BU2203,"100,60",15.01.25 11:15,422.520,"0,00","3,10%",Euro,-
+"Europäische Union 0,8% 22/25",A3K4DJ,"99,24",15.01.25 12:01,238.176,"0,09","0,80%",Euro,"2,48%"
+"Deutsche Börse AG 3,75% 23/29",A351ZS,"103,00",15.01.25 08:00,206.000,"0,25","3,75%",Euro,-
+"Airbus SE 0,875% 16/26",A181L6,"97,70",15.01.25 08:27,195.400,"0,33","0,88%",Euro,"2,28%"
+"Deutschland, Bundesrepublik 2,4% 23/30",BU2700,"99,83",15.01.25 11:39,189.684,"0,15","2,40%",Euro,-
+"Deutschland, Bundesrepublik 4% 05/37",113527,"112,75",15.01.25 11:52,151.556,"0,11","4,00%",Euro,"2,75%"
+"Deutschland, Bundesrepublik 2,7% 24/26",BU2206,"100,62",15.01.25 11:19,150.933,"-0,02","2,70%",Euro,-
+"Deutschland, Bundesrepublik 2% 24/26",BU2207,"99,46",15.01.25 11:20,149.190,"0,01","2,00%",Euro,-
+"Deutschland, Bundesrepublik 2,5% 24/29",BU2503,"100,38",15.01.25 11:09,140.571,"0,05","2,50%",Euro,-
+"Kreditanstalt für Wiederaufbau 2,375% 24/27",A351Y9,"99,72",15.01.25 10:45,139.881,"0,05","2,38%",Euro,-
+"Mercedes-Benz Group AG 0,75% 19/30",A2YNZX,"88,78",15.01.25 11:00,133.170,"1,38","0,75%",Euro,"3,47%"
+"United States of America 4,125% 22/27",A3LAY3,"99,45",15.01.25 10:54,131.021,"0,47","4,13%",US-Dollar,-
+"Deutschland, Bundesrepublik 0,000% 21/52",110257,"46,71",15.01.25 11:23,122.688,"0,06",-,Euro,-
+"Landesbank Hessen-Thüringen Girozentrale 2,875% 24/34",HLB2Q0,"98,91",15.01.25 10:32,98.910,"0,25","2,88%",Euro,-
+"Italien, Republik 3,65% 25/35",A3L77M,"98,50",15.01.25 11:30,98.460,"0,36","3,65%",Euro,-
+"Rumänien, Republik 5,125% 24/31",A3L3V9,"95,47",15.01.25 10:00,97.780,"0,02","5,13%",Euro,-
+"Norwegen, Königreich 3,625% 24/34",A3LUH0,"96,83",15.01.25 11:50,97.522,"0,18","3,63%",Norwegische Kronen,-
+"Deutschland, Bundesrepublik 0,125% 15/46",103057,"87,42",15.01.25 11:59,96.252,"0,01","0,13%",Euro,-
+"Deutschland, Bundesrepublik 0,5% 17/27",110242,"95,74",15.01.25 11:21,95.744,"-0,03","0,50%",Euro,"2,22%"
+Wells Fargo & Co. 3% 16/26,A18784,"97,09",15.01.25 11:43,94.766,"0,16","3,00%",US-Dollar,"4,88%"
+"Rumänien, Republik 4,15% 20/28",A28TYG,"90,66",15.01.25 08:23,94.757,"0,30","4,15%",Leu (Rumänien),-
+"Fresenius Medical Care AG 1,25% 19/29",A255DW,"91,24",15.01.25 11:03,91.235,"0,48","1,25%",Euro,-
+"Kreditanstalt für Wiederaufbau 1,25% 22/27",A3MQVV,"97,09",15.01.25 10:45,87.363,"0,11","1,25%",Euro,-
+"European Bank for Reconstruction and Development 0,000% 97/27",190777,"83,72",15.01.25 11:50,86.189,"0,69",-,Südafrikanische Rand,"8,66%"
+SES S.A. 6% 24/54,A3L0Z1,"79,00",15.01.25 11:54,79.000,"2,38","6,00%",Euro,-
+"Mercedes-Benz International Finance B.V. 3,7% 23/31",A3LH6U,"102,17",15.01.25 11:44,76.628,"0,89","3,70%",Euro,-
+"Volkswagen Leasing GmbH 4,75% 23/31",A3514V,"104,29",15.01.25 11:44,76.119,"0,28","4,75%",Euro,-
+The Goldman Sachs Group Inc. 3% 16/31,A18XVM,"99,10",15.01.25 11:44,74.325,"0,06","3,00%",Euro,"3,17%"
+"Deutschland, Bundesrepublik 2,2% 23/28",BU2500,"99,69",15.01.25 11:06,71.785,"0,03","2,20%",Euro,-
+United States of America 3% 18/48,A19V4P,"71,67",15.01.25 11:43,69.956,"0,13","3,00%",US-Dollar,"5,15%"
+The Goldman Sachs Group Inc. 2% 18/28,A19340,"96,11",15.01.25 11:45,62.492,"0,01","2,00%",Euro,"3,08%"
+"RCI Banque S.A. 3,875% 24/29",A3LSR3,"100,67",15.01.25 09:48,62.409,"0,32","3,88%",Euro,-
+"Deutschland, Bundesrepublik 0,000% 98/27",114260,"96,88",15.01.25 11:48,60.002,"1,97",-,Euro,"1,63%"
+"Ecuador, Republik 5% 20/40",A281FF,"56,81",15.01.25 08:46,55.451,"5,67","5,00%",US-Dollar,-
+"Österreich, Republik 0,85% 20/20",A28Y97,"39,92",15.01.25 11:54,55.194,"1,06","0,85%",Euro,-
+"Volkswagen International Finance N.V. 3,5%",A1ZYTK,"89,22",15.01.25 10:18,53.520,"-0,04","3,50%",Euro,-
+Deutsche Pfandbriefbank AG 4% 24/28,A38261,"99,29",15.01.25 11:35,49.645,"0,21","4,00%",Euro,-
+"European Bank for Reconstruction and Development 0,000% 97/27",191715,"82,50",15.01.25 11:50,42.520,"0,30",-,Südafrikanische Rand,"8,29%"
+"Landesbank Hessen-Thüringen Girozentrale 1,55% 18/33",HLB3T1,"83,70",15.01.25 10:00,41.850,"0,00","1,55%",Euro,-
+"Deutschland, Bundesrepublik 2,6% 24/34",BU2Z03,"99,93",15.01.25 11:15,39.969,"0,13","2,60%",Euro,-
+"Grenke Finance PLC 6,75% 23/26",A3LJCD,"103,00",15.01.25 09:46,36.050,"0,49","6,75%",Euro,-
+"Commerzbank AG 1,5% 18/28",CZ40M3,"94,81",15.01.25 11:28,32.233,"0,16","1,50%",Euro,"3,04%"
+"Frankreich, Republik 2% 21/32",A3K7HG,"91,41",15.01.25 12:01,31.994,"0,24","2,00%",Euro,-
+"Rumänien, Republik 2,625% 20/40",A285V0,"61,65",15.01.25 11:52,30.825,"0,74","2,63%",Euro,-
+"OMV AG 6,25%",A1Z6ZR,"102,30",15.01.25 10:45,30.690,"0,00","6,25%",Euro,-
+"RWE AG 3,625% 23/29",A30V83,"102,00",15.01.25 08:01,30.600,"0,55","3,63%",Euro,-
+"Covestro AG 1,375% 20/30",A3E44M,"89,64",15.01.25 12:08,30.476,"-0,13","1,38%",Euro,-
+"DZ BANK AG Deutsche Zentral-Genossenschaftsbank, Frankfurt am Main 3,4% 22/26",DW6CWN,"97,35",15.01.25 12:01,30.436,"0,01","3,40%",US-Dollar,-
+"Deutschland, Bundesrepublik 2,4% 23/28",BU2501,"100,19",15.01.25 11:07,30.062,"0,02","2,40%",Euro,-
+"The Goldman Sachs Group Inc. 3,375% 20/25",A28VAL,"100,04",15.01.25 10:43,30.012,"0,00","3,38%",Euro,-
+"Landesbank Hessen-Thüringen Girozentrale 2,5% 25/25",HEL0B7,"99,70",15.01.25 11:48,29.910,"0,00","2,50%",Euro,-
+"Frankreich, Republik 1,5% 15/31",A1Z7JJ,"91,03",15.01.25 11:30,29.798,"0,23","1,50%",Euro,"3,08%"
+"The Dow Chemical Co. 7,375% 99/29",450258,"108,79",15.01.25 11:44,29.733,"0,33","7,38%",US-Dollar,-
+SoWiTec group GmbH 8% 18/26,A2NBZ2,"92,49",15.01.25 11:33,29.690,"8,68","8,00%",Euro,-
+"Deutschland, Bundesrepublik 0,000% 24/25",BU0E22,"98,23",15.01.25 11:58,29.468,"0,03",-,Euro,-
+"John Deere Capital Corp. 4,7% 23/30",A3LJP1,"99,15",15.01.25 11:44,29.034,"0,10","4,70%",US-Dollar,-
+"Landesbank Hessen-Thüringen Girozentrale 0,000% 17/29",HLB4EW,"91,80",15.01.25 10:00,27.510,"0,00",-,Euro,-
+"Landesbank Hessen-Thüringen Girozentrale 2,2% 25/26",HEL0CC,"99,50",15.01.25 08:24,24.875,"0,00","2,20%",Euro,-
+"E.ON SE 3,125% 24/30",A383UX,"99,30",15.01.25 10:00,24.833,"-0,13","3,13%",Euro,-
+E.ON SE 1% 20/25,A289E0,"98,79",15.01.25 11:07,24.697,"0,02","1,00%",Euro,-
+"The Goldman Sachs Group Inc. 1,625% 16/26",A1VQC5,"98,30",15.01.25 10:53,24.574,"0,13","1,63%",Euro,"2,78%"
+"Frankreich, Republik 0,000% 22/32",A3K0NZ,"79,33",15.01.25 11:30,23.805,"0,28",-,Euro,-
+"United States of America 3,75% 23/30",A3LST2,"95,57",15.01.25 09:53,23.321,"-0,01","3,75%",US-Dollar,-
+"Südzucker International Finance B.V. 5,783%",A0E6FU,"84,55",15.01.25 12:04,22.783,"1,20","5,78%",Euro,-
+"Knorr-Bremse AG 1,125% 18/25",A2LQP5,"98,95",15.01.25 11:07,21.769,"0,00","1,13%",Euro,"2,40%"
+"Spanien, Königreich 0,1% 21/31",A287WF,"84,01",15.01.25 09:17,21.003,"0,12","0,10%",Euro,-
+"Rumänien, Republik 2,875% 16/28",A1814W,"95,25",15.01.25 11:31,20.966,"0,09","2,88%",Euro,"4,32%"
+"Capital One Financial Corp. 7,149% 23/27",A3LQMD,"103,36",15.01.25 10:00,20.178,"0,04","7,15%",US-Dollar,-
+"Porsche Automobil Holding SE 3,75% 24/29",A383H7,"99,15",15.01.25 10:00,19.838,"0,13","3,75%",Euro,-
+"Berlin, Land 3,023% 24/30",A351PP,"98,93",15.01.25 11:27,19.785,"0,20","3,02%",Euro,-
+"Deutschland, Bundesrepublik 2,3% 23/33",BU2Z00,"98,35",15.01.25 11:13,19.523,"0,12","2,30%",Euro,-
+"United States of America 4,25% 24/26",A3L7TA,"99,81",15.01.25 11:27,19.485,"0,06","4,25%",US-Dollar,-
+"Volkswagen Financial Services AG 2,25% 19/27",A2LQ6G,"96,84",15.01.25 10:00,19.438,"-0,39","2,25%",Euro,"3,35%"
+"United States of America 5,375% 01/31",610743,"103,67",15.01.25 10:25,19.303,"0,53","5,38%",US-Dollar,"4,66%"
+Deutsche Telekom International Finance B.V. 2% 18/29,A191CW,"96,40",15.01.25 09:49,19.280,"0,25","2,00%",Euro,"2,81%"
+"Kreditanstalt für Wiederaufbau 3,75% 23/28",A30VR9,"97,82",15.01.25 10:30,19.180,"-0,44","3,75%",US-Dollar,-
+"Fraport AG Frankfurt Airport Services Worldwide 1,875% 21/28",A3E5F0,"95,89",15.01.25 10:51,19.178,"0,15","1,88%",Euro,-
+European Bank for Reconstruction and Development 37% 24/26,A3L6TU,"101,42",15.01.25 11:31,16.734,"3,28","37,00%",Türkische Lira,-
+"Singapur, Republik 3,5% 07/27",A0LN35,"101,50",15.01.25 09:27,16.668,"0,00","3,50%",Singapur-Dollar,"2,45%"
+"United States of America 0,5% 20/25",A28VFE,"99,29",15.01.25 10:54,16.476,"0,10","0,50%",US-Dollar,-
+"Deutsche Bahn Finance GmbH 0,45% 17/30",A2E4HS,"97,94",15.01.25 12:00,15.557,"0,08","0,45%",Schweizer Franken,-
+"Volkswagen Financial Services AG 3,75% 24/26",A2LQ6W,"100,80",15.01.25 10:00,15.134,"-0,11","3,75%",Euro,-
+"Grenke Finance PLC 3,95% 20/25",A28VXK,"100,00",15.01.25 11:01,15.000,"0,00","3,95%",Euro,-
+"Deutschland, Bundesrepublik 2,5% 23/25",BU2200,"99,95",15.01.25 11:29,14.993,"0,01","2,50%",Euro,-
+"Sachsen, Freistaat 0,01% 20/25",178927,"99,10",15.01.25 11:12,14.865,"0,89","0,01%",Euro,-
+"Nestlé Finance International Ltd. 3,5% 25/45",A3L71Y,"97,39",15.01.25 11:31,14.609,"0,19","3,50%",Euro,-
+"United States of America 4,375% 23/28",A3LRYN,"99,45",15.01.25 10:48,14.561,"0,12","4,38%",US-Dollar,-
+"Nestlé Finance International Ltd. 3,25% 24/37",A3LTNG,"96,81",15.01.25 10:00,14.559,"-0,10","3,25%",Euro,-
+"Volkswagen Financial Services AG 0,375% 21/30",A2LQ6S,"84,30",15.01.25 08:45,14.331,"0,85","0,38%",Euro,-
+"Thermo Fisher Scientific Inc. 4,953% 23/26",A3LL1G,"100,38",15.01.25 11:12,13.717,"0,02","4,95%",US-Dollar,-
+Neon Equity AG 10% 24/29,A383C7,"94,00",15.01.25 08:53,13.160,"0,00","10,00%",Euro,-
+"T-Mobile USA Inc. 1,5% 20/26",A3KQRF,"96,27",15.01.25 11:12,13.155,"-0,02","1,50%",US-Dollar,-
+Commerzbank AG 3% 23/27,CZ43ZM,"100,49",15.01.25 11:21,13.064,"0,58","3,00%",Euro,-
+"E.ON SE 4,125% 24/44",A383CW,"100,11",15.01.25 12:02,13.009,"0,92","4,13%",Euro,-
+European Investment Bank (EIB) 8% 17/27,A19GZ2,"100,60",15.01.25 11:51,12.693,"0,71","8,00%",Südafrikanische Rand,"7,68%"
+"Citigroup Inc. 3,3% 15/25",A1Z0U3,"99,62",15.01.25 11:18,12.641,"-0,05","3,30%",US-Dollar,"4,28%"
+BERTELSMANN  GEN.2001,522994,"276,50",15.01.25 11:19,12.303,"1,28","15,00%",Euro,"-1,35%"
+"Mercedes-Benz International Finance B.V. 3,25% 24/27",A38296,"100,84",15.01.25 08:47,12.101,"0,75","3,25%",Euro,-
+"European Investment Bank (EIB) 2,75% 24/34",A3LS46,"98,29",15.01.25 10:45,11.833,"0,17","2,75%",Euro,-
+"United States of America 4,5% 24/31",A3L7TC,"99,01",15.01.25 10:48,11.597,"0,16","4,50%",US-Dollar,-
+"United States of America 4,5% 23/33",A3LQVK,"98,26",15.01.25 10:48,11.502,"0,19","4,50%",US-Dollar,-
+"Portugal, Republik 1% 21/52",A3KLNB,"55,76",15.01.25 10:00,11.236,"0,07","1,00%",Euro,-
+"Air Lease Corp. 2,2% 22/27",A3K0XH,"94,71",15.01.25 11:10,11.093,"0,07","2,20%",US-Dollar,-
+"Canada, Government of... 3,75% 23/25",A3LD8H,"100,15",15.01.25 11:50,10.868,"0,00","3,75%",Canadische Dollar,-
+"Deutschland, Bundesrepublik 0,000% 20/25",114182,"98,28",15.01.25 11:14,10.577,"-0,02",-,Euro,-
+Katjesgreenfood GmbH & Co. KG 8% 22/27,A30V3F,"104,25",15.01.25 11:09,10.425,"0,00","8,00%",Euro,-
+Netfonds AG 7% 24/29,A4DFAM,"104,00",15.01.25 10:06,10.400,"1,36","7,00%",Euro,-
+"DZ BANK AG Deutsche Zentral-Genossenschaftsbank, Frankfurt am Main 3,5% 23/27",DJ9AAQ,"101,28",15.01.25 12:08,10.128,"0,99","3,50%",Euro,-
+"Heidelberg Materials AG 3,95% 24/34",A383EX,"100,75",15.01.25 08:40,10.108,"0,24","3,95%",Euro,-
+"Australia, Commonwealth of... 3,25% 15/39",A1Z848,"83,77",15.01.25 11:50,10.108,"0,84","3,25%",Australische Dollar,"4,88%"
+Landesbank Hessen-Thüringen Girozentrale 3% 23/27,HLB509,"100,15",15.01.25 10:08,10.015,"0,00","3,00%",Euro,"2,60%"
+"Rheinland-Pfalz, Land 2,375% 25/27",RLP157,"100,06",15.01.25 09:59,10.006,"0,36","2,38%",Euro,-
+"E.ON SE 3,5% 25/33",A383X4,"99,50",15.01.25 10:24,9.950,"-0,05","3,50%",Euro,-
+"Nestlé Finance International Ltd. 0,000% 20/25",A285PB,"97,74",15.01.25 11:45,9.780,"-0,02",-,Euro,-
+PARQ energy GmbH 12% 23/28,A3510D,"97,00",15.01.25 10:41,9.700,"0,00","12,00%",Euro,-
+"Deutsche Bank AG 0,000% 96/26",134575,"94,83",15.01.25 11:20,9.697,"0,56",-,Deutsche Mark,"3,37%"
+"Rumänien, Republik 7,125% 23/33",A3LCXD,"99,09",15.01.25 09:27,9.672,"0,67","7,13%",US-Dollar,-
+"Polen, Republik 3,25% 16/26",A18ZSU,"98,27",15.01.25 10:30,9.614,"-0,03","3,25%",US-Dollar,"4,44%"
+AXA S.A. 3%,A0DXAK,"96,10",15.01.25 08:43,9.610,"0,78","3,00%",Euro,-
+"Fresenius Medical Care AG 0,625% 19/26",A255DV,"95,68",15.01.25 11:01,9.568,"-0,01","0,63%",Euro,-
+"United States of America 1,625% 16/26",A1VMZ0,"97,19",15.01.25 10:46,9.486,"0,03","1,63%",US-Dollar,"4,37%"
+"United States of America 3,875% 22/29",A3LCNH,"96,88",15.01.25 10:45,9.456,"0,07","3,88%",US-Dollar,-
+"HELLA GmbH & Co. KGaA 0,5% 19/27",A2YN2Z,"94,45",15.01.25 11:00,9.445,"0,06","0,50%",Euro,"3,17%"
+"United States of America 0,375% 20/25",A28658,"96,42",15.01.25 10:46,9.411,"0,10","0,38%",US-Dollar,-
+"Mercedes-Benz Group AG 1,5% 17/29",A2GSCW,"93,70",15.01.25 09:05,9.370,"0,90","1,50%",Euro,"3,06%"
+"United States of America 0,5% 21/26",A3KMDQ,"95,91",15.01.25 10:33,9.361,"0,07","0,50%",US-Dollar,-
+"United States of America 4,625% 24/54",A3LYF1,"94,66",15.01.25 10:46,9.240,"0,44","4,63%",US-Dollar,-
+"Italien, Republik 4% 05/37",A0GG8H,"102,00",15.01.25 10:18,9.180,"0,86","4,00%",Euro,"3,81%"
+"PROKON Regenerative Energien eG 3,5% 16/30",A2AASM,"93,55",15.01.25 09:59,9.174,"-0,17","3,50%",Euro,"4,61%"
+"Belgien, Königreich 2,85% 24/34",A3LTAB,"96,97",15.01.25 10:00,9.125,"-0,02","2,85%",Euro,-
+"Norwegen, Königreich 2% 18/28",A19ZVX,"94,57",15.01.25 10:07,8.957,"0,54","2,00%",Norwegische Kronen,"3,79%"
+"Norwegen, Königreich 1,375% 20/30",A28TXS,"87,38",15.01.25 10:07,8.947,"0,69","1,38%",Norwegische Kronen,-
+"United States of America 2,25% 19/49",A2R6AC,"60,52",15.01.25 10:50,8.861,"0,36","2,25%",US-Dollar,"5,15%"
+"Landesbank Hessen-Thüringen Girozentrale 0,25% 20/30",HLB2X4,"83,55",15.01.25 10:00,8.455,"0,00","0,25%",Euro,"3,20%"
+"METRO AG 4,625% 24/29",A383CH,"104,01",15.01.25 11:45,8.320,"0,00","4,63%",Euro,-
+United States of America 4% 24/34,A3LUB5,"94,46",15.01.25 10:54,8.298,"0,17","4,00%",US-Dollar,-
+"Großbritannien und Nord-Irland, Vereinigtes Königreich 4,5% 23/28",A3LKCE,"100,08",15.01.25 12:08,8.133,"0,27","4,50%",Britische Pfund,-
+European Financial Stability Facility [EFSF] 3% 23/28,A2SCAH,"101,14",15.01.25 10:45,8.087,"0,10","3,00%",Euro,-
+"Nokia of America Corp. 6,45% 99/29",294959,"103,50",15.01.25 10:17,8.082,"0,19","6,45%",US-Dollar,"7,10%"
+"AMC Entertainment Inc. 5,75% 15/25",A1Z3N7,"102,81",15.01.25 11:10,8.028,"6,19","5,75%",US-Dollar,-
+"Deutschland, Bundesrepublik 1% 22/38",110259,"80,25",15.01.25 11:17,8.025,"0,21","1,00%",Euro,-
+"Frankreich, Republik 3% 22/33",A3LGHB,"97,73",15.01.25 11:30,7.816,"0,26","3,00%",Euro,-
+"United States of America 3,625% 23/53",A3LHRA,"79,29",15.01.25 10:25,7.734,"0,46","3,63%",US-Dollar,-
+"Spanien, Königreich 2,55% 22/32",A3K6K4,"96,28",15.01.25 10:10,7.691,"0,15","2,55%",Euro,-
+"Spanien, Königreich 1,95% 15/30",A1ZXQ6,"95,44",15.01.25 09:43,7.635,"0,15","1,95%",Euro,"2,85%"
+"European Investment Bank (EIB) 0,05% 19/34",A2R8AK,"75,08",15.01.25 10:45,7.565,"-0,75","0,05%",Euro,-
+"Landesbank Hessen-Thüringen Girozentrale 1,25% 18/28",HLB3SU,"93,05",15.01.25 10:00,7.448,"0,00","1,25%",Euro,"3,10%"
+"Amazon.com Inc. 1,2% 20/27",A28X7H,"92,68",15.01.25 10:34,7.237,"0,24","1,20%",US-Dollar,-
+United States of America 3% 15/45,A1Z1NK,"73,94",15.01.25 10:52,7.217,"0,53","3,00%",US-Dollar,"5,17%"
+"Norwegen, Königreich 1,25% 21/31",A3KLQ9,"84,22",15.01.25 10:08,7.186,"0,43","1,25%",Norwegische Kronen,-
+"Baden-Württemberg, Land 3,62% 23/29",A14JZY,"99,44",15.01.25 10:59,6.961,"-0,18","3,62%",Euro,-
+"BASF SE 0,875% 18/25",A2LQ5G,"99,24",15.01.25 11:18,6.947,"0,02","0,88%",Euro,"2,66%"
+"Deutschland, Bundesrepublik 0,000% 19/50",110248,"49,33",15.01.25 11:22,6.939,"0,06",-,Euro,"2,80%"
+Kraft Heinz Foods Co. 5% 12/42,A1HD42,"88,56",15.01.25 12:04,6.915,"1,73","5,00%",US-Dollar,"6,33%"
+"Nordrhein-Westfalen, Land 0,5% 19/39",NRW0L0,"68,92",15.01.25 10:04,6.892,"1,70","0,50%",Euro,-
+"Commerzbank AG 0,1% 21/25",CB0HRY,"98,29",15.01.25 11:18,6.880,"0,01","0,10%",Euro,-
+"Finnland, Republik 1,375% 22/27",A3K8VE,"97,73",15.01.25 09:38,6.841,"0,08","1,38%",Euro,-
+"United States of America 4,125% 23/26",A3LJ4M,"99,74",15.01.25 10:52,6.815,"0,05","4,13%",US-Dollar,-
+"Citigroup Inc. 3,4% 16/26",A180XA,"98,36",15.01.25 11:28,6.720,"0,03","3,40%",US-Dollar,"4,77%"
+"United States of America 4,25% 10/40",A1A3HC,"91,90",15.01.25 10:25,6.275,"0,46","4,25%",US-Dollar,"5,05%"
+"United States of America 2,375% 22/29",A3K31L,"91,74",15.01.25 10:57,6.268,"0,11","2,38%",US-Dollar,-
+KION GROUP AG 4% 24/29,A383W2,"101,61",15.01.25 10:00,6.108,"-0,19","4,00%",Euro,-
+"Azerion Group N.V. 9,428% 23/26",A3LNLX,"101,00",15.01.25 08:10,6.105,"-0,74","9,43%",Euro,-
+"Rumänien, Republik 6,375% 23/33",A3LNGG,"101,60",15.01.25 10:05,6.096,"-0,04","6,38%",Euro,-
+"Italien, Republik 1,7% 20/51",A284HK,"60,85",15.01.25 11:33,6.085,"-0,11","1,70%",Euro,-
+Deutsche Kreditbank AG 3% 23/35,SCB004,"100,04",15.01.25 11:57,6.002,"0,69","3,00%",Euro,-
+PNE AG 5% 22/27,A30VJW,"100,00",15.01.25 10:14,6.000,"-0,25","5,00%",Euro,-
+"AT & T Inc. 4,6% 18/28",A2RRZZ,"99,37",15.01.25 11:26,5.986,"0,81","4,60%",Australische Dollar,"4,84%"
+Landesbank Baden-Württemberg 2% 22/25,LB2ZTL,"101,73",15.01.25 08:04,5.958,"2,40","2,00%",US-Dollar,-
+United States of America 3% 18/25,A2RTKJ,"98,97",15.01.25 10:00,5.796,"-0,02","3,00%",US-Dollar,"4,30%"
+"Rumänien, Republik 7,625% 23/53",A3LCXE,"96,84",15.01.25 10:00,5.718,"-0,78","7,63%",US-Dollar,-
+"United States of America 2,5% 15/45",A1ZWSB,"67,78",15.01.25 10:59,5.624,"0,68","2,50%",US-Dollar,"5,14%"
+"United States of America 4,25% 09/39",A0T9JP,"92,94",15.01.25 10:25,5.438,"0,24","4,25%",US-Dollar,"4,98%"
+"Deutschland, Bundesrepublik 5,5% 00/31",113517,"116,80",15.01.25 11:11,5.256,"0,09","5,50%",Euro,"2,41%"
+"Cardea Luna Capital Partners Ltd. 10,25% 24/29",A3L2B9,"102,00",15.01.25 10:09,5.100,"3,03","10,25%",Euro,-
+"E.ON SE 3,5% 23/28",A30V8A,"101,67",15.01.25 10:40,5.084,"0,50","3,50%",Euro,-
+Aream Solar Finance GmbH 8% 24/29,A383BE,"100,25",15.01.25 09:39,5.013,"0,50","8,00%",Euro,-
+"UniCredit Bank GmbH 3,125% 23/25",HV2AZG,"100,14",15.01.25 09:34,5.007,"0,00","3,13%",Euro,-
+"E.ON SE 3,5% 24/32",A383CV,"100,04",15.01.25 09:33,5.002,"0,29","3,50%",Euro,-
+Landesbank Hessen-Thüringen Girozentrale 3% 23/25,HLB5RA,"99,95",15.01.25 10:56,4.998,"0,00","3,00%",Euro,"1,58%"
+"Australia, Commonwealth of... 1,75% 20/51",A280QR,"50,97",15.01.25 11:50,4.985,"1,25","1,75%",Australische Dollar,-
+"Irland, Republik 0,9% 18/28",A19UMH,"95,39",15.01.25 10:53,4.979,"0,12","0,90%",Euro,"2,35%"
+"Niederlande, Königreich der 2,5% 23/30",A3LF7S,"99,61",15.01.25 11:30,4.979,"0,09","2,50%",Euro,-
+"Italien, Republik 2,1% 19/26",A2R0ZP,"99,44",15.01.25 10:00,4.973,"0,00","2,10%",Euro,"2,50%"
+"Frankreich, Republik 0,000% 24/25",A4SGT6,"98,90",15.01.25 11:30,4.946,"0,00",-,Euro,-
+"Kreditanstalt für Wiederaufbau 2,625% 24/34",A352ED,"97,98",15.01.25 10:45,4.918,"-0,38","2,63%",Euro,-
+"Hessen, Land 2,5% 24/31",A1RQEZ,"98,28",15.01.25 09:34,4.914,"0,69","2,50%",Euro,-
+"United States of America 4,625% 23/28",A3LN9C,"100,35",15.01.25 10:51,4.898,"0,14","4,63%",US-Dollar,-
+Commerzbank AG 1% 19/26,CZ40NS,"97,88",15.01.25 10:47,4.894,"0,02","1,00%",Euro,"2,95%"
+"United States of America 4,625% 23/30",A3LN9D,"100,04",15.01.25 10:48,4.882,"0,12","4,63%",US-Dollar,-
+"United States of America 3,875% 23/25",A3LFZ7,"99,90",15.01.25 09:55,4.875,"0,00","3,88%",US-Dollar,-
+"United States of America 4,75% 07/37",A0LMWD,"99,67",15.01.25 10:25,4.865,"0,17","4,75%",US-Dollar,"4,82%"
+"Prudential PLC 6,125% 01/31",826407,"102,35",15.01.25 12:05,4.857,"1,60","6,13%",Britische Pfund,"5,81%"
+"Kreditanstalt für Wiederaufbau 0,625% 17/27",A2DAR6,"96,28",15.01.25 10:45,4.814,"0,07","0,63%",Euro,"2,39%"
+"Deutschland, Bundesrepublik 1,25% 17/48",110243,"73,14",15.01.25 11:21,4.812,"0,10","1,25%",Euro,"2,83%"
+"Barclays Bank PLC 5,75% 01/26",716483,"101,34",15.01.25 12:01,4.809,"1,18","5,75%",Britische Pfund,"5,62%"
+"paragon GmbH & Co. KGaA 7,5% 17/27",A2GSB8,"53,00",15.01.25 08:30,4.772,"0,00","7,50%",Euro,-
+"United States of America 4,125% 23/30",A3LMM6,"97,53",15.01.25 10:48,4.760,"0,07","4,13%",US-Dollar,-
+"Österreich, Republik 4,15% 06/37",A0G4X4,"109,83",15.01.25 09:38,4.393,"0,37","4,15%",Euro,"3,16%"
+"Italien, Republik 2,15% 21/72",A3KPKQ,"60,80",15.01.25 11:30,4.264,"0,18","2,15%",Euro,-
+"Hessen, Land 0,125% 21/31",A1RQD9,"83,44",15.01.25 10:45,4.207,"0,16","0,13%",Euro,-
+"Deutsche Lufthansa AG 4,125% 24/32",A383QY,"100,67",15.01.25 08:01,4.027,"0,04","4,13%",Euro,-
+"RCI Banque S.A. 1,625% 17/25",A19FWE,"99,65",15.01.25 10:10,3.986,"0,01","1,63%",Euro,"2,44%"
+"European Investment Bank (EIB) 1,3% 21/31",A288GJ,"82,67",15.01.25 10:32,3.984,"0,00","1,30%",Australische Dollar,-
+"Heidelberg Materials Finance Luxembourg S.A. 1,625% 17/26",A19FK2,"98,53",15.01.25 10:11,3.941,"-0,05","1,63%",Euro,"2,67%"
+Fresenius Medical Care AG 1% 20/26,A289N2,"97,37",15.01.25 10:10,3.895,"-0,02","1,00%",Euro,-
+"Deutschland, Bundesrepublik 0,118% 21/33",103058,"96,50",15.01.25 11:48,3.860,"0,40","0,12%",Euro,-
+"DZ HYP AG 2,5% 22/31",A3MQUX,"95,51",15.01.25 08:02,3.820,"-0,70","2,50%",Euro,-
+"United States of America 4,75% 11/41",A1GL92,"97,05",15.01.25 10:28,3.789,"-0,17","4,75%",US-Dollar,"5,03%"
+"Deutschland, Bundesrepublik 4,75% 08/40",113536,"123,75",15.01.25 11:18,3.711,"0,18","4,75%",Euro,"2,82%"
+"Eugen Schmitt GmbH 6,5% 20/25",A289W8,"90,00",15.01.25 08:00,3.600,"38,46","6,50%",Euro,-
+"United States of America 1,125% 20/40",A28XVG,"58,82",15.01.25 10:55,3.445,"0,07","1,13%",US-Dollar,-
+"E.ON SE 0,75% 20/30",A254QS,"86,09",15.01.25 10:10,3.443,"0,05","0,75%",Euro,-
+HSV Fußball AG 6% 19/26,A2TR0Y,"103,75",15.01.25 08:00,3.424,"3,74","6,00%",Euro,"5,97%"
+Selecta Group B.V. 10% 20/26,A284TS,"32,56",15.01.25 09:12,3.256,"18,40","10,00%",Euro,-
+"Frankreich, Republik 0,5% 20/72",A2876Z,"31,78",15.01.25 11:30,3.151,"0,70","0,50%",Euro,-
+"United States of America 4,125% 24/27",A3LUB4,"99,56",15.01.25 10:50,3.110,"0,10","4,13%",US-Dollar,-
+"United States of America 1,75% 21/41",A3KVAR,"63,33",15.01.25 10:57,3.091,"0,59","1,75%",US-Dollar,-
+"Italien, Republik 2,8% 18/28",A19387,"100,14",15.01.25 08:02,3.004,"0,86","2,80%",Euro,"3,07%"
+"Landesbank Hessen-Thüringen Girozentrale 2,8% 23/27",HLB7CH,"99,95",15.01.25 10:00,2.999,"0,00","2,80%",Euro,"2,42%"
+Landesbank Hessen-Thüringen Girozentrale 3% 22/30,HLB777,"98,10",15.01.25 11:53,2.943,"1,03","3,00%",Euro,"3,38%"
+"Europäischer Stabilitätsmechanismus [ESM] 0,5% 16/26",A1U994,"97,66",15.01.25 10:10,2.930,"0,02","0,50%",Euro,"2,53%"
+"Symrise AG 1,375% 20/27",SYM773,"95,60",15.01.25 08:40,2.856,"0,35","1,38%",Euro,-
+"Anheuser-Busch InBev S.A./N.V. 1,5% 15/30",A1ZZ92,"93,08",15.01.25 10:37,2.792,"0,33","1,50%",Euro,"3,01%"
+"The Goldman Sachs Group Inc. 0,875% 20/30",A28SG2,"89,19",15.01.25 10:11,2.676,"0,06","0,88%",Euro,-
+"European Investment Bank (EIB) 1,25% 15/25",A1ZU47,"99,56",15.01.25 11:50,2.595,"0,53","1,25%",Schwedische Kronen,"2,50%"
+"Europäische Union 0,000% 21/31",A3KT6A,"83,54",15.01.25 10:00,2.525,"-0,45",-,Euro,-
+"Canada, Government of... 2,75% 14/64",A1ZHXN,"83,75",15.01.25 11:50,2.280,"0,58","2,75%",Canadische Dollar,"3,53%"
+"Ford Holdings Inc. 9,3% 98/30",A0GXUC,"111,72",15.01.25 11:17,2.181,"0,10","9,30%",US-Dollar,"6,70%"
+"Italien, Republik 0,95% 21/37",A287FR,"71,98",15.01.25 11:30,2.158,"0,40","0,95%",Euro,-
+"Italien, Republik 4,5% 23/53",A3LELH,"102,88",15.01.25 12:08,2.058,"0,65","4,50%",Euro,-
+"Heidelberg Materials AG 3,75% 23/32",A30V5U,"101,11",15.01.25 08:40,2.020,"0,00","3,75%",Euro,-
+"Großbritannien und Nord-Irland, Vereinigtes Königreich 4,25% 08/49",A0T09N,"84,75",15.01.25 11:50,2.013,"0,95","4,25%",Britische Pfund,"5,51%"
+"Finnland, Republik 3% 23/33",A3LG8A,"100,10",15.01.25 09:39,2.002,"-0,13","3,00%",Euro,-
+"GE Aerospace 6,15% 07/37",A0N1CB,"102,27",15.01.25 11:12,1.996,"0,65","6,15%",US-Dollar,"6,05%"
+"Italien, Republik 3% 24/29",A3L269,"99,47",15.01.25 09:44,1.989,"0,02","3,00%",Euro,-
+"Österreich, Republik 1,2% 15/25",A1Z3D2,"99,06",15.01.25 11:30,1.981,"0,00","1,20%",Euro,"2,41%"
+"Flughafenhotel Düsseldorf Management GmbH 5,75% 23/26",A351SN,"99,00",15.01.25 10:20,1.980,"-1,98","5,75%",Euro,-
+"Polen, Republik 3,875% 24/39",A3L4ZU,"98,80",15.01.25 11:22,1.976,"-0,30","3,88%",Euro,-
+"Rumänien, Republik 6% 24/44",A3L39R,"94,09",15.01.25 11:23,1.882,"-0,12","6,00%",Euro,-
+"Anheuser-Busch InBev S.A./N.V. 2,75% 16/36",A18ZDS,"92,30",15.01.25 08:00,1.846,"0,00","2,75%",Euro,"3,52%"
+"Finnland, Republik 2,625% 12/42",A1G6UW,"91,28",15.01.25 10:00,1.830,"-0,19","2,63%",Euro,"3,27%"
+"South Africa, Republic of 6,25% 06/36",A0GWHQ,"70,70",15.01.25 11:50,1.822,"1,12","6,25%",Südafrikanische Rand,"11,28%"
+"Frankreich, Republik 0,5% 18/29",A2RY3M,"90,35",15.01.25 10:00,1.808,"0,01","0,50%",Euro,"2,88%"
+"Photon Energy N.V. 6,5% 21/27",A3KWKY,"45,00",15.01.25 08:01,1.800,"0,00","6,50%",Euro,-
+"E.ON SE 1,625% 22/31",A3MQY9,"90,13",15.01.25 10:00,1.799,"0,02","1,63%",Euro,-
+"Energiekontor Finanzanlagen VII GmbH & Co. KG 4,25% 19/36",A2TR8Y,"95,00",15.01.25 09:07,1.796,"0,00","4,25%",Euro,-
+Deutsche Effecten- und Wechsel-Beteiligungsgesellschaft AG 8% 23/28,A351NS,"90,00",15.01.25 10:13,1.790,"1,12","8,00%",Euro,-
+"Frankreich, Republik 3% 23/49",A3LTNP,"86,93",15.01.25 09:39,1.739,"0,23","3,00%",Euro,-
+"Lumen Technologies Inc. 7,6% 09/39",A1AMSU,"82,56",15.01.25 10:02,1.612,"5,83","7,60%",US-Dollar,"9,95%"
+"BMW Finance N.V. 0,2% 21/33",A287DG,"77,46",15.01.25 08:02,1.549,"-0,40","0,20%",Euro,-
+"Asian Development Bank (ADB) 27,5% 24/28",A3LZZ4,"89,43",15.01.25 10:24,1.476,"3,65","27,50%",Türkische Lira,-
+"Council of Europe Development Bank (CEB) 27,5% 23/28",A3LF2C,"99,00",15.01.25 10:13,1.361,"0,00","27,50%",Türkische Lira,-
+"S.A.G. Solarstrom AG 6,25% 10/15",A1E84A,"1,60",15.01.25 11:44,1.249,"6,73","6,25%",Euro,"10,68%"
+"Großbritannien und Nord-Irland, Vereinigtes Königreich 4,25% 24/34",A3L0AH,"95,31",15.01.25 08:00,1.131,"0,02","4,25%",Britische Pfund,-
+"Frankreich, Republik 4,75% 03/35",A0AXNP,"111,18",15.01.25 11:30,1.112,"0,36","4,75%",Euro,"3,44%"
+Instituto de Credito Oficial 29% 24/33,A3LYB7,"98,53",15.01.25 11:47,1.084,"10,82","29,00%",Türkische Lira,-
+"Spanien, Königreich 4,2% 05/37",A0DW8E,"107,31",15.01.25 11:30,1.073,"0,54","4,20%",Euro,"3,44%"
+"Niederlande, Königreich der 0,5% 19/40",A2R2S4,"69,93",15.01.25 11:30,1.032,"0,13","0,50%",Euro,"2,95%"
+"Deutschland, Bundesrepublik 2,5% 24/54",BU2D00,"93,03",15.01.25 11:24,1.025,"0,00","2,50%",Euro,-
+"Landesbank Hessen-Thüringen Girozentrale 3,05% 23/28",HLB503,"100,40",15.01.25 08:01,1.004,"0,75","3,05%",Euro,-
+"Brasilien, Föderative Republik 7,125% 06/37",A0GL1X,"101,58",15.01.25 11:02,992,"1,41","7,13%",US-Dollar,"7,05%"
+"Hessen, Land 0,375% 16/26",A1RQCY,"97,42",15.01.25 08:02,974,"0,82","0,38%",Euro,"2,75%"
+"Oesterreichische Kontrollbank AG 1,5% 20/25",A28TE7,"99,79",15.01.25 10:30,974,"0,51","1,50%",US-Dollar,-
+"Finnland, Republik 0,000% 21/26",A3KVKJ,"96,17",15.01.25 09:57,962,"0,08",-,Euro,-
+"7C Solarparken AG 2,5% 23/28",A351NK,"93,90",15.01.25 11:39,939,"4,33","2,50%",Euro,"4,49%"
+"Österreich, Republik 0,9% 22/32",A3K3VY,"87,32",15.01.25 11:30,874,"0,74","0,90%",Euro,-
+PAUL Tech AG 7% 20/25,A3H2TU,"86,00",15.01.25 10:34,860,"0,82","7,00%",Euro,-
+"Italien, Republik 2,25% 16/36",A180KM,"85,57",15.01.25 08:03,856,"0,75","2,25%",Euro,"3,81%"
+"South Africa, Republic of 8,75% 14/44",A1ZMGR,"79,26",15.01.25 11:50,821,"0,89","8,75%",Südafrikanische Rand,"11,70%"
+"Argentinien, Republik 0,000%",A0DUDM,"8,05",15.01.25 08:23,818,"-3,01",-,Euro,-
+"Deutschland, Bundesrepublik 2,5% 12/44",113548,"94,73",15.01.25 11:19,805,"0,15","2,50%",Euro,"2,85%"
+"United States of America 0,375% 20/25",A285UH,"96,72",15.01.25 10:52,755,"0,09","0,38%",US-Dollar,-
+International Bank for Reconstruction and Development 10% 24/27,A3L5QQ,"93,16",15.01.25 11:11,748,"0,27","10,00%",Real (Brasilien),-
+"Libanon, Republik 6,2% 15/25",A1ZXP2,"17,49",15.01.25 10:25,512,"8,27","6,20%",US-Dollar,"3.937,06%"
+"United States of America 0,25% 20/25",A284M9,"96,88",15.01.25 10:45,473,"0,01","0,25%",US-Dollar,-
+JES.GREEN Invest GmbH 7% 23/28,A30V66,"46,00",15.01.25 08:10,470,"-22,03","7,00%",Euro,-
+United States of America 3% 18/25,A2RSJ1,"99,08",15.01.25 10:45,193,"-0,01","3,00%",US-Dollar,"4,29%"
+niiio finance group AG 4% 21/26,A3E5S2,"97,01",15.01.25 11:45,97,"0,00","4,00%",Euro,-
+VERIANOS SE 6% 20/25,A254Y1,"0,10",15.01.25 11:19,31,"0,00","6,00%",Euro,-
+"DZ BANK AG Deutsche Zentral-Genossenschaftsbank, Frankfurt am Main 1,5% 17/26",DD5AAN,"97,34",15.01.25 10:46,0,"0,03","1,50%",Euro,-
+"DekaBank Deutsche Girozentrale 3,109% 23/28",DK011J,"99,98",14.01.25 12:11,0,"0,00","3,11%",Euro,-
+"DekaBank Deutsche Girozentrale 3,925% 23/25",DK011K,"100,47",14.01.25 12:11,0,"0,00","3,93%",Euro,-
+Landesbank Hessen-Thüringen Girozentrale 1% 22/28,HLB72C,"93,60",14.01.25 12:00,0,"0,00","1,00%",Euro,"2,82%"
+"Europäische Union 1,625% 22/29",A3K7MW,"94,75",15.01.25 09:41,0,"-0,09","1,63%",Euro,-
+CNP Assurances S.A. 6% 16/49,A18XUC,"99,44",15.01.25 09:41,0,"0,01","6,00%",US-Dollar,-
+"Bureau Veritas SA 3,125% 24/31",A3L5QA,"98,17",15.01.25 09:30,0,"0,10","3,13%",Euro,-
+"Rumänien, Republik 3,65% 16/31",A187L4,"78,52",15.01.25 09:41,0,"0,39","3,65%",Leu (Rumänien),-
+"Intel Corp. 1,6% 21/28",A3KU8F,"87,50",15.01.25 10:30,0,"0,62","1,60%",US-Dollar,-
+"Kimberly-Clark Corp. 2,65% 15/25",A1VJQ0,"99,42",15.01.25 08:04,0,"0,02","2,65%",US-Dollar,-
+Lowe's Companies Inc. 5% 13/43,A1HQUM,"88,66",15.01.25 09:41,0,"-0,72","5,00%",US-Dollar,-
+"ING Groep N.V. 2,5% 18/30",A2RUAL,"94,56",15.01.25 09:30,0,"0,05","2,50%",Euro,"3,29%"
+"KommuneKredit 1,5% 22/29",A3K57H,"95,15",15.01.25 09:41,0,"-0,07","1,50%",Euro,-
+"Erste Group Bank AG 0,01% 22/28",EB0F6H,"90,61",15.01.25 10:46,0,"0,62","0,01%",Euro,-
+"Erste Group Bank AG 0,5% 22/37",EB0F6J,"71,50",15.01.25 09:30,0,"0,21","0,50%",Euro,-
+"Belgien, Königreich 1,9% 15/38",A1Z6P2,"83,53",15.01.25 08:04,0,"-0,30","1,90%",Euro,"3,42%"
+"Landeskreditbank Baden-Württemberg - Förderbank 0,01% 21/31",A289CL,"84,85",15.01.25 09:41,0,"-0,14","0,01%",Euro,-
+"DZ BANK AG Deutsche Zentral-Genossenschaftsbank, Frankfurt am Main 3,659% 17/27",DD5AAQ,"99,48",15.01.25 10:46,0,"-0,03","3,66%",Euro,-
+"DZ BANK AG Deutsche Zentral-Genossenschaftsbank, Frankfurt am Main 2,624% 17/26",DD5AAR,"98,98",15.01.25 10:46,0,"0,02","2,62%",Euro,-
+"DZ BANK AG Deutsche Zentral-Genossenschaftsbank, Frankfurt am Main 1,64% 18/27",DD5AAS,"95,52",15.01.25 10:46,0,"0,08","1,64%",Euro,-
+"DZ BANK AG Deutsche Zentral-Genossenschaftsbank, Frankfurt am Main 1,83% 18/27",DD5AB0,"96,09",15.01.25 10:46,0,"0,10","1,83%",Euro,-
+"DZ BANK AG Deutsche Zentral-Genossenschaftsbank, Frankfurt am Main 1,26% 18/25",DD5AB1,"99,18",15.01.25 10:46,0,"0,01","1,26%",Euro,-
+"DZ BANK AG Deutsche Zentral-Genossenschaftsbank, Frankfurt am Main 3,831% 20/27",DFK0AF,"101,30",14.01.25 12:11,0,"0,00","3,83%",Euro,-
+"DZ BANK AG Deutsche Zentral-Genossenschaftsbank, Frankfurt am Main 0,77% 20/26",DFK0AG,"97,39",14.01.25 12:11,0,"0,00","0,77%",Euro,-
+"DZ BANK AG Deutsche Zentral-Genossenschaftsbank, Frankfurt am Main 0,3% 20/25",DFK0AH,"97,94",14.01.25 12:41,0,"0,00","0,30%",Euro,-
+"DZ BANK AG Deutsche Zentral-Genossenschaftsbank, Frankfurt am Main 0,55% 20/28",DFK0AK,"92,39",14.01.25 12:11,0,"0,00","0,55%",Euro,-
+"DZ BANK AG Deutsche Zentral-Genossenschaftsbank, Frankfurt am Main 0,9% 20/31",DFK0AL,"86,46",14.01.25 12:11,0,"0,00","0,90%",Euro,-
+"DZ BANK AG Deutsche Zentral-Genossenschaftsbank, Frankfurt am Main 0,8% 20/35",DFK0AM,"82,51",14.01.25 12:11,0,"0,00","0,80%",Euro,-
+"DekaBank Deutsche Girozentrale 4,05% 23/31",DK011G,"103,45",14.01.25 12:11,0,"0,00","4,05%",Euro,-
+"DekaBank Deutsche Girozentrale 4,04% 23/33",DK011H,"103,73",14.01.25 12:11,0,"0,00","4,04%",Euro,-
+"DekaBank Deutsche Girozentrale 4,168% 23/27",DK011M,"100,04",14.01.25 12:11,0,"0,00","4,17%",Euro,-
+"DekaBank Deutsche Girozentrale 6,03% 23/33",DK011N,"106,82",14.01.25 12:11,0,"0,00","6,03%",Euro,-
+"DZ BANK AG Deutsche Zentral-Genossenschaftsbank, Frankfurt am Main 3% 23/25",DW6C3J,"100,00",14.01.25 12:41,0,"0,00","3,00%",Euro,-
+"DZ BANK AG Deutsche Zentral-Genossenschaftsbank, Frankfurt am Main 3,2% 23/26",DW6C3K,"100,52",14.01.25 12:41,0,"0,00","3,20%",Euro,-
+"DZ BANK AG Deutsche Zentral-Genossenschaftsbank, Frankfurt am Main 4,16% 23/26",DW6C3N,"101,43",14.01.25 12:11,0,"0,00","4,16%",Euro,-
+"DZ BANK AG Deutsche Zentral-Genossenschaftsbank, Frankfurt am Main 2,4% 23/25",DW6C3Q,"99,84",14.01.25 12:41,0,"0,00","2,40%",Euro,-
+"Landesbank Hessen-Thüringen Girozentrale 3,056% 24/29",HEL0AW,"96,05",14.01.25 12:00,0,"0,00","3,06%",Euro,-
+"Landesbank Hessen-Thüringen Girozentrale 3,052% 24/27",HEL0AX,"98,15",14.01.25 12:00,0,"0,00","3,05%",Euro,-
+"Landesbank Hessen-Thüringen Girozentrale 0,85% 22/27",HLB72B,"95,65",14.01.25 12:00,0,"0,00","0,85%",Euro,"2,49%"
+"Landesbank Hessen-Thüringen Girozentrale 1,15% 22/29",HLB72D,"91,70",14.01.25 12:00,0,"0,00","1,15%",Euro,"3,05%"
+"Landesbank Hessen-Thüringen Girozentrale 1,45% 22/31",HLB72E,"88,95",14.01.25 12:00,0,"0,00","1,45%",Euro,-
+"Landesbank Hessen-Thüringen Girozentrale 1,6% 22/34",HLB72F,"84,10",14.01.25 12:00,0,"0,00","1,60%",Euro,"3,54%"
+"Landesbank Baden-Württemberg 1,5% 18/26",LB116X,"97,82",15.01.25 11:45,0,"-0,01","1,50%",Euro,-
+Landesbank Baden-Württemberg 1% 18/25,LB1173,"97,86",15.01.25 11:45,0,"-0,01","1,00%",Euro,-
+"Landesbank Baden-Württemberg 1,15% 18/26",LB1174,"96,26",15.01.25 11:45,0,"0,03","1,15%",Euro,-
+"Landesbank Baden-Württemberg 1,4% 18/31",LB1178,"86,42",15.01.25 11:45,0,"0,16","1,40%",Euro,-
+"Landesbank Baden-Württemberg 0,7% 16/25",LB1DP2,"98,67",15.01.25 11:45,0,"0,00","0,70%",Euro,-
+"Landesbank Baden-Württemberg 0,85% 18/25",LB1P0K,"99,73",15.01.25 11:45,0,"0,01","0,85%",Euro,-
+"Europäische Union 0,000% 24/25",A3L158,"99,77",14.01.25 12:00,0,"0,00",-,Euro,-
+"Renault S.A. 1,125% 19/27",A2R8SR,"93,66",15.01.25 08:15,0,"0,01","1,13%",Euro,"3,22%"
+"ELO S.A. 3,25% 20/27",A28Z2G,"87,39",15.01.25 09:30,0,"0,26","3,25%",Euro,-
+"Société Générale S.A. 0,125% 21/28",A3KL06,"91,14",15.01.25 09:41,0,"-0,04","0,13%",Euro,-
+"BPCE S.A. 3,875% 24/36",A3LTNE,"100,68",15.01.25 08:11,0,"0,05","3,88%",Euro,-
+"BPCE SFH 2,75% 24/30",A3L5PK,"98,48",15.01.25 08:15,0,"-0,10","2,75%",Euro,-
+"Großbritannien und Nord-Irland, Vereinigtes Königreich 3,75% 22/38",A3LBCH,"87,88",15.01.25 11:50,0,"0,80","3,75%",Britische Pfund,-
+"SLR Group GmbH 10,268% 24/27",A383DP,"94,00",15.01.25 08:10,0,"0,00","10,27%",Euro,-
+"Noa Bidco AS 12,12% 24/27",A3LWUX,"99,75",15.01.25 08:10,0,"0,00","12,12%",Norwegische Kronen,-
+"BlueNord ASA 9,5% 24/29",A3L0ER,"104,25",15.01.25 09:30,0,"0,00","9,50%",US-Dollar,-
+"Portugal, Republik 2,125% 18/28",A19UWV,"98,80",15.01.25 09:30,0,"0,03","2,13%",Euro,"2,37%"
+"Air Lease Corp. 2,1% 21/28",A3KVBD,"89,26",15.01.25 09:41,0,"-0,01","2,10%",US-Dollar,-
+American Axle & Manufacturing Inc. 5% 21/29,A3KVC0,"89,64",15.01.25 09:41,0,"0,07","5,00%",US-Dollar,-
+"American International Group Inc. 4,75% 18/48",A19YEH,"84,79",15.01.25 10:00,0,"-0,26","4,75%",US-Dollar,"6,04%"
+"Asian Development Bank (ADB) 4,125% 24/27",A3LS4B,"99,39",15.01.25 09:41,0,"0,03","4,13%",US-Dollar,-
+"Bank of America Corp. 6,168% 22/28",A3K1Z7,"100,69",15.01.25 09:41,0,"0,25","6,17%",US-Dollar,-
+"Bank of Montreal 5,203% 23/28",A3LCWR,"100,31",15.01.25 09:41,0,"0,04","5,20%",US-Dollar,-
+"The Bank of New York Mellon Corp. 0,75% 21/26",A288GK,"96,07",15.01.25 10:30,0,"0,47","0,75%",US-Dollar,-
+"Boeing Co. 3,375% 16/46",A181SZ,"62,72",15.01.25 09:41,0,"-0,19","3,38%",US-Dollar,-
+"CNH Industrial Capital LLC 5,5% 23/29",A3LNJT,"100,61",14.01.25 12:00,0,"0,00","5,50%",US-Dollar,-
+Eversource Energy 5% 24/27,A3LTMH,"99,57",15.01.25 09:41,0,"0,20","5,00%",US-Dollar,-
+General Motors Co. 4% 14/25,A1VG9W,"99,73",15.01.25 08:04,0,"-0,01","4,00%",US-Dollar,"4,29%"
+International Bank for Reconstruction and Development 4% 24/31,A3LSZ4,"96,07",15.01.25 09:41,0,"-0,05","4,00%",US-Dollar,-
+"JPMorgan Chase & Co. 4,85% 14/44",JPM4A2,"89,23",15.01.25 10:30,0,"0,21","4,85%",US-Dollar,"5,78%"
+"The Kroger Co. 5,4% 19/49",A2RWAL,"91,30",15.01.25 10:30,0,"0,88","5,40%",US-Dollar,-
+"Power Finance Corp. Ltd. 3,95% 20/30",A28SJD,"91,85",15.01.25 09:41,0,"-0,04","3,95%",US-Dollar,-
+"Sociedad Quimica y Minera de Chile S.A. 6,5% 23/33",A3LQUE,"101,18",15.01.25 09:30,0,"-0,07","6,50%",US-Dollar,-
+"Toyota Motor Credit Corp. 5,4% 22/25",A3LBDA,"100,50",15.01.25 10:30,0,"0,00","5,40%",US-Dollar,-
+"United Parcel Service Inc. 3,4% 16/46",A1879N,"69,81",14.01.25 12:00,0,"0,00","3,40%",US-Dollar,"5,96%"
+"United States of America 3,375% 22/42",A3K8MW,"80,57",14.01.25 12:00,0,"0,00","3,38%",US-Dollar,-
+"United States of America 3,5% 23/28",A3LG6R,"96,92",14.01.25 12:00,0,"0,00","3,50%",US-Dollar,-
+"United States of America 4,875% 23/30",A3LQEP,"101,17",15.01.25 10:00,0,"0,01","4,88%",US-Dollar,-
+"VMware Inc. 4,65% 20/27",A28VXS,"99,04",15.01.25 09:41,0,"0,03","4,65%",US-Dollar,-
+"Société Générale S.A. 9,375%",A3LBLJ,"103,20",15.01.25 09:41,0,"0,17","9,38%",US-Dollar,-
+Corporación Nacional del Cobre de Chile 3% 19/29,A2R8HS,"87,00",15.01.25 09:30,0,"0,09","3,00%",US-Dollar,-
+"Bimbo Bakeries USA Inc. 6,05% 23/29",A3LQQ5,"101,18",15.01.25 09:41,0,"-0,02","6,05%",US-Dollar,-
+"Danaos Corp. 8,5% 21/28",A3KLSP,"101,48",15.01.25 09:41,0,"-0,43","8,50%",US-Dollar,-
+"Vodafone Group PLC 5,625% 03/25",A0AARK,"100,25",15.01.25 11:50,0,"0,06","5,63%",Britische Pfund,-
+"The Export-Import Bank of Korea 3,6% 12/27",A1G7EF,"100,64",15.01.25 11:45,0,"0,01","3,60%",Euro,-
+Amgen Inc. 4% 12/29,A1G9G8,"95,57",15.01.25 09:41,0,"0,10","4,00%",Britische Pfund,"4,90%"
+"Standard Chartered PLC 5,7% 14/44",A1ZFE4,"93,72",15.01.25 09:41,0,"-0,05","5,70%",US-Dollar,-
+"National Australia Bank Ltd. 0,875% 15/27",A1ZWYU,"96,08",15.01.25 09:41,0,"-0,01","0,88%",Euro,"2,82%"
+"BNP Paribas S.A. 4,625% 16/27",PB1KPL,"96,25",15.01.25 09:30,0,"0,05","4,63%",Australische Dollar,"3,44%"
+"Italgas S.P.A. 1,625% 17/27",A19BYY,"97,31",15.01.25 09:30,0,"0,04","1,63%",Euro,-
+"Iberdrola Finanzas S.A. 1,25% 18/26",A192S8,"97,45",15.01.25 09:41,0,"-0,01","1,25%",Euro,"2,73%"
+"African Development Bank 0,000% 20/50",A28SB4,"6,89",14.01.25 12:00,0,"0,00",-,Südafrikanische Rand,-
+"Carlsberg Breweries A/S 0,375% 20/27",A28YYD,"93,94",15.01.25 08:40,0,"0,01","0,38%",Euro,-
+"CMB International Leasing Management Ltd. 1,875% 20/25",A28027,"97,82",15.01.25 09:41,0,"0,03","1,88%",US-Dollar,-
+"Ecuador, Republik 5,5% 20/35",A281FC,"60,01",15.01.25 09:41,0,"0,33","5,50%",US-Dollar,-
+ZF Finance GmbH 2% 21/27,A3E5KP,"93,86",15.01.25 09:41,0,"0,51","2,00%",Euro,-
+"Nestlé Finance International Ltd. 0,625% 21/34",A3KSAC,"79,78",15.01.25 09:30,0,"0,14","0,63%",Euro,-
+"The Very Group Funding PLC 6,5% 21/26",A3KUST,"93,84",15.01.25 09:41,0,"1,37","6,50%",Britische Pfund,-
+"American Tower Corp. 0,4% 21/27",A3KW5U,"94,66",15.01.25 09:41,0,"-0,05","0,40%",Euro,-
+"Mitsubishi HC Capital UK PLC 0,25% 22/25",A3K1NZ,"99,61",15.01.25 09:30,0,"0,00","0,25%",Euro,-
+"NIE Finance PLC 5,875% 22/32",A3LAW3,"101,41",15.01.25 09:41,0,"0,18","5,88%",Britische Pfund,-
+Íslandsbanki hf. 3% 22/27,A3K9DS,"99,17",15.01.25 08:15,0,"-0,12","3,00%",Euro,-
+"Nordmazedonien, Republik 6,96% 23/27",A3LD5Q,"103,86",15.01.25 08:04,0,"-0,04","6,96%",Euro,-
+"WPP Finance S.A. 4,125% 23/28",A3LH57,"102,96",15.01.25 09:41,0,"-0,15","4,13%",Euro,-
+"Banco Santander S.A. 5,75% 23/33",A3LH5K,"105,59",15.01.25 09:41,0,"-0,07","5,75%",Euro,-
+"Rexel S.A. 5,25% 23/30",A3LM6X,"104,20",15.01.25 08:15,0,"0,03","5,25%",Euro,-
+"IHG Finance LLC 4,375% 23/29",A3LRN2,"103,96",15.01.25 09:41,0,"-0,23","4,38%",Euro,-
+"Barclays PLC 5,851% 24/35",A3LWDT,"97,67",15.01.25 09:41,0,"0,30","5,85%",Britische Pfund,-
+"Quebec, Provinz 3,125% 24/34",A3LWHV,"98,86",15.01.25 08:40,0,"0,10","3,13%",Euro,-
+"Turkiye Vakiflar Bankasi T.A.O. 10,117%",A3LXSN,"102,95",15.01.25 09:41,0,"-0,08","10,12%",US-Dollar,-
+"Serbien, Republik 6% 24/34",A3LZYK,"96,50",15.01.25 08:11,0,"0,00","6,00%",US-Dollar,-
+Vienna Insurance Group AG Wiener Versicherung Gruppe 1% 21/36,A3KNTS,"74,72",15.01.25 09:30,0,"0,05","1,00%",Euro,-
+"Erste Group Bank AG 8,5%",EB07SL,"110,20",15.01.25 10:46,0,"0,23","8,50%",Euro,-
+Elia Transmission Belgium N.V. 3% 14/29,A1ZFXD,"99,43",14.01.25 12:00,0,"0,00","3,00%",Euro,"3,11%"
+"Ontario, Provinz 1,85% 20/27",A28TWT,"97,20",15.01.25 11:50,0,"0,53","1,85%",Canadische Dollar,"3,29%"
+"Macquarie Group Ltd. 0,395% 21/28",A3KTQZ,"97,77",15.01.25 12:00,0,"0,05","0,40%",Schweizer Franken,-
+"LGT Bank AG 0,45% 21/31",A3KTUC,"94,18",15.01.25 12:00,0,"0,12","0,45%",Schweizer Franken,-
+"Zürcher Kantonalbank 1,4% 22/29",A3K7DZ,"102,45",15.01.25 12:00,0,"0,10","1,40%",Schweizer Franken,-
+"Sachsen, Freistaat 0,01% 20/25",178925,"99,05",15.01.25 09:41,0,"0,01","0,01%",Euro,-
+"Deutsche Postbank Funding Trust III 2,912%",A0D24Z,"88,36",15.01.25 10:46,0,"0,07","2,91%",Euro,-
+VST Building Technologies AG 7% 19/24,A2R1SR,"0,25",15.01.25 09:41,0,"0,00","7,00%",Euro,-
+"DZ BANK AG Deutsche Zentral-Genossenschaftsbank, Frankfurt am Main 1,19% 18/27",DD5AAX,"94,22",15.01.25 10:46,0,"0,06","1,19%",Euro,-
+"DZ BANK AG Deutsche Zentral-Genossenschaftsbank, Frankfurt am Main 2% 18/26",DD5AB5,"97,69",15.01.25 10:46,0,"0,06","2,00%",Euro,-
+"DZ BANK AG Deutsche Zentral-Genossenschaftsbank, Frankfurt am Main 2% 18/27",DD5AB6,"96,21",15.01.25 10:46,0,"0,08","2,00%",Euro,-
+"DZ BANK AG Deutsche Zentral-Genossenschaftsbank, Frankfurt am Main 1,36% 18/26",DD5AB7,"97,69",15.01.25 10:46,0,"0,02","1,36%",Euro,-
+"DZ BANK AG Deutsche Zentral-Genossenschaftsbank, Frankfurt am Main 2% 18/27",DD5AB8,"94,73",15.01.25 10:46,0,"0,08","2,00%",Euro,-
+"DZ BANK AG Deutsche Zentral-Genossenschaftsbank, Frankfurt am Main 1,51% 18/27",DD5AB9,"95,15",15.01.25 10:46,0,"0,08","1,51%",Euro,-
+"DZ BANK AG Deutsche Zentral-Genossenschaftsbank, Frankfurt am Main 3,797% 20/29",DFK0AA,"101,84",14.01.25 12:11,0,"0,00","3,80%",Euro,-
+"DZ BANK AG Deutsche Zentral-Genossenschaftsbank, Frankfurt am Main 0,82% 20/30",DFK0AC,"88,46",14.01.25 12:11,0,"0,00","0,82%",Euro,-
+"DZ BANK AG Deutsche Zentral-Genossenschaftsbank, Frankfurt am Main 1,04% 20/34",DFK0AD,"81,59",14.01.25 12:11,0,"0,00","1,04%",Euro,-
+"DZ BANK AG Deutsche Zentral-Genossenschaftsbank, Frankfurt am Main 0,35% 20/25",DFK0AE,"99,16",14.01.25 12:11,0,"0,00","0,35%",Euro,-
+"DZ BANK AG Deutsche Zentral-Genossenschaftsbank, Frankfurt am Main 0,3% 20/25",DFK0AH,"97,94",14.01.25 12:41,0,"0,00","0,30%",Euro,-
+"DekaBank Deutsche Girozentrale 4,494% 23/30",DK011L,"100,45",14.01.25 12:11,0,"0,00","4,49%",Euro,-
+"DekaBank Deutsche Girozentrale 4,24% 23/30",DK011P,"104,05",14.01.25 12:11,0,"0,00","4,24%",Euro,-
+"DekaBank Deutsche Girozentrale 6,22% 23/38",DK011Q,"108,48",14.01.25 12:11,0,"0,00","6,22%",Euro,-
+"DekaBank Deutsche Girozentrale 4,21% 23/28",DK011R,"103,46",14.01.25 12:11,0,"0,00","4,21%",Euro,-
+"DekaBank Deutsche Girozentrale 4,22% 23/30",DK011S,"104,19",14.01.25 12:11,0,"0,00","4,22%",Euro,-
+"DekaBank Deutsche Girozentrale 3,503% 23/29",DK011W,"101,24",14.01.25 12:11,0,"0,00","3,50%",Euro,-
+"DekaBank Deutsche Girozentrale 1,36% 16/33",DK0HVT,"84,19",14.01.25 12:11,0,"0,00","1,36%",Euro,-
+"DekaBank Deutsche Girozentrale 2,32% 16/26",DK0HW6,"95,67",14.01.25 12:11,0,"0,00","2,32%",US-Dollar,-
+"DekaBank Deutsche Girozentrale 0,4% 21/26",DK0ZJB,"95,15",14.01.25 12:11,0,"0,00","0,40%",US-Dollar,"5,22%"
+"DekaBank Deutsche Girozentrale 0,8% 21/26",DK0ZJC,"95,59",14.01.25 12:11,0,"0,00","0,80%",Norwegische Kronen,"5,18%"
+"Landesbank Hessen-Thüringen Girozentrale 2,75% 24/25",HEL0AS,"99,75",14.01.25 12:00,0,"0,00","2,75%",Euro,"0,86%"
+"Landesbank Hessen-Thüringen Girozentrale 2,5% 24/25",HEL0AT,"99,70",14.01.25 12:00,0,"0,00","2,50%",Euro,"1,20%"
+"Landesbank Hessen-Thüringen Girozentrale 2,25% 24/25",HEL0AU,"99,55",14.01.25 12:00,0,"0,00","2,25%",Euro,"1,54%"
+"Landesbank Hessen-Thüringen Girozentrale 3,2% 24/26",HEL0AV,"97,20",14.01.25 12:00,0,"0,00","3,20%",US-Dollar,"4,85%"
+"Landesbank Hessen-Thüringen Girozentrale 2,15% 24/25",HEL0AY,"99,45",14.01.25 12:00,0,"0,00","2,15%",Euro,"1,57%"
+"Landesbank Hessen-Thüringen Girozentrale 2,4% 24/25",HEL0AZ,"99,65",14.01.25 12:00,0,"0,00","2,40%",Euro,"-0,12%"
+Landesbank Hessen-Thüringen Girozentrale 4% 24/26,HEL0B4,"98,75",14.01.25 12:00,0,"0,00","4,00%",US-Dollar,"4,13%"
+"Landesbank Hessen-Thüringen Girozentrale 2,863% 24/29",HEL0B5,"98,80",14.01.25 12:00,0,"0,00","2,86%",Euro,-
+"Landesbank Hessen-Thüringen Girozentrale 2,6% 24/34",HEL0B6,"96,85",14.01.25 12:00,0,"0,00","2,60%",Euro,"2,86%"
+"Landesbank Hessen-Thüringen Girozentrale 1,35% 22/30",HLB72H,"90,40",14.01.25 12:00,0,"0,00","1,35%",Euro,"3,16%"
+"Landesbank Hessen-Thüringen Girozentrale 1,65% 22/32",HLB72J,"88,15",14.01.25 12:00,0,"0,00","1,65%",Euro,"3,36%"
+"Landesbank Hessen-Thüringen Girozentrale 1,55% 22/32",HLB72M,"87,65",14.01.25 12:00,0,"0,00","1,55%",Euro,"3,35%"
+"Landesbank Baden-Württemberg 1,25% 18/28",LB1176,"92,59",15.01.25 11:45,0,"0,10","1,25%",Euro,-
+"Finnland, Republik 0,125% 21/52",A3KLLU,"44,55",14.01.25 12:00,0,"0,00","0,13%",Euro,-
+VINCI S.A. 1% 18/25,A2RR4S,"98,80",14.01.25 12:00,0,"0,00","1,00%",Euro,"2,69%"
+"VINCI S.A. 1,75% 18/30",A2RR4T,"92,15",14.01.25 12:00,0,"0,00","1,75%",Euro,"3,24%"
+"Société Générale SFH S.A. 0,01% 21/31",A288JV,"83,08",15.01.25 09:41,0,"-0,13","0,01%",Euro,-
+"Griechenland, Republik 1,875% 20/35",A28S0H,"86,12",15.01.25 09:30,0,"0,12","1,88%",Euro,-
+"Italien, Republik 0,85% 19/27",A1VWLB,"96,69",15.01.25 11:30,0,"0,07","0,85%",Euro,-
+"BPER Banca S.p.A. 3,75% 23/28",A3LRN3,"102,44",15.01.25 09:41,0,"-0,09","3,75%",Euro,-
+"AEGON Ltd. 1,425%",134182,"75,00",15.01.25 09:30,0,"0,00","1,43%",Niederländische Gulden,-
+"American Water Capital Corp. 5,15% 24/34",A3LU1Q,"97,03",15.01.25 08:04,0,"-0,04","5,15%",US-Dollar,-
+"Ares Management Corp. 5,6% 24/54",A3L4Q3,"91,89",15.01.25 09:41,0,"-0,15","5,60%",US-Dollar,-
+"Arthur J. Gallagher & Co. 5,75% 24/54",A3LUSS,"95,55",15.01.25 09:41,0,"-0,33","5,75%",US-Dollar,-
+"Asian Development Bank (ADB) 4,125% 24/27",A3LS4B,"99,39",15.01.25 09:41,0,"0,03","4,13%",US-Dollar,-
+"Bristol-Myers Squibb Co. 4,125% 19/39",A28Z1V,"84,17",14.01.25 12:00,0,"0,00","4,13%",US-Dollar,-
+"Duke Energy Corp. 3,15% 17/27",A19MY5,"95,61",14.01.25 12:00,0,"0,00","3,15%",US-Dollar,"4,92%"
+Endurance Specialty Holdings Ltd. 7% 04/34,A0DADU,"107,98",15.01.25 09:41,0,"0,06","7,00%",US-Dollar,-
+"General Mills Inc. 4,875% 24/30",A3L6CY,"97,90",15.01.25 09:41,0,"0,01","4,88%",US-Dollar,-
+"General Motors Financial Co. Inc. 5,85% 23/30",A3LF7Y,"100,86",15.01.25 10:30,0,"0,09","5,85%",US-Dollar,-
+"Kohl's Corp. 4,25% 15/25",A1Z4EM,"98,02",15.01.25 10:30,0,"0,17","4,25%",US-Dollar,-
+"MPLX L.P. 5,2% 17/47",A19C6V,"86,29",15.01.25 09:41,0,"-0,14","5,20%",US-Dollar,"6,40%"
+"Marathon Oil Corp. 5,2% 15/45",A1Z2PB,"87,30",15.01.25 10:30,0,"-1,19","5,20%",US-Dollar,"5,95%"
+"MassMutual Global Funding II 5,05% 23/28",A3LJZH,"99,95",15.01.25 09:41,0,"0,01","5,05%",US-Dollar,-
+"Microsoft Corp. 4,5% 17/57",A19CTT,"86,63",15.01.25 08:04,0,"-0,15","4,50%",US-Dollar,"5,37%"
+"Morgan Stanley 3,625% 17/27",MS0GYL,"97,80",14.01.25 12:00,0,"0,00","3,63%",US-Dollar,"4,68%"
+"Uruguay, Republik 4,975% 18/55",A19ZH3,"84,67",15.01.25 10:30,0,"0,39","4,98%",US-Dollar,"6,21%"
+"Sunnova Energy International Inc. 0,25% 21/26",A3K59F,"59,43",15.01.25 09:41,0,"-3,57","0,25%",US-Dollar,-
+"Texas Instruments Inc. 3,875% 19/39",A2RYXG,"83,72",15.01.25 10:30,0,"0,35","3,88%",US-Dollar,"5,66%"
+"Time Warner Cable LLC 6,55% 07/37",A0TKTB,"95,41",15.01.25 08:04,0,"-0,06","6,55%",US-Dollar,-
+"Tyson Foods Inc. 5,15% 14/44",A1VGJ9,"88,18",15.01.25 08:04,0,"0,15","5,15%",US-Dollar,-
+"Vereinigte Mexikanische Staaten 2,659% 20/31",A285GH,"80,48",15.01.25 09:41,0,"0,12","2,66%",US-Dollar,"6,44%"
+"Verizon Communications Inc. 7,75% 02/32",709789,"109,69",15.01.25 09:41,0,"-0,09","7,75%",US-Dollar,-
+"Société Générale S.A. 9,375%",A3LBLJ,"103,20",15.01.25 09:41,0,"0,17","9,38%",US-Dollar,-
+"Inversiones CMPC S.A. 6,125% 23/33",A3LKJR,"99,55",15.01.25 09:41,0,"-0,32","6,13%",US-Dollar,-
+"Penske Truck Leasing Co. L.P./PTL Finance Corp. 5,875% 22/27",A3LCHF,"101,76",14.01.25 12:00,0,"0,00","5,88%",US-Dollar,-
+"Indonesien, Republik 4,75% 17/47",A19LQA,"86,64",15.01.25 09:41,0,"-1,76","4,75%",US-Dollar,-
+"CFAMC II Co. Ltd. 5,5% 15/25",A1ZUWN,"99,96",13.01.25 17:07,0,"0,00","5,50%",US-Dollar,-
+"African Development Bank 0,125% 16/26",A1868Z,"95,84",15.01.25 08:40,0,"-0,16","0,13%",Euro,"2,28%"
+"Volkswagen Leasing GmbH 1,375% 17/25",A2GSFN,"99,99",15.01.25 08:40,0,"0,01","1,38%",Euro,"26,58%"
+"FWD Ltd. 6,675%",A19VT1,"95,72",15.01.25 09:41,0,"0,01","6,68%",US-Dollar,-
+"Raiffeisenlandesbank Niederösterreich-Wien AG 0,625% 18/26",A19473,"96,64",14.01.25 12:00,0,"0,00","0,63%",Euro,"2,65%"
+"NWD Finance [BVI] Ltd. 6,25%",A2RUL4,"31,53",15.01.25 09:41,0,"-2,50","6,25%",US-Dollar,-
+"Ronshine China Holdings Ltd. 8,75%",A2R1C2,"1,07",15.01.25 09:41,0,"0,00","8,75%",US-Dollar,-
+"Standard Chartered PLC 0,85% 20/28",A28R46,"95,13",15.01.25 09:41,0,"-0,03","0,85%",Euro,-
+"Santander Consumer Bank AG 0,05% 20/30",A254QZ,"87,10",15.01.25 09:41,0,"-0,07","0,05%",Euro,-
+"Paradigm Homes Charitable Housing Association Ltd. 2,25% 21/51",A3KRAH,"50,22",15.01.25 09:41,0,"-0,10","2,25%",Britische Pfund,-
+"East Japan Railway Co. 1,162% 21/28",A3KV4B,"87,35",15.01.25 09:30,0,"0,03","1,16%",Britische Pfund,-
+"The Goldman Sachs Group Inc. 0,75% 21/32",A3KWLU,"82,59",15.01.25 11:45,0,"0,18","0,75%",Euro,-
+"Iberdrola Finanzas S.A. 1,375% 22/32",A3K3DA,"87,43",15.01.25 08:40,0,"-0,01","1,38%",Euro,-
+"McDonald's Corp. 3,75% 22/38",A3K58G,"81,19",15.01.25 11:50,0,"1,41","3,75%",Britische Pfund,-
+"Volkswagen International Finance N.V. 4,375% 22/30",A3LA6C,"101,68",15.01.25 08:15,0,"-0,12","4,38%",Euro,-
+"Coöperatieve Rabobank U.A. 2,875% 23/33",A3LC8W,"98,22",15.01.25 09:41,0,"-0,17","2,88%",Euro,-
+"Barclays PLC 9,25%",A3LE07,"103,95",15.01.25 09:41,0,"0,21","9,25%",Britische Pfund,-
+"Coöperatieve Rabobank U.A. 3,106% 23/33",A3LJL9,"100,03",15.01.25 09:41,0,"-0,17","3,11%",Euro,-
+"Banco Santander S.A. 3,5% 24/28",A3LSRS,"100,10",15.01.25 09:30,0,"0,03","3,50%",Euro,-
+Arada Sukuk 2 Ltd. 8% 24/29,A3L0AG,"101,99",15.01.25 09:30,0,"0,03","8,00%",US-Dollar,-
+"'Navoiy kon-metallurgiya kombinati' aksiyadorlik jamiyati 6,7% 24/28",A3L4TC,"98,35",15.01.25 09:44,0,"-0,03","6,70%",US-Dollar,-
+"Japan Finance Organization for Municipalities 2,75% 25/30",A3L72D,"99,01",15.01.25 08:15,0,"-0,16","2,75%",Euro,-
+"Flämische Gemeinschaft 3,25% 22/43",A3K985,"92,71",15.01.25 09:41,0,"-0,32","3,25%",Euro,-
+"Citigroup Inc. 0,5% 19/28",A2R9PT,"98,38",15.01.25 09:41,0,"0,05","0,50%",Schweizer Franken,-
+"Helvetia Schweizerische Versicherungsgesellschaft AG 1,5%",A28S55,"99,85",15.01.25 12:00,0,"0,00","1,50%",Schweizer Franken,-
+"Helvetia Schweizerische Versicherungsgesellschaft AG 1,45% 20/40",A28S6A,"97,81",15.01.25 09:41,0,"-1,65","1,45%",Schweizer Franken,-
+"Pfandbriefzentrale der schweizerischen Kantonalbanken 1,65% 22/32",A3K76Q,"105,72",15.01.25 09:41,0,"0,06","1,65%",Schweizer Franken,-
+"Deutschland, Bundesrepublik 0,000% 20/30",110249,"88,84",15.01.25 11:09,0,"0,08",-,Euro,-
+"Sachsen, Freistaat 0,01% 20/27",178929,"93,18",14.01.25 12:41,0,"0,00","0,01%",Euro,-
+"DZ BANK AG Deutsche Zentral-Genossenschaftsbank, Frankfurt am Main 0,000% 98/28",228232,"86,00",14.01.25 12:41,0,"0,00",-,Deutsche Mark,-
+"Deutsche Postbank Funding Trust I 2,244%",A0DEN7,"88,41",15.01.25 10:46,0,"0,07","2,24%",Euro,-
+"Niedersachsen, Land 1,033% 15/25",A14KF8,"98,90",15.01.25 10:45,0,"0,01","1,03%",Euro,-
+"Niedersachsen, Land 0,75% 22/31",A3MQY1,"88,36",15.01.25 10:45,0,"0,12","0,75%",Euro,-
+"DZ BANK AG Deutsche Zentral-Genossenschaftsbank, Frankfurt am Main 1,51% 18/27",DD5AAZ,"94,38",15.01.25 10:46,0,"0,07","1,51%",Euro,-
+"DZ BANK AG Deutsche Zentral-Genossenschaftsbank, Frankfurt am Main 0,435% 20/25",DFK0AZ,"97,98",14.01.25 12:11,0,"0,00","0,44%",Euro,-
+"DekaBank Deutsche Girozentrale 5,462% 23/33",DK010X,"103,30",14.01.25 12:11,0,"0,00","5,46%",Euro,-
+"DekaBank Deutsche Girozentrale 5,605% 23/33",DK010Y,"104,22",14.01.25 12:11,0,"0,00","5,61%",Euro,-
+"DekaBank Deutsche Girozentrale 3,63% 24/34",DK0119,"102,06",14.01.25 12:11,0,"0,00","3,63%",Euro,-
+"DekaBank Deutsche Girozentrale 6,26% 23/36",DK011T,"108,44",14.01.25 12:11,0,"0,00","6,26%",Euro,-
+"DekaBank Deutsche Girozentrale 3,61% 23/30",DK011U,"101,75",14.01.25 12:11,0,"0,00","3,61%",Euro,-
+"DekaBank Deutsche Girozentrale 3,325% 23/27",DK011V,"101,00",14.01.25 12:11,0,"0,00","3,33%",Euro,-
+"DZ BANK AG Deutsche Zentral-Genossenschaftsbank, Frankfurt am Main 3,4% 23/33",DW6C3C,"100,75",14.01.25 12:41,0,"0,00","3,40%",Euro,-
+"DZ BANK AG Deutsche Zentral-Genossenschaftsbank, Frankfurt am Main 3,7% 23/27",DW6C3E,"101,61",14.01.25 12:11,0,"0,00","3,70%",Euro,-
+"Landesbank Hessen-Thüringen Girozentrale 2,4% 24/25",HEL0AK,"99,65",14.01.25 12:00,0,"0,00","2,40%",Euro,"1,48%"
+"Landesbank Hessen-Thüringen Girozentrale 2,25% 24/26",HEL0AL,"99,15",14.01.25 12:00,0,"0,00","2,25%",Euro,"2,16%"
+"Landesbank Hessen-Thüringen Girozentrale 2,3% 24/28",HEL0AP,"96,90",14.01.25 12:00,0,"0,00","2,30%",Euro,"2,89%"
+"Landesbank Hessen-Thüringen Girozentrale 2,4% 24/29",HEL0AQ,"96,05",14.01.25 12:00,0,"0,00","2,40%",Euro,"3,07%"
+"Landesbank Hessen-Thüringen Girozentrale 2,5% 24/31",HEL0AR,"94,40",14.01.25 12:00,0,"0,00","2,50%",Euro,"3,27%"
+"Landesbank Hessen-Thüringen Girozentrale 2,5% 24/28",HEL0B0,"98,20",14.01.25 12:00,0,"0,00","2,50%",Euro,"2,77%"
+"Landesbank Hessen-Thüringen Girozentrale 2,75% 24/30",HEL0B1,"99,35",14.01.25 12:00,0,"0,00","2,75%",Euro,"2,75%"
+"Landesbank Hessen-Thüringen Girozentrale 2,85% 24/31",HEL0B2,"96,45",14.01.25 12:00,0,"0,00","2,85%",Euro,"3,29%"
+Landesbank Hessen-Thüringen Girozentrale 3% 24/34,HEL0B3,"95,50",14.01.25 12:00,0,"0,00","3,00%",Euro,"3,29%"
+"Landesbank Hessen-Thüringen Girozentrale 1,5% 22/29",HLB72P,"93,65",14.01.25 12:00,0,"0,00","1,50%",Euro,-
+"Landesbank Hessen-Thüringen Girozentrale 1,5% 22/32",HLB72Q,"89,75",14.01.25 12:00,0,"0,00","1,50%",Euro,-
+"Landesbank Hessen-Thüringen Girozentrale 0,75% 22/25",HLB731,"99,00",14.01.25 12:00,0,"0,00","0,75%",Euro,"1,15%"
+"Landesbank Hessen-Thüringen Girozentrale 1,1% 22/26",HLB732,"97,85",14.01.25 12:00,0,"0,00","1,10%",Euro,"2,07%"
+"Landesbank Hessen-Thüringen Girozentrale 1,35% 22/27",HLB733,"96,55",14.01.25 12:00,0,"0,00","1,35%",Euro,"2,51%"
+"Landesbank Hessen-Thüringen Girozentrale 1,75% 22/28",HLB734,"94,90",14.01.25 12:00,0,"0,00","1,75%",Euro,"3,05%"
+"Landesbank Saar 1,4% 15/30",SLB587,"91,70",14.01.25 12:06,0,"0,00","1,40%",Euro,-
+"Landesbank Saar 1,25% 15/25",SLB588,"100,00",14.01.25 12:11,0,"0,00","1,25%",Euro,-
+"Nykredit Realkredit A/S 3,875% 24/27",A3LU3P,"101,25",15.01.25 09:41,0,"-0,07","3,88%",Euro,-
+"Comunidad Autónoma del País Vasco 0,45% 21/32",A3KPH5,"82,49",15.01.25 09:41,0,"-0,15","0,45%",Euro,-
+"Comunidad Autónoma del País Vasco 1,875% 22/33",A3K4WM,"89,22",15.01.25 09:41,0,"-0,13","1,88%",Euro,-
+"European Investment Bank (EIB) 2,75% 24/29",A3LVAL,"100,25",15.01.25 08:15,0,"-0,09","2,75%",Euro,-
+"Engie S.A. 2,375% 14/26",A1ZJDT,"99,31",15.01.25 09:30,0,"0,00","2,38%",Euro,"2,70%"
+"Caisse Francaise de Financement Local 1,125% 16/31",A189UC,"87,26",15.01.25 09:41,0,"-0,15","1,13%",Euro,"3,18%"
+"Arkéa Home Loans SFH S.A. 0,75% 17/27",A19P10,"94,61",15.01.25 10:47,0,"0,07","0,75%",Euro,"2,87%"
+"Bpifrance SACA 0,875% 18/28",A2RR4K,"92,39",15.01.25 08:40,0,"0,05","0,88%",Euro,"2,95%"
+"APRR 0,125% 20/29",A282BN,"88,87",14.01.25 12:00,0,"0,00","0,13%",Euro,-
+"La Banque Postale 0,75% 21/32",A288HP,"93,05",15.01.25 09:41,0,"-0,05","0,75%",Euro,-
+"RCI Banque S.A. 4,5% 23/27",A3LF0T,"101,75",15.01.25 08:15,0,"-0,07","4,50%",Euro,-
+"Rumänien, Republik 5,8% 11/27",A1G19F,"95,63",15.01.25 09:41,0,"0,18","5,80%",Leu (Rumänien),-
+"AT & T Inc. 5,15% 16/42",A18ZK7,"89,67",15.01.25 09:30,0,"0,19","5,15%",US-Dollar,-
+"Howmet Aerospace Inc. 5,9% 07/27",A0LL03,"101,77",15.01.25 10:30,0,"0,52","5,90%",US-Dollar,"4,99%"
+"American Tower Corp. 3,8% 19/29",A2R3MT,"93,75",15.01.25 09:41,0,"-0,06","3,80%",US-Dollar,-
+"Cencora Inc. 2,7% 21/31",A3KN6B,"85,46",15.01.25 09:41,0,"-0,01","2,70%",US-Dollar,-
+"Athene Global Funding 2,646% 21/31",A3KW7B,"82,41",15.01.25 09:41,0,"-0,07","2,65%",US-Dollar,-
+"Atlassian Corp. 5,25% 24/29",A3LYTB,"99,31",15.01.25 09:41,0,"0,15","5,25%",US-Dollar,-
+"Block Financial LLC 5,25% 15/25",A1Z7M3,"99,76",15.01.25 09:41,0,"0,02","5,25%",US-Dollar,-
+Boston Scientific Corp. 4% 18/28,A19W50,"96,92",15.01.25 08:04,0,"0,00","4,00%",US-Dollar,-
+"Brasilien, Föderative Republik 5,625% 09/41",A1ANH0,"83,60",15.01.25 09:41,0,"0,31","5,63%",US-Dollar,"7,34%"
+"Charter Communications Operating LLC/Charter Communications Operating Capital Co 3,5% 21/42",A3KW01,"66,45",14.01.25 12:00,0,"0,00","3,50%",US-Dollar,-
+The Coca-Cola Co. 2% 21/31,A3KMVQ,"84,07",15.01.25 08:04,0,"0,02","2,00%",US-Dollar,-
+"Ecopetrol S.A. 7,75% 24/32",A3L4QG,"96,65",15.01.25 09:41,0,"0,03","7,75%",US-Dollar,-
+"Five9 Inc. 0,5% 20/25",A3KTQ3,"97,61",15.01.25 09:41,0,"0,10","0,50%",US-Dollar,-
+"Gilead Sciences Inc. 4,75% 15/46",A1Z6PW,"85,98",15.01.25 08:04,0,"-0,21","4,75%",US-Dollar,"5,95%"
+"GlaxoSmithkline Capital Inc. 6,375% 08/38",A0TVAH,"106,26",15.01.25 10:30,0,"0,23","6,38%",US-Dollar,-
+"Inter-American Development Bank 4,375% 24/34",A3L1JY,"96,09",15.01.25 09:41,0,"-0,17","4,38%",US-Dollar,-
+"Eli Lilly and Company 4,5% 24/27",A3LUNE,"99,81",15.01.25 09:41,0,"0,02","4,50%",US-Dollar,-
+"WarnerMedia Holdings Inc. 6,412% 23/26",A3LFCS,"99,72",14.01.25 12:00,0,"0,00","6,41%",US-Dollar,-
+"National Fuel Gas Co. 5,5% 23/26",A3LHZV,"100,17",15.01.25 09:41,0,"0,03","5,50%",US-Dollar,-
+"Raymond James Financial Inc. 3,75% 21/51",A3KNS2,"69,68",15.01.25 09:41,0,"-0,11","3,75%",US-Dollar,-
+"Southern Company Gas Capital Corp. 3,95% 16/46",A18575,"74,67",15.01.25 09:41,0,"0,07","3,95%",US-Dollar,-
+"Tucson Electric Power Co. 5,5% 23/53",A3LEHN,"93,01",15.01.25 09:41,0,"-0,11","5,50%",US-Dollar,-
+"Tucson Electric Power Co. 5,2% 24/34",A3L2QE,"95,82",15.01.25 09:41,0,"-0,06","5,20%",US-Dollar,-
+"United States of America 0,679% 22/32",A3K72F,"89,04",15.01.25 09:41,0,"-0,15","0,68%",US-Dollar,-
+"UnitedHealth Group Inc. 5,5% 24/64",A3LWMH,"91,35",15.01.25 09:30,0,"0,25","5,50%",US-Dollar,-
+"Waste Management Inc. 5,35% 24/54",A3L5KZ,"93,40",15.01.25 09:30,0,"0,29","5,35%",US-Dollar,-
+"Evergy Kansas Central Inc. 2,55% 16/26",A183B1,"96,67",15.01.25 09:41,0,"0,12","2,55%",US-Dollar,-
+"Aircastle Ltd. 5,95% 24/29",A3LTRH,"100,79",15.01.25 09:41,0,"-0,04","5,95%",US-Dollar,-
+"Sinopec Group Overseas Development [2018] Ltd. 2,95% 19/29",A2R59L,"92,02",15.01.25 10:30,0,"0,46","2,95%",US-Dollar,-
+"Banco Santander (Mexico) S.A., Institucion de Banca Multiple, Grupo Financiero S 5,375% 20/25",A28V8Q,"99,56",15.01.25 09:44,0,"0,00","5,38%",US-Dollar,-
+Cinemark USA Inc. 7% 24/32,A3L1J0,"101,15",15.01.25 09:41,0,"0,18","7,00%",US-Dollar,-
+"Mercedes-Benz Finance North America LLC 2,625% 20/30",A28UV2,"87,59",15.01.25 09:41,0,"-0,09","2,63%",US-Dollar,-
+"Investor AB 5,5% 07/37",A0NT37,"98,84",15.01.25 09:41,0,"0,15","5,50%",Britische Pfund,-
+"Standard Chartered PLC 3,2% 15/25",A1ZZ9U,"99,43",15.01.25 10:30,0,"0,53","3,20%",US-Dollar,"4,60%"
+"Roadster Finance DAC 2,375% 17/32",A19TED,"94,16",15.01.25 08:15,0,"-0,03","2,38%",Euro,-
+Nan Fung Treasury Ltd. 5% 18/28,A195DF,"95,48",15.01.25 09:41,0,"0,16","5,00%",US-Dollar,-
+"Swedish Covered Bond Corp.,The 0,375% 19/29",A2R26L,"89,80",15.01.25 09:41,0,"-0,09","0,38%",Euro,"2,78%"
+"Telefonica Emisiones S.A.U. 0,664% 20/30",A28S3J,"88,40",15.01.25 11:45,0,"0,69","0,66%",Euro,-
+"Seplat Energy PLC 7,75% 21/26",A3KN6E,"98,97",15.01.25 09:41,0,"-0,01","7,75%",US-Dollar,-
+Dana Financing Luxembourg S.a.r.l. 3% 21/29,A3KRFK,"94,23",15.01.25 09:41,0,"0,24","3,00%",Euro,-
+"Skandinaviska Enskilda Banken AB 0,375% 21/28",SEB1KD,"90,71",15.01.25 09:41,0,"-0,10","0,38%",Euro,-
+"Mediobanca - Banca di Credito Finanziario S.p.A. 0,75% 21/28",A3KV1L,"93,10",15.01.25 09:41,0,"-0,09","0,75%",Euro,-
+"Royal Bank of Canada 0,01% 21/26",A3KV4N,"95,81",14.01.25 12:00,0,"0,00","0,01%",Euro,-
+"Diageo Capital B.V. 1,5% 22/29",A3K4HJ,"93,77",14.01.25 12:00,0,"0,00","1,50%",Euro,-
+"Merck Financial Services GmbH 2,375% 22/30",A30VKF,"96,07",15.01.25 08:15,0,"-0,09","2,38%",Euro,-
+"Temasek Financial [I] Ltd. 3,5% 23/33",A3LEBG,"100,67",14.01.25 12:00,0,"0,00","3,50%",Euro,-
+"ING Groep N.V. 4,5% 23/29",A3LHY7,"103,64",14.01.25 12:00,0,"0,00","4,50%",Euro,-
+"DZ BANK AG Deutsche Zentral-Genossenschaftsbank, Frankfurt am Main 0,000% 24/44",DJ9AET,"90,97",14.01.25 12:11,0,"0,00",-,US-Dollar,-
+"Carrier Global Corp. 4,125% 23/28",A3LT0Z,"102,91",15.01.25 09:30,0,"0,11","4,13%",Euro,-
+"Novo Nordisk Finance [Netherlands] B.V. 3,125% 24/29",A3LYX5,"100,50",15.01.25 09:41,0,"-0,07","3,13%",Euro,-
