@@ -70,11 +70,19 @@ def scrape_bonds(url, output_file, page_limit=20):
             print("Cookie banner handled successfully (Declined).")
         except TimeoutException:
             print("Cookie banner not found. Skipping...")
-
-        wait.until(
-            EC.invisibility_of_element_located((By.CSS_SELECTOR, ".wrapper[_ngcontent-boerse-frankfurt-c97]"))
-        )
-        print("Overlay disappeared before 100 button")
+        try:
+            wait.until(
+                EC.invisibility_of_element_located((By.CSS_SELECTOR, ".wrapper[_ngcontent-boerse-frankfurt-c97]"))
+            )
+            print("Overlay disappeared before 100 button")
+    
+            wait.until(
+                EC.invisibility_of_element_located((By.CSS_SELECTOR, ".wrapper[_ngcontent-boerse-frankfurt-c98]"))
+            )
+            print("Overlay c98 disappeared - Loading Table element")
+        except TimeoutException:
+            print(" Table did not load fully")
+            driver.save_screenshot(f"error_loading_initial_table.png") # test
 
         # Click the "100" button to show 100 rows per page
         wait = WebDriverWait(driver, 15)
@@ -89,7 +97,13 @@ def scrape_bonds(url, output_file, page_limit=20):
         wait.until(
             EC.invisibility_of_element_located((By.CSS_SELECTOR, ".wrapper[_ngcontent-boerse-frankfurt-c97]"))
         )
-        print("Overlay disappeared before Pages button")
+        print("Overlay disappeared before Pages button_1")
+
+        wait = WebDriverWait(driver, 5)
+        wait.until(
+            EC.invisibility_of_element_located((By.CSS_SELECTOR, ".wrapper[_ngcontent-boerse-frankfurt-c98]"))
+        )
+        print("Overlay disappeared before Pages button_2")
 
         # Wait for the page to load
         wait.until(
@@ -167,7 +181,7 @@ def scrape_bonds(url, output_file, page_limit=20):
 
     except Exception as main_error:
         print(f"Critical error: {main_error}")
-        driver.save_screenshot("error_main.png") # test
+        driver.save_screenshot("error_in_loop.png") # test
 
     finally:
         driver.quit()
