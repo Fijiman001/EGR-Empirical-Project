@@ -6,8 +6,7 @@ This project aims to analyze and compare "green" bonds and conventional bonds, f
 
 ### Data
 
-The dataset used in this project contains bond information, including both "green" and conventional bonds. The data can be found in the following Google Drive folder:
-[Green vs. Conventional Bonds Dataset](https://drive.google.com/drive/folders/1Li0jkZS8sgNj0Z21iL8ip3jQ4PMmnjuP?usp=sharing)
+The dataset used in this project contains bond information, including both "green" and conventional bonds. The data can be found in the Data folder.
 
 The dataset contains the following columns:
 - **Name**: The name of the bond.
