@@ -28,17 +28,22 @@ The codebase is organized as follows:
    - The scraper is automated to run every hour for several days or up to a month to collect sufficient data. This code is in the workflows folder.
    - Additional code to Webscrape the static data of the bonds is also present.
    - Finally, we also automated the hourly collection of the spread data needed for out models (In Progress)
-   - Finally, there is a code file to merge all the seperate data sets of the web scraping iteration we did. 
+   - Finally, there is a code file to merge all the seperate data sets of the web scraping iteration we did. This code creates our "bond_dictionary". It was created by web scraping all green and conventional bond URLs from the Börse Frankfurt website, subssequently cleaning the data and extracting the ISIN and company included in the URL. As a last step we appended the green bond data with all conventional bonds from the same emitters-
+  
+   **PLANNED:**
+   - Analyse the bond dictionary and plot emitter specific yield curves by merging the bond dictionary with our price data and only keeping the bonds for which we have data as a preliminary analysis
+   - We want to apply a selection criteria to trim down the number of bonds contained in the bond dictionary, removing older conventional bonds, bonds with significantly different maturities? and removing bonds that are callable by their issuer.
+      - With this reduced bond dictionary we collect additional spread data of all the bonds.
 
-2. **Data Processing**:
+3. **Data Processing**:
    - Data cleaning and preprocessing scripts to handle missing values, outliers, and formatting.
    - Analysis scripts to explore the bond data, including statistical analysis of yield and liquidity metrics.
 
-3. **Structural Models**:
+4. **Structural Models**:
    - Implementation of structural models to estimate bond yields and compare the results for green vs. conventional bonds.
    - Calibration of these models based on the collected data.
 
-4. **Results**:
+5. **Results**:
    - Scripts to generate visualizations and statistical tests to evaluate the significance of any differences between green and conventional bonds.
 
 ### Objective
