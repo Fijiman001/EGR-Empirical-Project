@@ -1,0 +1,184 @@
+---
+title: "Merging datasets"
+format: revealjs
+editor: visual
+---
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations see <https://quarto.org/docs/presentations/>.
+
+## Bullets
+
+When you click the **Render** button a document will be generated that includes:
+
+-   Content authored with markdown
+-   Output from executable code
+
+## Code
+
+When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+### Green Bonds part
+
+```{r}
+library(readr)
+
+# Définir le dossier contenant les fichiers
+folder_path <- "C:/Users/destr/Documents/GitHub/EGR-Empirical-Project/data"
+
+# Lister tous les fichiers commençant par "green_bond_data"
+files <- list.files(path = folder_path, pattern = "^green_bonds_data.*\\.csv$", full.names = TRUE)
+
+# Import files as a list to load them all at once in R 
+list_dfs <- lapply(files, read_csv)
+
+# check
+length(list_dfs) # number of files loaded
+
+head(list_dfs[[1]])  # display the first rows of the first dataset
+
+View(list_dfs[[1]])  # open the first dataset
+
+
+```
+
+```{r}
+#test of merging to see if full join is more adapted 
+
+library(dplyr)
+
+# Renommer la colonne Date/Time Last Price en DateTime avant d'empiler
+list_dfs <- lapply(list_dfs, function(df) {
+  df %>% rename(DateTime = `Date/Time Last Price`)
+})
+
+# Empiler tous les datasets correctement
+df_final <- bind_rows(list_dfs)
+
+# Trier par WKN et DateTime
+df_final <- df_final %>% arrange(WKN, DateTime)
+
+# Vérifier le résultat
+dim(df_final)
+head(df_final)
+
+Green_bon<-df_final
+
+
+```
+
+```         
+```
+
+### All bonds data part
+
+```{r}
+folder_path <- "C:/Users/destr/Documents/GitHub/EGR-Empirical-Project/data"
+
+# Lister tous les fichiers commençant par "green_bond_data"
+files <- list.files(path = folder_path, pattern = "^all_bonds_data.*\\.csv$", full.names = TRUE)
+
+# Import files as a list to load them all at once in R 
+list_dfs <- lapply(files, read_csv)
+
+# check
+length(list_dfs) # number of files loaded
+
+head(list_dfs[[1]])  # display the first rows of the first dataset
+
+View(list_dfs[[1]])  # open the first dataset
+
+
+```
+
+```         
+```
+
+```{r}
+
+list_dfs <- lapply(list_dfs, function(df) {
+  df %>% rename(DateTime = `Date/Time Last Price`)
+})
+
+library(dplyr)
+library(readr)
+
+# Liste des colonnes à uniformiser (ajoute d'autres colonnes si nécessaire)
+cols_to_fix <- c("Volume in Euro", "Last Price")
+
+# Fonction pour s'assurer que les colonnes sont bien numériques
+convert_numeric_columns <- function(df) {
+  for (col in cols_to_fix) {
+    if (col %in% names(df)) {  # Vérifier si la colonne existe dans le dataframe
+      df[[col]] <- suppressWarnings(as.numeric(df[[col]]))  # Convertir en numérique en ignorant les warnings
+    }
+  }
+  return(df)
+}
+
+# Appliquer la conversion à tous les datasets de la liste
+list_dfs <- lapply(list_dfs, convert_numeric_columns)
+
+# Maintenant, on peut empiler proprement
+df_conventional <- bind_rows(list_dfs)
+
+# Trier par WKN et DateTime
+df_conventional <- df_conventional %>% arrange(WKN, `DateTime`)
+
+# Vérifier le résultat
+dim(df_conventional)
+glimpse(df_conventional)
+
+```
+
+```{r}
+head(list_dfs[[1]]$`Last Price`)
+```
+
+```{r}
+library(dplyr)
+
+# Ajouter la colonne "is_green" pour identifier les obligations vertes
+Green_bonds <- Green_bonds %>% mutate(is_green = 1)  # Green bonds = 1
+df_conventional <- df_conventional %>% mutate(is_green = 0)  # Conventional bonds = 0
+
+# Fusionner les deux datasets
+all_bonds_data <- bind_rows(Green_bonds, df_conventional)
+
+# Trier pour garder une structure propre
+all_bonds_data <- all_bonds_data %>% arrange(WKN, `Date/Time Last Price`)
+
+# Vérifier le résultat
+dim(all_bonds_data)  # Taille du dataset final
+table(all_bonds_data$is_green)  # Vérifier la répartition green vs. conventional
+head(all_bonds_data)
+
+```
+
+### Merge the two
+
+```{r}
+library(dplyr)
+
+# Ajouter la colonne "is_green" pour identifier les obligations vertes
+Green_bonds <- Green_bonds %>% mutate(is_green = 1)  # Green bonds = 1
+df_conventional <- df_conventional %>% mutate(is_green = 0)  # Conventional bonds = 0
+
+# Fusionner les deux datasets
+all_bonds_data <- bind_rows(Green_bonds, df_conventional)
+
+# Trier pour garder une structure propre
+all_bonds_data <- all_bonds_data %>% arrange(WKN, `DateTime`)
+
+# Vérifier le résultat
+dim(all_bonds_data)  # Taille du dataset final
+table(all_bonds_data$is_green)  # Vérifier la répartition green vs. conventional
+head(all_bonds_data)
+
+```
+
+```{r}
+write_csv(all_bonds_data, "all_bonds_data.csv")
+
+```
