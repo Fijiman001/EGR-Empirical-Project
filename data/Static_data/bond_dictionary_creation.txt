@@ -1,0 +1,6 @@
+got all green bonds and all conventional bonds
+inner merge based on green bond emitters
+added green identifier
+removed bonds maturing in 2025
+removed bonds 80% through their maturity.
+removed bonds emitted before 2020
