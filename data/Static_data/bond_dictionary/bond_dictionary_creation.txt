@@ -4,3 +4,9 @@ added green identifier
 removed bonds maturing in 2025
 removed bonds 80% through their maturity.
 removed bonds emitted before 2020
+Remove Supranationals and nationals, only looking at corporates
+
+then get static data
+
+merge with bond_dictionary, remove callable bonds, remove supras.
+then have final bond_dictionary with static data, to merge with price data
