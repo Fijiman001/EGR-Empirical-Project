@@ -2,11 +2,12 @@ got all green bonds and all conventional bonds
 inner merge based on green bond emitters
 added green identifier
 removed bonds maturing in 2025
-removed bonds 80% through their maturity.
-removed bonds emitted before 2020
-Remove Supranationals and nationals, only looking at corporates
+removed perpetual bonds or bonds without a maturity date in our data (ex. xs2675884576)
+removed bonds emitted before 2020 (so only last 3 years) (going to 2022 would remove 112 out of 246 green bonds)
+Remove Supranationals and nationals, only looking at corporates (EBRD, IBRD, EIB, KFW, ADB, EU)
+This leaves us with 5203 bonds from 133 issuers and 246 green bonds
+
 
 then get static data
-
 merge with bond_dictionary, remove callable bonds, remove supras.
 then have final bond_dictionary with static data, to merge with price data
