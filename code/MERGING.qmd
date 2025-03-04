@@ -25,7 +25,7 @@ When you click the **Render** button a presentation will be generated that inclu
 library(readr)
 
 # Définir le dossier contenant les fichiers
-folder_path <- "C:/Users/destr/Documents/GitHub/EGR-Empirical-Project/data"
+folder_path <- "C:/Users/destr/OneDrive/GitHub/EGR-Empirical-Project/data"
 
 # Lister tous les fichiers commençant par "green_bond_data"
 files <- list.files(path = folder_path, pattern = "^green_bonds_data.*\\.csv$", full.names = TRUE)
@@ -44,7 +44,6 @@ View(list_dfs[[1]])  # open the first dataset
 ```
 
 ```{r}
-#test of merging to see if full join is more adapted 
 
 library(dplyr)
 
@@ -63,8 +62,8 @@ df_final <- df_final %>% arrange(WKN, DateTime)
 dim(df_final)
 head(df_final)
 
-Green_bon<-df_final
-
+Green_bonds<-df_final
+anyNA(list_dfs)
 
 ```
 
@@ -74,21 +73,43 @@ Green_bon<-df_final
 ### All bonds data part
 
 ```{r}
-folder_path <- "C:/Users/destr/Documents/GitHub/EGR-Empirical-Project/data"
+folder_path <- "C:/Users/destr/OneDrive/GitHub/EGR-Empirical-Project/data"
 
-# Lister tous les fichiers commençant par "green_bond_data"
+# Lister tous les fichiers commençant par "all_bond_data"
 files <- list.files(path = folder_path, pattern = "^all_bonds_data.*\\.csv$", full.names = TRUE)
 
 # Import files as a list to load them all at once in R 
-list_dfs <- lapply(files, read_csv)
+list_dfs2 <- lapply(files, read_csv)
 
 # check
-length(list_dfs) # number of files loaded
+length(list_dfs2) # number of files loaded
 
-head(list_dfs[[1]])  # display the first rows of the first dataset
+head(list_dfs2[[1]])  # display the first rows of the first dataset
 
-View(list_dfs[[1]])  # open the first dataset
+View(list_dfs2[[1]])  # open the first dataset
 
+anyNA(list_dfs2) #pas DE NA 
+
+
+##############" expérimentations
+# Sélectionner un fichier qui pose problème
+idx_problem <- which(sapply(list_dfs2, function(df) all(is.na(df$`Last Price`) | df$`Last Price` == 0)))[1]  # Premier fichier suspect
+
+# Afficher les premières lignes de ce fichier
+head(list_dfs2[[idx_problem]])
+
+
+dim(list_dfs2[[idx_problem]])
+
+# Récupérer le chemin du fichier problématique
+file_problem <- files[idx_problem]
+
+# Lire le fichier directement
+df_test <- read_csv(file_problem)
+
+# Vérifier sa structure
+dim(df_test)  # Nombre de lignes et colonnes
+head(df_test) # Voir les premières lignes
 
 ```
 
@@ -97,31 +118,44 @@ View(list_dfs[[1]])  # open the first dataset
 
 ```{r}
 
-list_dfs <- lapply(list_dfs, function(df) {
+list_dfs2 <- lapply(list_dfs2, function(df) {
   df %>% rename(DateTime = `Date/Time Last Price`)
 })
 
+anyNA(list_dfs2$`Last Price`) #pas de NA
 library(dplyr)
 library(readr)
 
 # Liste des colonnes à uniformiser (ajoute d'autres colonnes si nécessaire)
 cols_to_fix <- c("Volume in Euro", "Last Price")
 
-# Fonction pour s'assurer que les colonnes sont bien numériques
 convert_numeric_columns <- function(df) {
   for (col in cols_to_fix) {
     if (col %in% names(df)) {  # Vérifier si la colonne existe dans le dataframe
-      df[[col]] <- suppressWarnings(as.numeric(df[[col]]))  # Convertir en numérique en ignorant les warnings
+      df[[col]] <- gsub(",", ".", df[[col]])  # Remplace les virgules par des points
+      df[[col]] <- suppressWarnings(as.numeric(df[[col]]))  # Convertir en numérique
     }
   }
   return(df)
 }
 
 # Appliquer la conversion à tous les datasets de la liste
-list_dfs <- lapply(list_dfs, convert_numeric_columns)
+list_dfs2 <- lapply(list_dfs2, convert_numeric_columns)
+
+anyNA(list_dfs2$`Last Price`) #pas de NA
 
 # Maintenant, on peut empiler proprement
-df_conventional <- bind_rows(list_dfs)
+df_conventional <- bind_rows(list_dfs2) #là apparaissent les NA 
+
+
+sapply(list_dfs2, function(df) sum(!is.na(df$`Last Price`)))
+
+
+
+
+
+
+
 
 # Trier par WKN et DateTime
 df_conventional <- df_conventional %>% arrange(WKN, `DateTime`)
@@ -129,30 +163,24 @@ df_conventional <- df_conventional %>% arrange(WKN, `DateTime`)
 # Vérifier le résultat
 dim(df_conventional)
 glimpse(df_conventional)
+anyNA(df_conventional$`Last Price`)
+```
+
+```{r}
+head(list_dfs2[[1]]$`Last Price`)
 
 ```
 
 ```{r}
-head(list_dfs[[1]]$`Last Price`)
-```
+# Compter le nombre de NA dans "Last Price"
+nb_NA <- sum(is.na(df_conventional$`Last Price`))
 
-```{r}
-library(dplyr)
+# Compter le nombre de 0 dans "Last Price"
+nb_zeros <- sum(df_conventional$`Last Price` == 0, na.rm = TRUE)
 
-# Ajouter la colonne "is_green" pour identifier les obligations vertes
-Green_bonds <- Green_bonds %>% mutate(is_green = 1)  # Green bonds = 1
-df_conventional <- df_conventional %>% mutate(is_green = 0)  # Conventional bonds = 0
-
-# Fusionner les deux datasets
-all_bonds_data <- bind_rows(Green_bonds, df_conventional)
-
-# Trier pour garder une structure propre
-all_bonds_data <- all_bonds_data %>% arrange(WKN, `Date/Time Last Price`)
-
-# Vérifier le résultat
-dim(all_bonds_data)  # Taille du dataset final
-table(all_bonds_data$is_green)  # Vérifier la répartition green vs. conventional
-head(all_bonds_data)
+# Afficher les résultats
+cat("Nombre de NA dans 'Last Price' :", nb_NA, "\n")
+cat("Nombre de 0 dans 'Last Price' :", nb_zeros, "\n")
 
 ```
 
@@ -176,6 +204,39 @@ dim(all_bonds_data)  # Taille du dataset final
 table(all_bonds_data$is_green)  # Vérifier la répartition green vs. conventional
 head(all_bonds_data)
 
+
+
+```
+
+### Get rid of the duplicated
+
+```{r}
+all_bonds_data <- all_bonds_data %>%
+  mutate(`Last Price` = ifelse(`Last Price` > 1000, `Last Price` / 100, `Last Price`)) #certain price ont été multipliés par 100
+
+all_bonds_data <- all_bonds_data %>% distinct()
+
+
+```
+
+```{r}
+
+# Compter le nombre de NA dans "Last Price"
+nb_NA <- sum(is.na(all_bonds_data$`Last Price`))
+
+# Compter le nombre de 0 dans "Last Price"
+nb_zeros <- sum(all_bonds_data$`Last Price` == 0, na.rm = TRUE)
+
+# Afficher les résultats
+cat("Nombre de NA dans 'Last Price' :", nb_NA, "\n")
+cat("Nombre de 0 dans 'Last Price' :", nb_zeros, "\n")
+```
+
+```{r}
+all_bonds_data <- all_bonds_data %>% filter(!is.na(`Last Price`))
+
+max(all_bonds_data$`Last Price`)
+all_bonds_data$`Last Price`
 ```
 
 ```{r}
