@@ -39,8 +39,8 @@ The codebase is organized as follows:
       -   removed bonds emitted before 2020 (so only last 3 years) (going to 2022 would remove 112 out of 246 green bonds)
       -   Remove Supranationals and nationals, only looking at corporates (EBRD, IBRD, EIB, KFW, ADB, EU)
       -   This leaves us with 5203 bonds from 133 issuers and 246 green bond   
-      -   then get static data
-      -   merge with bond_dictionary, remove callable bonds, remove supras.
+      -   We then get static / descriptional data which contains information about the bond's characteristics, issuance size, spread in the moment.
+      -   Once merged with bond_dictionary, we remove callable bonds.
       -   then have final bond_dictionary with static data, to merge with price data
 
    **PLANNED:**
