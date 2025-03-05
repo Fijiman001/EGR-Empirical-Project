@@ -1,0 +1,143 @@
+Option Explicit
+
+Sub TransformData()
+    Dim wsSrc As Worksheet, wsDst As Worksheet
+    Dim lastRowSrc As Long, numRows As Long
+    Dim currRow As Long, i As Long, n As Long
+    Dim rawString As String, rawURL As String
+    Dim splitArr As Variant, tempStr As String
+    Dim regex As Object
+    Dim dict As Object
+
+    ' Create a Dictionary to map labels to output column numbers
+    Set dict = CreateObject("Scripting.Dictionary")
+    With dict
+        .Add "URL", 1                              ' Column A
+        .Add "Letzter Preis", 2                    ' Column B
+        .Add "VerÃ¤nderung zum Vortag", 3          ' Column C
+        .Add "Letzter Handel", 4                   ' Column D
+        .Add "Geld", 5                             ' Column E
+        .Add "Brief", 6                            ' Column F
+        .Add "Modified Duration", 7                ' Column G
+        .Add "Kupon", 8                            ' Column H
+        .Add "Emittent", 9                         ' Column I
+        .Add "Branche", 10                         ' Column J
+        .Add "FÃ¤lligkeit", 11                      ' Column K
+        .Add "SchuldnerkÃ¼ndigungsart", 12           ' Column L
+        .Add "SonderkÃ¼ndigung", 13                 ' Column M
+        .Add "Nachrangig", 14                      ' Column N
+        .Add "Kleinste handelbare Einheit", 15     ' Column O
+        .Add "Spezialist", 16                      ' Column P
+        .Add "Handelsmodell", 17                   ' Column Q
+        .Add "Emissionsdatum", 18                  ' Column R
+        .Add "Emissionsvolumen", 19                ' Column S
+        .Add "Umlaufendes Volumen", 20             ' Column T
+        .Add "EmissionswÃ¤hrung", 21                ' Column U
+        .Add "DepotwÃ¤hrung", 22                    ' Column V
+        .Add "Notierungsaufnahme", 23              ' Column W
+    End With
+
+    ' Set references to your sheets
+    Set wsSrc = ThisWorkbook.Sheets("Cleaned_Static_Data")
+    Set wsDst = ThisWorkbook.Sheets("Sheet1")
+    
+    ' Disable screen updating, events, calculation, and status bar updates
+    With Application
+        .ScreenUpdating = False
+        .EnableEvents = False
+        .Calculation = xlCalculationManual
+        .DisplayStatusBar = False
+    End With
+
+    ' Set headers on the destination sheet (columns A:W)
+    wsDst.Range("A1:W1").Value = Array( _
+        "URL", _
+        "Letzter Preis", _
+        "VerÃ¤nderung zum Vortag", _
+        "Letzter Handel", _
+        "Geld", _
+        "Brief", _
+        "Modified Duration", _
+        "Kupon", _
+        "Emittent", _
+        "Branche", _
+        "FÃ¤lligkeit", _
+        "SchuldnerkÃ¼ndigungsart", _
+        "SonderkÃ¼ndigung", _
+        "Nachrangig", _
+        "Kleinste handelbare Einheit", _
+        "Spezialist", _
+        "Handelsmodell", _
+        "Emissionsdatum", _
+        "Emissionsvolumen", _
+        "Umlaufendes Volumen", _
+        "EmissionswÃ¤hrung", _
+        "DepotwÃ¤hrung", _
+        "Notierungsaufnahme" _
+    )
+    
+    ' Get the last row (assumes data in Column A)
+    lastRowSrc = wsSrc.Cells(wsSrc.Rows.Count, 1).End(xlUp).Row
+    numRows = lastRowSrc - 1   ' Exclude header
+    
+    ' Read source data (Column A = URL, Column B = bracketed string) into an array
+    Dim vSrc As Variant, vOut() As Variant
+    vSrc = wsSrc.Range("A2:B" & lastRowSrc).Value
+    ReDim vOut(1 To numRows, 1 To 23)
+    
+    ' Create RegExp object for converting numeric commas (e.g., "99,19" to "99.19")
+    Set regex = CreateObject("VBScript.RegExp")
+    regex.Pattern = "(\d+),(\d+)"
+    regex.Global = True
+
+    Dim currItem As String, valueItem As String
+
+    ' Loop through each row in the source array
+    For currRow = 1 To numRows
+        rawURL = vSrc(currRow, 1)
+        rawString = vSrc(currRow, 2)
+        
+        ' Write URL to output (Column A)
+        vOut(currRow, 1) = rawURL
+        
+        ' Convert numeric commas temporarily
+        tempStr = regex.Replace(rawString, "$1.$2")
+        ' Remove unwanted characters and extra quotes
+        tempStr = Replace(tempStr, "[", "")
+        tempStr = Replace(tempStr, "]", "")
+        tempStr = Replace(tempStr, "'", "")
+        tempStr = Trim(tempStr)
+        If Left(tempStr, 1) = "," Then tempStr = Mid(tempStr, 2)
+        
+        ' Split the cleaned string by comma
+        splitArr = Split(tempStr, ",")
+        n = UBound(splitArr)
+        
+        ' Loop through each element using a For loop (pre-calculated UBound)
+        For i = 0 To n
+            currItem = Trim(splitArr(i))
+            If dict.Exists(currItem) Then
+                If i < n Then
+                    valueItem = Trim(splitArr(i + 1))
+                    ' Restore commas in decimals (convert "99.19" back to "99,19")
+                    valueItem = Replace(valueItem, ".", ",")
+                    vOut(currRow, dict(currItem)) = valueItem
+                    i = i + 1  ' Skip the next element as it has been processed
+                End If
+            End If
+        Next i
+    Next currRow
+    
+    ' Write output array back to the destination sheet in one go
+    wsDst.Range("A2").Resize(numRows, 23).Value = vOut
+
+    ' Re-enable screen updating, events, calculation, and status bar updates
+    With Application
+        .ScreenUpdating = True
+        .EnableEvents = True
+        .Calculation = xlCalculationAutomatic
+        .DisplayStatusBar = True
+    End With
+
+    MsgBox "Transformation complete!", vbInformation
+End Sub
