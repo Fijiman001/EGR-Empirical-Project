@@ -29,7 +29,21 @@ The codebase is organized as follows:
    - Additional code to Webscrape the static data of the bonds is also present.
    - Finally, we also automated the hourly collection of the spread data needed for out models (In Progress)
    - Finally, there is a code file to merge all the seperate data sets of the web scraping iteration we did. This code creates our "bond_dictionary". It was created by web scraping all green and conventional bond URLs from the Börse Frankfurt website, subssequently cleaning the data and extracting the ISIN and company included in the URL. As a last step we appended the green bond data with all conventional bonds from the same emitters-
-  
+
+   - To create our bond dictionary and merge it with the static / descriptional data of the bonds we did the following steps:
+      - got all green bonds and all conventional bonds
+      - inner merge based on green bond emitters
+      -   added green identifier
+      -   removed bonds maturing in 2025
+      -   removed perpetual bonds or bonds without a maturity date in our data (ex. xs2675884576)
+      -   removed bonds emitted before 2020 (so only last 3 years) (going to 2022 would remove 112 out of 246 green bonds)
+      -   Remove Supranationals and nationals, only looking at corporates (EBRD, IBRD, EIB, KFW, ADB, EU)
+      -   This leaves us with 5203 bonds from 133 issuers and 246 green bond   
+      -   We then get static / descriptional data which contains information about the bond's characteristics, issuance size, spread in the moment.
+      -   Once merged with bond_dictionary, we remove callable bonds.
+      -   then have final bond_dictionary with static data, to merge with price data
+      -   To clean the static data we coded a VBA macro to extract and clean the webscraped static data, this was significantly faster than manually cleaning 5000 rows of data and ensure replicability. The macro is in the file "Static_data_cleaning_Macro" in the "Static_data" folder.
+
    **PLANNED:**
    - Analyse the bond dictionary and plot emitter specific yield curves by merging the bond dictionary with our price data and only keeping the bonds for which we have data as a preliminary analysis
    - We want to apply a selection criteria to trim down the number of bonds contained in the bond dictionary, removing older conventional bonds, bonds with significantly different maturities? and removing bonds that are callable by their issuer.
