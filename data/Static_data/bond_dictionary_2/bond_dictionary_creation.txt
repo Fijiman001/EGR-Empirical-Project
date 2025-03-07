@@ -11,3 +11,6 @@ This leaves us with 5203 bonds from 133 issuers and 246 green bonds
 then get static data
 merge with bond_dictionary, remove callable bonds, remove supras.
 then have final bond_dictionary with static data, to merge with price data
+we have 809 bonds in our bond_dictionary, of which 200 are green
+
+of those, we have 196 bonds for which we have price data giving us a final preliminary data set of 8000 rows
