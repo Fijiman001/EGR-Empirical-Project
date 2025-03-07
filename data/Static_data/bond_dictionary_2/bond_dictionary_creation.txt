@@ -10,6 +10,9 @@ This leaves us with 5203 bonds from 133 issuers and 246 green bonds
 
 then get static data
 merge with bond_dictionary, remove callable bonds, remove supras.
+giving us "bond_universe_cleaned" with 4000 bonds. 
+
+
 then have final bond_dictionary with static data, to merge with price data
 we have 809 bonds in our bond_dictionary, of which 200 are green
 
