@@ -43,6 +43,8 @@ The codebase is organized as follows:
       -   Once merged with bond_dictionary, we remove callable bonds.
       -   then have final bond_dictionary with static data, to merge with price data
       -   To clean the static data we coded a VBA macro to extract and clean the webscraped static data, this was significantly faster than manually cleaning 5000 rows of data and ensure replicability. The macro is in the file "Static_data_cleaning_Macro" in the "Static_data" folder.
+      -   we have 809 bonds in our bond_dictionary, of which 200 are green
+      -   of those, we have 196 bonds for which we have price data giving us a final preliminary data set of 8000 rows
 
    **PLANNED:**
    - Analyse the bond dictionary and plot emitter specific yield curves by merging the bond dictionary with our price data and only keeping the bonds for which we have data as a preliminary analysis
