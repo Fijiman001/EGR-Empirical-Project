@@ -1,0 +1,395 @@
+---
+title: "Merging datasets"
+format: revealjs
+editor: visual
+---
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations see <https://quarto.org/docs/presentations/>.
+
+## Bullets
+
+When you click the **Render** button a document will be generated that includes:
+
+-   Content authored with markdown
+-   Output from executable code
+
+## Code
+
+When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+### Green Bonds part
+
+```{r}
+library(readr)
+
+# Définir le dossier contenant les fichiers
+folder_path <- "C:/Users/destr/OneDrive/GitHub/EGR-Empirical-Project/data"
+
+# Lister tous les fichiers commençant par "green_bond_data"
+files <- list.files(path = folder_path, pattern = "^green_bonds_data.*\\.csv$", full.names = TRUE)
+
+# Import files as a list to load them all at once in R 
+list_dfs <- lapply(files, read_csv)
+
+# check
+length(list_dfs) # number of files loaded
+
+head(list_dfs[[1]])  # display the first rows of the first dataset
+
+View(list_dfs[[1]])  # open the first dataset
+
+
+```
+
+```{r}
+
+library(dplyr)
+
+# Renommer la colonne Date/Time Last Price en DateTime avant d'empiler
+list_dfs <- lapply(list_dfs, function(df) {
+  df %>% rename(DateTime = `Date/Time Last Price`)
+})
+
+# Empiler tous les datasets correctement
+df_final <- bind_rows(list_dfs)
+
+# Trier par WKN et DateTime
+df_final <- df_final %>% arrange(WKN, DateTime)
+
+# Vérifier le résultat
+dim(df_final)
+head(df_final)
+
+Green_bonds<-df_final
+anyNA(list_dfs)
+
+```
+
+```         
+```
+
+### All bonds data part
+
+```{r}
+folder_path <- "C:/Users/destr/OneDrive/GitHub/EGR-Empirical-Project/data"
+
+# Lister tous les fichiers commençant par "all_bond_data"
+files <- list.files(path = folder_path, pattern = "^all_bonds_data.*\\.csv$", full.names = TRUE)
+
+# Import files as a list to load them all at once in R 
+list_dfs2 <- lapply(files, read_csv)
+
+# check
+length(list_dfs2) # number of files loaded
+
+head(list_dfs2[[1]])  # display the first rows of the first dataset
+
+View(list_dfs2[[1]])  # open the first dataset
+
+anyNA(list_dfs2) #pas DE NA 
+
+
+##############" expérimentations
+# Sélectionner un fichier qui pose problème
+idx_problem <- which(sapply(list_dfs2, function(df) all(is.na(df$`Last Price`) | df$`Last Price` == 0)))[1]  # Premier fichier suspect
+
+# Afficher les premières lignes de ce fichier
+head(list_dfs2[[idx_problem]])
+
+
+dim(list_dfs2[[idx_problem]])
+
+# Récupérer le chemin du fichier problématique
+file_problem <- files[idx_problem]
+
+# Lire le fichier directement
+df_test <- read_csv(file_problem)
+
+# Vérifier sa structure
+dim(df_test)  # Nombre de lignes et colonnes
+head(df_test) # Voir les premières lignes
+
+```
+
+```         
+```
+
+```{r}
+
+list_dfs2 <- lapply(list_dfs2, function(df) {
+  df %>% rename(DateTime = `Date/Time Last Price`)
+})
+
+anyNA(list_dfs2$`Last Price`) #pas de NA
+library(dplyr)
+library(readr)
+
+# Liste des colonnes à uniformiser (ajoute d'autres colonnes si nécessaire)
+cols_to_fix <- c("Volume in Euro", "Last Price")
+
+convert_numeric_columns <- function(df) {
+  for (col in cols_to_fix) {
+    if (col %in% names(df)) {  # Vérifier si la colonne existe dans le dataframe
+      df[[col]] <- gsub(",", ".", df[[col]])  # Remplace les virgules par des points
+      df[[col]] <- suppressWarnings(as.numeric(df[[col]]))  # Convertir en numérique
+    }
+  }
+  return(df)
+}
+
+# Appliquer la conversion à tous les datasets de la liste
+list_dfs2 <- lapply(list_dfs2, convert_numeric_columns)
+
+anyNA(list_dfs2$`Last Price`) #pas de NA
+
+# Maintenant, on peut empiler proprement
+df_conventional <- bind_rows(list_dfs2) #là apparaissent les NA 
+
+
+sapply(list_dfs2, function(df) sum(!is.na(df$`Last Price`)))
+
+
+
+
+
+
+
+
+# Trier par WKN et DateTime
+df_conventional <- df_conventional %>% arrange(WKN, `DateTime`)
+
+# Vérifier le résultat
+dim(df_conventional)
+glimpse(df_conventional)
+anyNA(df_conventional$`Last Price`)
+```
+
+```{r}
+head(list_dfs2[[1]]$`Last Price`)
+
+```
+
+```{r}
+# Compter le nombre de NA dans "Last Price"
+nb_NA <- sum(is.na(df_conventional$`Last Price`))
+
+# Compter le nombre de 0 dans "Last Price"
+nb_zeros <- sum(df_conventional$`Last Price` == 0, na.rm = TRUE)
+
+# Afficher les résultats
+cat("Nombre de NA dans 'Last Price' :", nb_NA, "\n")
+cat("Nombre de 0 dans 'Last Price' :", nb_zeros, "\n")
+
+```
+
+### Merge the two
+
+```{r}
+library(dplyr)
+
+# Ajouter la colonne "is_green" pour identifier les obligations vertes
+Green_bonds <- Green_bonds %>% mutate(is_green = 1)  # Green bonds = 1
+df_conventional <- df_conventional %>% mutate(is_green = 0)  # Conventional bonds = 0
+
+# Fusionner les deux datasets
+all_bonds_data <- bind_rows(Green_bonds, df_conventional)
+
+# Trier pour garder une structure propre
+all_bonds_data <- all_bonds_data %>% arrange(WKN, `DateTime`)
+
+# Vérifier le résultat
+dim(all_bonds_data)  # Taille du dataset final
+table(all_bonds_data$is_green)  # Vérifier la répartition green vs. conventional
+head(all_bonds_data)
+
+
+
+```
+
+### Get rid of the duplicated
+
+```{r}
+all_bonds_data <- all_bonds_data %>%
+  mutate(`Last Price` = ifelse(`Last Price` > 1000, `Last Price` / 100, `Last Price`)) #certain price ont été multipliés par 100
+
+all_bonds_data <- all_bonds_data %>% distinct()
+
+
+```
+
+```{r}
+
+# Compter le nombre de NA dans "Last Price"
+nb_NA <- sum(is.na(all_bonds_data$`Last Price`))
+
+# Compter le nombre de 0 dans "Last Price"
+nb_zeros <- sum(all_bonds_data$`Last Price` == 0, na.rm = TRUE)
+
+# Afficher les résultats
+cat("Nombre de NA dans 'Last Price' :", nb_NA, "\n")
+cat("Nombre de 0 dans 'Last Price' :", nb_zeros, "\n")
+```
+
+```{r}
+all_bonds_data <- all_bonds_data %>% filter(!is.na(`Last Price`))
+
+max(all_bonds_data$`Last Price`)
+all_bonds_data$`Last Price`
+```
+
+```{r}
+write_csv(all_bonds_data, "all_bonds_data.csv")
+
+```
+
+```{r}
+# si une bond est à la fois green et non green, on la laisse green
+all_bonds_data_cleaned <- all_bonds_data_cleaned %>%
+  group_by(WKN) %>%
+  mutate(is_green = max(is_green, na.rm = TRUE)) %>%
+  ungroup()
+
+# Vérifier si chaque WKN a bien is_green = 1 partout s'il y avait au moins un 1
+check_wkn <- all_bonds_data_cleaned %>%
+  group_by(WKN) %>%
+  summarise(min_is_green = min(is_green), max_is_green = max(is_green)) %>%
+  filter(min_is_green != max_is_green)  # Si ce tableau est vide, tout est correct
+
+print(check_wkn)  # Doit être vide si tout est bien appliqué
+
+
+
+
+nb_duplicated <- all_bonds_data_cleaned %>%
+  group_by(WKN, DateTime) %>%
+  filter(n() > 1) %>%
+  summarise(n = n()) %>%
+  ungroup() %>%
+  summarise(total_duplicates = sum(n - 1))
+
+print(nb_duplicated)
+
+
+#elève les doublons lorsque une même WKN apparait à la même DateTime 
+all_bonds_data_cleaned <- all_bonds_data_cleaned %>%
+  distinct(WKN, DateTime, .keep_all = TRUE)
+
+
+
+sum(duplicated(all_bonds_data_cleaned[, c("WKN", "DateTime")]))  # Doit être 0
+
+```
+
+### Partie du code consacréer à merger bond_dictionary_cleaned avec all_bond_data
+
+### On va néttoyer final_dataset (enlever les obligations qui sont à la fois green et non green) puis le merge avec all_bond_data_cleaned sur WKN
+
+```{r}
+
+
+#1) combien y a-t-il de green et non green ? 
+
+inconsistent_wkns <- final_dataset %>%
+  group_by(WKN) %>%
+  summarise(min_is_green = min(is_green, na.rm = TRUE),
+            max_is_green = max(is_green, na.rm = TRUE)) %>%
+  filter(min_is_green != max_is_green)  # On garde les WKN où il y a une variation
+
+num_inconsistent <- nrow(inconsistent_wkns)
+print(num_inconsistent)  # Nombre total d'obligations concernées
+
+head(inconsistent_wkns)  # Voir les premières obligations concernées
+
+```
+
+```{r}
+#2) si un WKN a green = 1 alors toues les autres du même WKN le seront aussi
+final_dataset <- final_dataset %>%
+  group_by(WKN) %>%
+  mutate(is_green = max(is_green, na.rm = TRUE)) %>%
+  ungroup()
+
+check_wkn <- final_dataset %>%
+  group_by(WKN) %>%
+  summarise(min_is_green = min(is_green, na.rm = TRUE),
+            max_is_green = max(is_green, na.rm = TRUE)) %>%
+  filter(min_is_green != max_is_green)
+
+print(nrow(check_wkn))  # Doit être 0 si tout est bien corrigé
+
+
+```
+
+```{r}
+#on merge les deux pour avoir le dataset final avec les price data et tout le reste
+merging_done <- final_dataset %>%
+  inner_join(all_bonds_data_cleaned, by = "WKN", relationship = "many-to-many")
+
+
+```
+
+```{r}
+#problème c'est que des doublons ont dû se créer à cause de final_dataset 
+
+
+duplicates_check <- merging_done %>%
+  group_by(WKN, DateTime) %>%
+  filter(n() > 1) %>%
+  arrange(WKN, DateTime) %>%
+  ungroup()
+
+# 21 000 obs avec à chaque fois 2 lignes exact pour dateTime donc environ 10 000 et quelques observations sont concernées. Ceci correspond aux doublons identifiées dans all_bond_data
+
+```
+
+```{r}
+### suppression des doublons
+
+n_before <- nrow(merging_done)
+
+merging_done <- merging_done %>%
+  distinct(WKN, DateTime, .keep_all = TRUE)
+
+n_after <- nrow(merging_done)
+rows_removed <- n_before - n_after
+
+print(paste("Nombre de lignes supprimées :", rows_removed))
+
+```
+
+### Maintenant on s'occupe des colonnes doublées dans merging_done
+
+```{r}
+colnames(merging_done) #vérifie lesquelles sont dupliquées
+
+#vérifie si les infos contenuent sont les mêmes
+summary(merging_done$is_green.x) 
+summary(merging_done$is_green.y)
+
+summary(merging_done$Coupon.x)
+summary(merging_done$Coupon.y)# ici y semble prendre l'entier supérieur, on veut pas !
+
+summary(merging_done$Name.x)
+summary(merging_done$Name.y)
+
+#on peut drop tous les y 
+```
+
+```{r}
+merging_done <- merging_done %>%
+  select(-Name.y, -Coupon.y, -is_green.y)
+
+merging_done <- merging_done %>%
+  rename(Name = Name.x, 
+         Coupon = Coupon.x, 
+         is_green = is_green.x)
+
+```
+
+```{r}
+write_csv(all_bonds_data_cleaned, "all_bonds_data_cleaned")
+write_csv(merging_done, "merging_done")
+
+```
