@@ -284,6 +284,18 @@ sum(duplicated(all_bonds_data_cleaned[, c("WKN", "DateTime")]))  # Doit être 0
 
 ### Partie du code consacréer à merger bond_dictionary_cleaned avec all_bond_data
 
+```{r}
+#Si jamais ça ne marche pas, alors utiliser ce code la pour récupérer tous les datasets d'avant, puis merged final_dataset avec all_bonds_data_cleaned puis enlever les doublons de DateTime et les colonnes y 
+
+write_csv(matched_bonds, "C:/Users/destr/OneDrive/Cours_M2/Empirical Project/Garbage data pour le merge/matched_bonds.csv")
+
+write_csv(final_dataset, "C:/Users/destr/OneDrive/Cours_M2/Empirical Project/Garbage data pour le merge/final_dataset.csv")
+
+write_csv(bond_dictionary_cleaned, "C:/Users/destr/OneDrive/Cours_M2/Empirical Project/Garbage data pour le merge/final_dataset.csv")
+
+write_csv(bond_universe_cleaned, "C:/Users/destr/OneDrive/Cours_M2/Empirical Project/Garbage data pour le merge/final_dataset.csv")
+```
+
 ### On va néttoyer final_dataset (enlever les obligations qui sont à la fois green et non green) puis le merge avec all_bond_data_cleaned sur WKN
 
 ```{r}
@@ -389,7 +401,7 @@ merging_done <- merging_done %>%
 ```
 
 ```{r}
-write_csv(all_bonds_data_cleaned, "all_bonds_data_cleaned")
-write_csv(merging_done, "merging_done")
+write_csv(merging_done, "C:/Users/destr/OneDrive/GitHub/EGR-Empirical-Project/data/Final data for the study/merging_done.csv")
 
+write_csv(all_bonds_data_cleaned, "C:/Users/destr/OneDrive/GitHub/EGR-Empirical-Project/data/Final data for the study/all_bonds_data_cleaned.csv")
 ```
