@@ -1,0 +1,266 @@
+---
+title: "Untitled"
+format: html
+editor: visual
+---
+
+### Running Code
+
+This code is aimed at further exploring the data we collected through a Nelson-Siegel modelisation of the Yield curve for green and conventional bonds. We derived our own parameters of the curve.
+
+### 
+
+```{r}
+
+
+library(readr)
+df_final_7 <- read_csv("C:/Users/destr/OneDrive/GitHub/EGR-Empirical-Project/data/Final data for the study/df_final_7.csv")
+
+View(df_final_7)
+
+#create variable to get the maturity in years
+df_final_7$maturity_years <- df_final_7$days_to_maturity / 365
+
+```
+
+You can add options to executable code like this
+
+```{r}
+
+#in case if needed
+ECB_parameters <- read_csv("C:/Users/destr/OneDrive/GitHub/EGR-Empirical-Project/Econometrics/Nelson-Siegel data ECB.csv")
+
+
+```
+
+The `echo: false` option disables the printing of code (only output is displayed).
+
+### Prepare the dataset for 1 period (febuary 4th 2025) with a unique occurence of each bond
+
+```{r}
+
+library(dplyr)
+library(lubridate)
+
+# Get only the day, get rid of the time of the observation
+df_final_7 <- df_final_7 %>%
+  mutate(date_only = as.Date(DateTime))  # Garde seulement YYYY-MM-DD
+
+# make sure we have enough obervations for one day
+df_final_7 %>%
+  filter(date_only %in% as.Date(c("2025-02-04"))) %>%  # Sélectionne les deux dates
+  group_by(date_only) %>%
+  summarise(n_observations = n())
+
+#For febuary 4, keep only one observation = total of 190 bonds
+
+df_feb4 <- df_final_7 %>%
+  filter(as.Date(date_only) == as.Date("2025-02-04"))
+
+
+df_feb4_euro <- df_feb4 %>%
+  arrange(WKN, desc(date_only)) %>%  # Trier par entreprise et heure décroissante
+  group_by(WKN) %>%
+  slice(1) %>%  # Garder uniquement la dernière observation
+  ungroup()
+
+
+
+```
+
+### Here we use Boostraping to extract the zero coupon bonds use for the Nelson-Siegel fitting :
+
+```{r}
+
+#bootstrapping  zéro coupon
+bootstrap_zero_coupon <- function(df) {
+  library(dplyr)
+  
+  # Créer une copie du dataset et s'assurer qu'il est trié par maturité
+  bonds <- df %>% 
+    filter(!is.na(maturity_years), maturity_years > 0) %>%
+    arrange(maturity_years)
+  
+  # Initialiser la colonne des taux zéro-coupon
+  bonds$zero_coupon_rate <- NA
+  
+  # Pour chaque obligation, calculer une approximation du taux zéro-coupon
+  # Cette approche simplifiée évite les problèmes avec seq()
+  for (i in 1:nrow(bonds)) {
+    maturity <- bonds$maturity_years[i]
+    coupon <- bonds$Coupon[i]
+    price <- bonds$`Last Price`[i]
+    
+    # Pour les obligations zéro-coupon ou approchant
+    if (coupon <= 0.001) {
+      # Formule directe pour obligation zéro-coupon
+      zero_rate <- (100/price)^(1/maturity) - 1
+    } else {
+      # Calcul simplifié pour les obligations avec coupon
+      # Méthode d'approximation de base
+      annual_payment <- coupon * 100
+      
+      # Calculer la valeur actualisée des coupons
+      # en supposant un taux constant (approximation)
+      pv_factor <- 0
+      for (t in 1:floor(maturity)) {
+        pv_factor <- pv_factor + 1/((1 + coupon)^t)
+      }
+      
+      # Si maturity < 1, nous devons gérer ce cas spécial
+      if (floor(maturity) < 1) {
+        pv_factor <- maturity  # Une approximation simple pour les maturités courtes
+      }
+      
+      # Valeur actualisée estimée des coupons
+      pv_coupons <- annual_payment * pv_factor
+      
+      # Valeur actualisée du principal
+      pv_principal <- price - pv_coupons
+      if (pv_principal <= 0) {
+        # Si cette méthode échoue, utiliser une approximation plus simple
+        zero_rate <- (100/price)^(1/maturity) - 1
+      } else {
+        # Calculer le taux zéro pour cette maturité
+        zero_rate <- (100 / pv_principal)^(1/maturity) - 1
+      }
+    }
+    
+    # Stocker le taux zéro
+    bonds$zero_coupon_rate[i] <- zero_rate
+  }
+  
+  # Revenir au dataframe original avec les taux calculés
+  result <- df %>%
+    left_join(bonds %>% select(maturity_years, zero_coupon_rate), 
+              by = "maturity_years")
+  
+  return(result)
+}
+
+# Appliquer la fonction à votre dataframe
+df_feb4_euro <- bootstrap_zero_coupon(df_feb4_euro)
+
+
+
+
+
+# Afficher un résumé des taux zéro-coupon
+summary(df_feb4_euro$zero_coupon_rates)
+
+
+
+
+
+
+```
+
+```{r}
+
+# Plot the curve
+library(ggplot2)
+
+plot(df_feb4_euro$maturity_years, df_feb4_euro$zero_coupon_rates, 
+     pch=19, col="red", 
+     main="Scatter Plot: Zero Coupon Rates vs Maturity",
+     xlab="Maturity (Years)", ylab="Zero Coupon Rate (%)",
+     xlim=c(0, 20), ylim=c(0, 10))  # Limite les axes
+grid()
+
+```
+
+```{r}
+#### YTM VS MATURITY 
+
+plot(df_feb4_euro$maturity_years, df_feb4_euro$YTM, 
+     main="Observed Yield Curve",
+     xlab="Maturity (years)", ylab="Yield (%)",
+     pch=19, col="blue", 
+     xlim=c(0, 20), ylim=c(0, 10))  # Fixe X max à 20 et Y max à 10
+grid()  # Ajouter une grille pour la lisibilité
+
+```
+
+### Creating the NS curve for all bonds
+
+```{r}
+
+library(YieldCurve)
+library(ggplot2)
+library(xts)
+
+# 1Put maturity in order 
+df_feb4_euro <- df_feb4_euro[order(df_feb4_euro$maturity_years), ]
+
+
+
+  # 2️adjust nelson siegelto zero coupon
+NS_params <- Nelson.Siegel(df_feb4_euro$zero_coupon_rates, df_feb4_euro$maturity_years)
+
+# 3 check that the result is a matrix (needed for the followiong function)
+NS_params <- matrix(NS_params, nrow = 1)  # S'assurer que c'est une matrice 1 ligne, 4 colonnes
+
+# 4 convert into xts (if needed)
+NS_params_xts <- xts(NS_params, order.by=Sys.Date())
+# 6⃣ results
+print(NS_params_xts)
+
+NSrates_fitted <- NSrates(NS_params_xts, df_feb4_euro$maturity_years)
+
+
+```
+
+```{}
+```
+
+```{r}
+### Plot the curve
+
+# Scatter plot pour les taux zéro-coupon observés
+plot(df_feb4_euro$maturity_years, df_feb4_euro$zero_coupon_rates, 
+     main="Fitting Nelson-Siegel Yield Curve",
+     xlab="Maturity (years)", ylab="Yield (%)",
+     pch=19, col="blue", xlim=c(0, 20), ylim=c(0, 10))  # Suppression de type="o" pour avoir uniquement un scatter
+
+# Ajouter la courbe ajustée Nelson-Siegel avec une ligne plus épaisse
+lines(df_feb4_euro$maturity_years, NSrates_fitted, col="red", lwd=2.5)
+
+# Ajouter une légende
+legend("topleft",
+       legend=c("Observed zero coupon rates", "Fitted Nelson-Siegel yield curve"),
+       col=c("blue", "red"), pch=c(19, NA), lty=c(NA, 1), lwd=2.5)
+
+# Ajouter une grille pour améliorer la lisibilité
+grid()
+
+
+rmse <- sqrt(mean((df_feb4_euro$zero_coupon_rates - NSrates_fitted)^2))
+print(rmse)
+
+summary(df_feb4_euro$zero_coupon_rates)
+
+
+```
+
+### Understanding why this damn curve is inverted
+
+```{r}
+
+# Créer un nouveau dataset avec uniquement les colonnes demandées
+df_maturity_YTM_NS <- df_feb4_euro[, c("maturity_years", "zero_coupon_rates", "YTM")]
+
+
+
+# Vérifier le nouveau dataset
+print(head(df_maturity_YTM_NS))
+
+```
+
+```{r}
+# Do we have the parameters wrong ? 
+print(NS_params)
+
+
+print(df_feb4_euro[, c("maturity_years", "zero_coupon_rates")])
+
+```
