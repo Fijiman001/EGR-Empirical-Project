@@ -51,3 +51,9 @@ po/*~
 # RStudio Connect folder
 rsconnect/
 .DS_Store
+.idea/workspace.xml
+.idea/vcs.xml
+.idea/modules.xml
+.idea/misc.xml
+.idea/inspectionProfiles/profiles_settings.xml
+.idea/EGR-Empirical-Project.iml
