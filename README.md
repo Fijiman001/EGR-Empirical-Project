@@ -45,25 +45,23 @@ The codebase is organized as follows:
       -   To clean the static data we coded a VBA macro to extract and clean the webscraped static data, this was significantly faster than manually cleaning 5000 rows of data and ensure replicability. The macro is in the file "Static_data_cleaning_Macro" in the "Static_data" folder.
       -   we have 809 bonds in our bond_dictionary, of which 200 are green
       -   of those, we have 196 bonds for which we have price data giving us a final preliminary data set of 8000 rows
-in "merging_done_6" we have 12000 rows of 501 bonds where 221 bonds are unique. we use this to create our final dataset.
-      - we remove duplicates
+in "merging_done_6" we have 12000 rows of 501 bonds where 221 bonds are unique. we use this to create our final dataset by merging "merging_done_6" with the static data we gathered to create our final data set "df_final_7".
+      - "df_final_7" has 11123 rows of data with 416 bonds, of which 200 bonds are green from 98 unique issuers.
+
+3. **Matching Method regression**:
+      - Following the ECB article (incert citation) we create a matching method to compare green and conventional bonds
 
 
-   **PLANNED:**
-   - Analyse the bond dictionary and plot emitter specific yield curves by merging the bond dictionary with our price data and only keeping the bonds for which we have data as a preliminary analysis
-   - We want to apply a selection criteria to trim down the number of bonds contained in the bond dictionary, removing older conventional bonds, bonds with significantly different maturities? and removing bonds that are callable by their issuer.
-      - With this reduced bond dictionary we collect additional spread data of all the bonds.
-
-3. **Data Processing**:
-   - Data cleaning and preprocessing scripts to handle missing values, outliers, and formatting.
-   - Analysis scripts to explore the bond data, including statistical analysis of yield and liquidity metrics.
-
-4. **Structural Models**:
+5. **Nelson Stieglitz curves**:
    - Implementation of structural models to estimate bond yields and compare the results for green vs. conventional bonds.
-   - Calibration of these models based on the collected data.
+   - Calibration of these models based on the collected data.  
 
-5. **Results**:
+6. **Results**:
    - Scripts to generate visualizations and statistical tests to evaluate the significance of any differences between green and conventional bonds.
+  
+7. **Further Analysis**
+   - We can expand our analysis by including CO2 data for the bonds to see if there is a difference between actual green bonds and bonds emitted by institutions / companies to finance existing projects and were "green" purely to capture the growing interest of investors in this field.
+   - We could expand the scope of this analysis, collecting better data and analysing more bonds, having a larger bond dictionary. Alternatively, with more granual data one could expand upon this research to look at sector specific effects or some "best-in-class" effects and metrics.
 
 ### Objective
 
