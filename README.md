@@ -50,7 +50,10 @@ in "merging_done_6" we have 12000 rows of 501 bonds where 221 bonds are unique. 
 
 3. **Matching Method regression**:
       - Following the ECB article (incert citation) we create a matching method to compare green and conventional bonds
-
+      - we do not consider any external certifications or labelling or definitions of green bonds due to data availability and quality reasons. an example of such supplemental data is the green bond definition and labelling from ICMA Green Bond Principles (GBP), see Pietsch and Salakhova, 2022 - Pricing of green bonds: drivers and dynamics of the greenium for more information. Additional external data used by the authors is issuer level environmental committments to environmental programmes such as those included in United Nations Environmental Program Finance Initiative (UNEP FI).   
+      - We construct a control group of conventional bonds as similar to the sample of green bonds as possible, using a k-prototypes matching algorithm (in our case euclidean distance, see code to extract exact method). This distance measure will be used to calculated a weighted average difference in Yield-to-maturity (YTM) of green and conventional bonds. We also analyse the arithmetic mean of YTM difference between green and conventional bonds.
+      - We run baseline regressions to see if our distance measure affects the difference in YTM and how other factors might affect YTM.
+      - We expain our analysis by also doing a one to many matching method, expanding our dataset and again using the distance factor to take a weighted mean.
 
 5. **Nelson Stieglitz curves**:
    - Implementation of structural models to estimate bond yields and compare the results for green vs. conventional bonds.
