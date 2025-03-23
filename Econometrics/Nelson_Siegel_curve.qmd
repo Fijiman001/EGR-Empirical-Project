@@ -4,78 +4,532 @@ format: html
 editor: visual
 ---
 
-### Running Code
+# Loading the data
 
 This code is aimed at further exploring the data we collected through a Nelson-Siegel modelisation of the Yield curve for green and conventional bonds. We derived our own parameters of the curve.
 
-### 
+```{r}
+
+library(readr)
+setwd(dirname(rstudioapi::getSourceEditorContext()$path))
+getwd()
+df <- read.csv(file.path("..", "data", "Final data for the study", "df_final_7.csv"), stringsAsFactors = FALSE)
+
+#create variable to get the maturity in years
+df$maturity_years <- df$days_to_maturity / 365
+```
+
+We clean the code the same way we did in python:
 
 ```{r}
 
+# --- 1. Define helper function to parse numeric values ---
+parse_numeric <- function(x) {
+  if (is.na(x)) {
+    return(NA_real_)
+  }
+  # Convert to character and trim whitespace
+  x <- trimws(as.character(x))
+  # Remove percentage sign if present
+  x <- gsub("%", "", x)
+  # Replace commas with dots
+  x <- gsub(",", ".", x)
+  # Convert to numeric (suppress warnings)
+  num <- suppressWarnings(as.numeric(x))
+  return(num)
+}
 
-library(readr)
-df_final_7 <- read_csv("C:/Users/destr/OneDrive/GitHub/EGR-Empirical-Project/data/Final data for the study/df_final_7.csv")
+# --- 3. Clean the numeric columns ---
+df$YTM <- sapply(df$YTM, parse_numeric)
+df$Coupon <- sapply(df$Coupon, parse_numeric)
+# Process "Modified Duration" and divide by 1000
+df$Modified.Duration <- sapply(df$Modified.Duration, parse_numeric)/1000
 
-View(df_final_7)
 
-#create variable to get the maturity in years
-df_final_7$maturity_years <- df_final_7$days_to_maturity / 365
+# Check the first 10 rows of the cleaned columns
+print(head(df[, c("YTM", "Coupon", "Modified.Duration")], 10))
 
+# --- 4. Display column names ---
+print(names(df))
+
+# --- 5. Identify companies with more than one unique ISIN ---
+companies <- aggregate(ISIN ~ Company, data = df, FUN = function(x) length(unique(x)))
+companies <- companies[companies$ISIN > 1, ]
+print(companies)
+
+# --- 6. Identify companies having both green (is_green==1) and conventional (is_green==0) bonds ---
+companies_green <- aggregate(is_green ~ Company, data = df, FUN = function(x) length(unique(x)))
+companies_green <- companies_green[companies_green$is_green == 2, ]
+print(companies_green)
+
+# --- 7. For each matching company, count unique ISINs ---
+matching_companies <- list()
+for(company in companies_green$Company) {
+  group <- df[df$Company == company, ]
+  matched <- length(unique(group$ISIN))
+  cat(company, ":", matched, "unique ISINs\n")
+  matching_companies[[company]] <- matched
+}
+cat("List of issuers with both green and conventional bonds we will be analysing:\n")
+print(names(matching_companies))
+
+# --- 8. Filter the dataframe to include only these companies ---
+df_for_matching <- df[df$Company %in% names(matching_companies), ]
+
+# Print dimensions and counts
+print(dim(df_for_matching))
+cat("Unique ISINs:", length(unique(df_for_matching$ISIN)), "\n")
+cat("Unique Companies:", length(unique(df_for_matching$Company)), "\n")
+cat("Unique green bonds (is_green == 1):", length(unique(df_for_matching$ISIN[df_for_matching$is_green == 1])), "\n")
+
+# --- 9. Overview of the currencies used ---
+unique_currencies <- unique(df_for_matching$Emissionswährung)
+for(currency in unique_currencies) {
+  cat("Currency:", currency, "\n")
+  # Count unique ISINs for this currency in the full dataset
+  cat("Unique ISINs in df:", length(unique(df$ISIN[df$Emissionswährung == currency])), "\n")
+}
+
+# --- 10. Keep only rows with EUR as currency ---
+df_for_matching <- df_for_matching[df_for_matching$Emissionswährung == "EUR", ]
+print(dim(df_for_matching))
+
+# --- 11. Convert DateTime to a date-time object and sort ---
+df_for_matching$DateTime <- as.POSIXct(df_for_matching$DateTime, format="%Y-%m-%d %H:%M:%S", tz="UTC")
+df_for_matching <- df_for_matching[order(df_for_matching$DateTime), ]
+rownames(df_for_matching) <- NULL
+
+names(df_for_matching)[names(df_for_matching) == "Modified.Duration"] <- "modified_duration"
+names(df_for_matching)[names(df_for_matching) == "Last.Price"] <- "last_price"
+
+# Check the column names and first few rows of the sorted data
+print(names(df_for_matching))
+print(head(df_for_matching))
+
+# --- 12. Write the cleaned data to a CSV file ---
+# write.csv(df_for_matching, "df_for_matching.csv", row.names = FALSE)
 ```
 
 You can add options to executable code like this
 
 ```{r}
+library(dplyr)
+library(tidyr)
+library(ggplot2)
 
 #in case if needed
-ECB_parameters <- read_csv("C:/Users/destr/OneDrive/GitHub/EGR-Empirical-Project/Econometrics/Nelson-Siegel data ECB.csv")
-
-
+url_ecb = file.path("..", "Econometrics", "Nelson-Siegel data ECB.csv") 
+df_ECB <- read.csv(url_ecb, stringsAsFactors = FALSE)
+# we analyse the unique title values to then extract the factors
+write.csv(df_ECB |> filter(TIME_PERIOD == "2025-01-03") |> select(TITLE), "./unique_title_values.csv")
 ```
 
-The `echo: false` option disables the printing of code (only output is displayed).
+We will test plot the ECB curve for one given day, say for 2025-01-03
 
-### Prepare the dataset for 1 period (febuary 4th 2025) with a unique occurence of each bond
+```{r}
+date_filter <- "2025-01-03"
+
+# Filter and mutate your data
+df_date <- df_ECB |>
+  filter(TIME_PERIOD == date_filter)
+
+df_date <- df_date |>
+  mutate(Parameter = case_when(
+    grepl("BETA0", DATA_TYPE_FM, ignore.case = TRUE) ~ "Beta0",
+    grepl("BETA1", DATA_TYPE_FM, ignore.case = TRUE) ~ "Beta1",
+    grepl("BETA2", DATA_TYPE_FM, ignore.case = TRUE) ~ "Beta2",
+    grepl("BETA3", DATA_TYPE_FM, ignore.case = TRUE) ~ "Beta3",
+    grepl("TAU1", DATA_TYPE_FM, ignore.case = TRUE) ~ "Tau1",
+    grepl("TAU2", DATA_TYPE_FM, ignore.case = TRUE) ~ "Tau2",
+    TRUE ~ NA_character_
+  )) %>%
+  filter(!is.na(Parameter))
+
+# Pivot the data so that each parameter is in its own column
+params <- df_date %>%
+  select(Parameter, OBS_VALUE) %>%
+  pivot_wider(names_from = Parameter, values_from = OBS_VALUE)
+
+# Convert parameter values to numeric
+params <- params %>% mutate(across(everything(), as.numeric))
+
+# If the dataset does not include the time-decay parameters (Tau1 and Tau2),
+# you can set them to reasonable defaults (for example, 1 and 3 years)
+if(!"Tau1" %in% names(params)) {
+  params$Tau1 <- 1.0
+}
+if(!"Tau2" %in% names(params)) {
+  params$Tau2 <- 3.0
+}
+
+# Define the Svensson yield curve function
+sven_yield <- function(tau, beta0, beta1, beta2, beta3, tau1, tau2) {
+  # Handle the tau==0 case to avoid division by zero (using the limit values)
+  term1 <- ifelse(tau == 0, 1, (1 - exp(-tau / tau1)) / (tau / tau1))
+  term2 <- ifelse(tau == 0, 0, term1 - exp(-tau / tau1))
+  term3 <- ifelse(tau == 0, 0, (1 - exp(-tau / tau2)) / (tau / tau2) - exp(-tau / tau2))
+  yield <- beta0 + beta1 * term1 + beta2 * term2 + beta3 * term3
+  return(yield)
+}
+
+# Create a sequence of maturities (in years) over which to plot the yield curve.
+# (For example, from 0.1 to 30 years.)
+maturities <- seq(0.1, 30, by = 0.1)
+
+# Compute the yield at each maturity using the Svensson function.
+# The parameter values are taken from the pivoted 'params' data frame.
+yields <- sven_yield(maturities,
+                     beta0 = params$Beta0,
+                     beta1 = params$Beta1,
+                     beta2 = params$Beta2,
+                     beta3 = params$Beta3,
+                     tau1  = params$Tau1,
+                     tau2  = params$Tau2)
+
+# Create a data frame for plotting
+yield_curve_df <- data.frame(Maturity = maturities, Yield = yields)
+
+# Plot the yield curve using ggplot2
+ggplot(yield_curve_df, aes(x = Maturity, y = Yield)) +
+  geom_line(size = 1) +
+  labs(title = paste("Yield Curve on", date_filter),
+       x = "Maturity (Years)",
+       y = "Yield (%)") +
+  theme_minimal()
+```
+
+# Bond data subset for 1 day
 
 ```{r}
 
-library(dplyr)
 library(lubridate)
 
-# Get only the day, get rid of the time of the observation
-df_final_7 <- df_final_7 %>%
-  mutate(date_only = as.Date(DateTime))  # Garde seulement YYYY-MM-DD
+df_subset <- df_for_matching |> filter(Date == "03/01/2025")
 
-# make sure we have enough obervations for one day
-df_final_7 %>%
-  filter(date_only %in% as.Date(c("2025-02-04"))) %>%  # Sélectionne les deux dates
-  group_by(date_only) %>%
-  summarise(n_observations = n())
-
-#For febuary 4, keep only one observation = total of 190 bonds
-
-df_feb4 <- df_final_7 %>%
-  filter(as.Date(date_only) == as.Date("2025-02-04"))
-
-
-df_feb4_euro <- df_feb4 %>%
-  arrange(WKN, desc(date_only)) %>%  # Trier par entreprise et heure décroissante
+# per date we take the last available price
+df_subset <- df_subset %>%
+  arrange(WKN, desc(Date)) %>%
   group_by(WKN) %>%
-  slice(1) %>%  # Garder uniquement la dernière observation
+  slice(1) %>%  
   ungroup()
-
-
-
 ```
 
-### Here we use Boostraping to extract the zero coupon bonds use for the Nelson-Siegel fitting :
+# We overlay ECB curve with our bond curve
+
+```{r}
+library(tidyverse)
+
+#valuation_date <- as.Date("2025-01-03")
+# df_subset already has maturity_years
+
+# we remove any sovereigns that jumped through the initial filtering
+df_subset <- df_subset %>%
+  filter(Company != "ungarn republik") |>
+  filter(maturity_years <= 30)
+
+# for later
+df_for_matching <- df_for_matching %>%
+  filter(Company != "ungarn republik") |>
+  filter(maturity_years <= 30)
+
+# 3) Plot the ECB curve and your bond yields on the same chart
+ggplot() +
+  # (a) The ECB curve as a line
+  geom_line(data = yield_curve_df,
+            aes(x = Maturity, y = Yield),
+            color = "blue",
+            size  = 1) +
+  # (b) Your bond data (red points)
+  geom_point(data = df_subset,
+             aes(x = maturity_years, y = YTM),
+             color = "red",
+             size  = 2) +
+  # (c) Your bond data again (gray points)
+  geom_point(data = df_subset,
+             aes(x = maturity_years, y = YTM_new),
+             color = "grey",
+             size  = 1) +
+  labs(
+    title   = "Nelson–Siegel Yield Curve vs. Actual Bond Yields",
+    x       = "Maturity (years)",
+    y       = "Yield (%)",
+    caption = "Blue line: ECB Nelson–Siegel curve\nRed points: Bond yields from df_subset"
+  ) +
+  theme_minimal()
+```
+
+we recalculate YTM as there seems to be an issuer with some entries. this calculation produces yields that are across the board slightly lower. but also seemingly too low. We stay with our previous calculation and remove the sovereign bonds that made it into our dataset.
+
+```{r}
+calc_ytm <- function(price,
+                     coupon_rate,
+                     maturity_years,
+                     face_value = 100,
+                     freq = 1) {
+  # price:        bond price (clean price) per 100 of face value
+  # coupon_rate:  annual coupon rate in decimal form, e.g. 0.05 for 5%
+  # maturity_years: time to maturity in years (could be fractional)
+  # face_value:   redemption value (usually 100)
+  # freq:         number of coupon payments per year (1 = annual, 2 = semiannual, etc.)
+
+  # Number of coupon payments
+  n <- freq * maturity_years
+  
+  # Coupon payment each period
+  cpn <- (coupon_rate / 100) * face_value / freq
+  
+  # Define a function whose root is the YTM
+  f <- function(y) {
+    # Present value of all coupon payments
+    # For each period t = 1..n, discount the coupon
+    pv_coupons <- sum( cpn / (1 + y/freq)^(1:n) )
+    
+    # Present value of the final redemption (face value)
+    pv_redemption <- face_value / (1 + y/freq)^n
+    
+    # The difference between the calculated PV and the actual market price
+    (pv_coupons + pv_redemption) - price
+  }
+  
+  # Use uniroot to solve f(y) = 0 for y in [0, 1] (i.e. 0% to 100% yield)
+  # Adjust the interval if your yields are extremely high/low.
+  tryCatch({
+    root <- uniroot(f, interval = c(0, 1))$root
+    return(root)
+  }, error = function(e) {
+    # If uniroot fails, return NA or handle as you prefer
+    return(NA_real_)
+  })
+}
+
+df_subset <- df_subset %>%
+  mutate(
+    # If Coupon is in percentage (e.g. 3 for 3%), do:
+    # Coupon = Coupon / 100,
+
+    # Calculate the YTM by calling calc_ytm row by row
+    YTM_new = mapply(
+      calc_ytm,
+      price          = last_price,
+      coupon_rate    = Coupon,
+      maturity_years = maturity_years,
+      MoreArgs = list(face_value = 100, freq = 1)
+    )
+  )
+df_subset$YTM_new <- df_subset$YTM_new * 100
+```
+
+## Differentiating between green and conventional bonds
+
+```{r}
+
+# using is_green in df_subset
+ggplot() +
+  # (a) The ECB curve as a line (blue)
+  geom_line(
+    data  = yield_curve_df,
+    aes(x = Maturity, y = Yield),
+    color = "blue",
+    size  = 1
+  ) +
+  # (b) Your bond data (YTM) as points, colored by bond_type
+  geom_point(
+    data = df_subset,
+    aes(x = maturity_years, y = YTM, color = as.factor(is_green)),
+    size = 2
+  ) +
+  labs(
+    title   = "Nelson–Siegel Yield Curve vs. Actual Bond Yields",
+    x       = "Maturity (years)",
+    y       = "Yield (%)",
+    color   = "Bond Type",  # Legend title
+    caption = "Blue line: ECB Nelson–Siegel curve\nPoints: Bond yields from df_subset"
+  ) +
+  theme_minimal()
+```
+
+## Plot average yield curves
+
+still for just the day, we will then average over all the days later. We first compute daily averages
+
+```{r}
+# we fit smoothing splines
+
+# Split data into two subsets
+df_green <- df_subset %>% filter(is_green == 1)
+df_conv  <- df_subset %>% filter(is_green == 0)
+
+# Fit smoothing spline for green bonds
+fit_green <- smooth.spline(
+  x = df_green$maturity_years,
+  y = df_green$YTM,
+  spar = 1 # optional: adjust smoothing parameter
+)
+
+# Fit smoothing spline for conventional bonds
+fit_conv <- smooth.spline(
+  x = df_conv$maturity_years,
+  y = df_conv$YTM,
+  spar = 1
+)
+
+# Create a grid of maturities
+maturity_grid <- seq(
+  from = min(df_subset$maturity_years),
+  to   = max(df_subset$maturity_years),
+  length.out = 200
+)
+
+# Predict on the grid
+pred_green <- predict(fit_green, x = maturity_grid)
+pred_conv  <- predict(fit_conv,  x = maturity_grid)
+
+# Build data frames for plotting
+df_spline_green <- data.frame(
+  maturity = pred_green$x,
+  yield    = pred_green$y,
+  type     = "Green"
+)
+df_spline_conv <- data.frame(
+  maturity = pred_conv$x,
+  yield    = pred_conv$y,
+  type     = "Conventional"
+)
+
+# Combine
+df_spline_all <- rbind(df_spline_green, df_spline_conv)
+
+ggplot() +
+  # Points for all bonds
+  geom_point(
+    data = df_subset,
+    aes(x = maturity_years, y = YTM, color = factor(is_green)),
+    alpha = 0.6,
+    size  = 2
+  ) +
+  # Smoothed spline lines
+  geom_line(
+    data = df_spline_all,
+    aes(x = maturity, y = yield, color = type),
+    size = 1
+  ) +
+  labs(
+    title = "Green vs. Conventional Bond Yields (Smoothed by Maturity)",
+    x     = "Maturity (years)",
+    y     = "Yield (%)",
+    color = "Bond Type"
+  ) +
+  theme_minimal()
+```
+
+# Plot for whole time period
+
+we now extend our yield curve plot for the whole time period, plotting our bond yields relative to the Nelson-Siegel Curve given by the ECB (European Sovereign Bonds). We go back to using a simple average.
+
+```{r}
+# 1) Suppose df_for_matching has bond data with multiple entries per date/bond:
+#    We first keep only the last bond yield per (Date, WKN).
+df_for_matching_clean <- df_for_matching %>%
+  arrange(Date, WKN) %>%
+  group_by(Date, WKN) %>%
+  slice_tail(n = 1) %>%
+  ungroup()
+
+# 2) Suppose df_ECB_wide has the ECB Svensson parameters, 1 row per Date:
+#    (Date, Beta0, Beta1, Beta2, Beta3, Tau1, Tau2)
+
+#    We do an INNER JOIN to keep only dates that appear in both sets.
+df_merged <- df_for_matching_clean %>%
+  # Remove any outliers or unwanted rows, e.g. maturity > 30
+  filter(maturity_years <= 30) %>%
+  # Now join so we only keep rows with valid ECB data
+  inner_join(df_ECB_wide, by = "Date")
+
+# 3) Compute the ECB yield for each bond's maturity, then the difference
+sven_yield <- function(tau, beta0, beta1, beta2, beta3, tau1, tau2) {
+  term1 <- ifelse(tau == 0, 1, (1 - exp(-tau / tau1)) / (tau / tau1))
+  term2 <- ifelse(tau == 0, 0, term1 - exp(-tau / tau1))
+  term3 <- ifelse(tau == 0, 0, (1 - exp(-tau / tau2)) / (tau / tau2) - exp(-tau / tau2))
+  beta0 + beta1 * term1 + beta2 * term2 + beta3 * term3
+}
+
+df_merged <- df_merged %>%
+  mutate(
+    ecb_yield = sven_yield(
+      tau   = maturity_years,
+      beta0 = Beta0,
+      beta1 = Beta1,
+      beta2 = Beta2,
+      beta3 = Beta3,
+      tau1  = Tau1,
+      tau2  = Tau2
+    ),
+    diff = YTM - ecb_yield
+  )
+
+# 4) Remove rows with missing or infinite values in diff or maturity_years
+df_merged <- df_merged %>%
+  filter(!is.na(diff), !is.na(maturity_years)) %>%
+  filter(is.finite(diff), is.finite(maturity_years))
+
+# 5) Split into green vs. conventional if you want separate smoothing
+df_green <- df_merged %>% filter(is_green == 1)
+df_conv  <- df_merged %>% filter(is_green == 0)
+
+# 6) Fit smoothing splines (adjust 'spar' as needed)
+fit_green <- smooth.spline(x = df_green$maturity_years, y = df_green$diff, spar = 1)
+fit_conv  <- smooth.spline(x = df_conv$maturity_years,  y = df_conv$diff,  spar = 1)
+
+# 7) Predict on a maturity grid
+maturity_grid <- seq(
+  from = min(df_merged$maturity_years),
+  to   = max(df_merged$maturity_years),
+  length.out = 200
+)
+
+pred_green <- predict(fit_green, x = maturity_grid)
+pred_conv  <- predict(fit_conv,  x = maturity_grid)
+
+df_spline_green <- data.frame(
+  maturity      = pred_green$x,
+  smoothed_diff = pred_green$y,
+  bond_type     = "Green"
+)
+df_spline_conv <- data.frame(
+  maturity      = pred_conv$x,
+  smoothed_diff = pred_conv$y,
+  bond_type     = "Conventional"
+)
+df_spline_all <- rbind(df_spline_green, df_spline_conv)
+
+# 8) Plot raw points + smooth lines
+ggplot() +
+  geom_point(
+    data = df_merged,
+    aes(x = maturity_years, y = diff, color = factor(is_green)),
+    alpha = 0.4
+  ) +
+  geom_line(
+    data = df_spline_all,
+    aes(x = maturity, y = smoothed_diff, color = bond_type),
+    size = 1
+  ) +
+  geom_hline(yintercept = 0, linetype = "dashed") +
+  labs(
+    title = "Distance from ECB Yield Curve (Bond YTM - ECB) vs. Maturity",
+    x     = "Maturity (years)",
+    y     = "Spread (pct points)",
+    color = "Bond Type"
+  ) +
+  theme_minimal()
+```
+
+# Here we use Boostraping to extract the zero coupon bonds use for the Nelson-Siegel fitting :
 
 ```{r}
 
 #bootstrapping  zéro coupon
 bootstrap_zero_coupon <- function(df) {
-  library(dplyr)
-  
   # Créer une copie du dataset et s'assurer qu'il est trié par maturité
   bonds <- df %>% 
     filter(!is.na(maturity_years), maturity_years > 0) %>%
@@ -89,7 +543,7 @@ bootstrap_zero_coupon <- function(df) {
   for (i in 1:nrow(bonds)) {
     maturity <- bonds$maturity_years[i]
     coupon <- bonds$Coupon[i]
-    price <- bonds$`Last Price`[i]
+    price <- bonds$`last_price`[i]
     
     # Pour les obligations zéro-coupon ou approchant
     if (coupon <= 0.001) {
@@ -139,26 +593,14 @@ bootstrap_zero_coupon <- function(df) {
 }
 
 # Appliquer la fonction à votre dataframe
-df_feb4_euro <- bootstrap_zero_coupon(df_feb4_euro)
-
-
-
+df_subset_curve <- bootstrap_zero_coupon(df_subset)
 
 
 # Afficher un résumé des taux zéro-coupon
-summary(df_feb4_euro$zero_coupon_rates)
-
-
-
-
-
-
+summary(df_subset_curve$zero_coupon_rates)
 ```
 
 ```{r}
-
-# Plot the curve
-library(ggplot2)
 
 plot(df_feb4_euro$maturity_years, df_feb4_euro$zero_coupon_rates, 
      pch=19, col="red", 
@@ -166,7 +608,6 @@ plot(df_feb4_euro$maturity_years, df_feb4_euro$zero_coupon_rates,
      xlab="Maturity (Years)", ylab="Zero Coupon Rate (%)",
      xlim=c(0, 20), ylim=c(0, 10))  # Limite les axes
 grid()
-
 ```
 
 ```{r}
@@ -206,11 +647,6 @@ NS_params_xts <- xts(NS_params, order.by=Sys.Date())
 print(NS_params_xts)
 
 NSrates_fitted <- NSrates(NS_params_xts, df_feb4_euro$maturity_years)
-
-
-```
-
-```{}
 ```
 
 ```{r}
