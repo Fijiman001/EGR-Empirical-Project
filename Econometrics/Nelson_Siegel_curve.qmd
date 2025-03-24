@@ -557,6 +557,69 @@ ggplot() +
   theme_minimal()
 ```
 
+We look at the average distance of the bonds to the ECB yield.
+
+```{r}
+
+# we calculate average diff per maturity_years, using binning of 0.1 years.
+# 1) Bin maturities in 0.1 increments and compute average diff
+df_binned <- df_merged %>%
+  mutate(maturity_bin = floor(maturity_years * 2) / 2) %>%
+  group_by(maturity_bin, is_green) %>%
+  summarize(
+    avg_diff = mean(diff, na.rm = TRUE),
+    .groups  = "drop"
+  )
+# alternative, just average over all dates
+df_binned <- df_merged  |>
+  group_by(maturity_years, is_green) |>
+  summarise(
+    avg_diff = mean(diff, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+# 2) Plot
+ggplot(df_binned, aes(x = maturity_years, y = avg_diff, color = factor(is_green))) +
+  geom_point(size = 2) +
+  geom_hline(yintercept = 0, linetype = "dashed") +
+  labs(
+    title = "Average Spread (Bond YTM - ECB) by Maturity Bin",
+    x     = "Maturity (binned in 0.1 years)",
+    y     = "Mean diff (%)",
+    color = "Green Bond?"
+  ) +
+  theme_minimal()
+```
+
+Mean over all days: we see that green bonds on average have a lower difference compared to the conventional bonds, but is this significant? difference is 40 bps? we do not adjust for credit rating, seems in line with some literature
+
+```{r}
+df_merged |>
+  group_by(is_green) |>
+  summarise(
+    avg_diff = mean(diff, na.rm = TRUE)
+  ) |>
+  print()
+
+# we manually created a latex table
+```
+
+Do some significance tests? As we have autocorrelated data, we use t-test adjusted for the presence of autocorrelation by adjusting our errors via the Newey-West method.
+
+```{r}
+# we try a simple t-test
+# we check for equal variance assuming a normal distribution (might not be true) via an F-test of equality of variances. we also have autocorrelation present in our data that prevents us from using the normal errors.
+# var.test(diff ~ is_green, data = df_merged)
+# t.test(diff ~ is_green, data = df_merged, var.equal = FALSE)
+
+# Instead we do a newey-west adjusted t-test. HAC-t-test
+library(sandwich)
+library(lmtest)
+
+model <- lm(diff ~ is_green, data = df_merged)
+coeftest(model, vcov = NeweyWest(model))
+```
+
 # Here we use Boostraping to extract the zero coupon bonds use for the Nelson-Siegel fitting :
 
 ```{r}
