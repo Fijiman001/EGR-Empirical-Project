@@ -232,35 +232,7 @@ df_for_matching <- df_for_matching %>%
   filter(Company != "ungarn republik") |>
   filter(maturity_years <= 30)
 
-# 3) Plot the ECB curve and your bond yields on the same chart
-ggplot() +
-  # (a) The ECB curve as a line
-  geom_line(data = yield_curve_df,
-            aes(x = Maturity, y = Yield),
-            color = "blue",
-            size  = 1) +
-  # (b) Your bond data (red points)
-  geom_point(data = df_subset,
-             aes(x = maturity_years, y = YTM),
-             color = "red",
-             size  = 2) +
-  # (c) Your bond data again (gray points)
-  geom_point(data = df_subset,
-             aes(x = maturity_years, y = YTM_new),
-             color = "grey",
-             size  = 1) +
-  labs(
-    title   = "Nelson–Siegel Yield Curve vs. Actual Bond Yields",
-    x       = "Maturity (years)",
-    y       = "Yield (%)",
-    caption = "Blue line: ECB Nelson–Siegel curve\nRed points: Bond yields from df_subset"
-  ) +
-  theme_minimal()
-```
-
-we recalculate YTM as there seems to be an issuer with some entries. this calculation produces yields that are across the board slightly lower. but also seemingly too low. We stay with our previous calculation and remove the sovereign bonds that made it into our dataset.
-
-```{r}
+# We recalculate YTM to see if there are differences as a robustness check
 calc_ytm <- function(price,
                      coupon_rate,
                      maturity_years,
@@ -317,7 +289,34 @@ df_subset <- df_subset %>%
     )
   )
 df_subset$YTM_new <- df_subset$YTM_new * 100
+
+# 3) Plot the ECB curve and your bond yields on the same chart
+ggplot() +
+  # (a) The ECB curve as a line
+  geom_line(data = yield_curve_df,
+            aes(x = Maturity, y = Yield),
+            color = "blue",
+            size  = 1) +
+  # (b) Your bond data (red points)
+  geom_point(data = df_subset,
+             aes(x = maturity_years, y = YTM),
+             color = "red",
+             size  = 2) +
+  # (c) Your bond data again (gray points)
+  geom_point(data = df_subset,
+             aes(x = maturity_years, y = YTM_new),
+             color = "grey",
+             size  = 1) +
+  labs(
+    title   = "Nelson–Siegel Yield Curve vs. Actual Bond Yields",
+    x       = "Maturity (years)",
+    y       = "Yield (%)",
+    caption = "Blue line: ECB Nelson–Siegel curve\nRed points: Bond yields from df_subset"
+  ) +
+  theme_minimal()
 ```
+
+we recalculate YTM as there seems to be an issuer with some entries. this calculation produces yields that are across the board slightly lower. but also seemingly too low. We stay with our previous calculation and remove the sovereign bonds that made it into our dataset.
 
 ## Differentiating between green and conventional bonds
 
@@ -435,8 +434,42 @@ df_for_matching_clean <- df_for_matching %>%
   slice_tail(n = 1) %>%
   ungroup()
 
+df_ECB <- df_ECB %>%
+  mutate(Date = as.Date(TIME_PERIOD))  
+
+# 2) Identify parameters
+df_ECB <- df_ECB %>%
+  mutate(Parameter = case_when(
+    grepl("BETA0", DATA_TYPE_FM, ignore.case = TRUE) ~ "Beta0",
+    grepl("BETA1", DATA_TYPE_FM, ignore.case = TRUE) ~ "Beta1",
+    grepl("BETA2", DATA_TYPE_FM, ignore.case = TRUE) ~ "Beta2",
+    grepl("BETA3", DATA_TYPE_FM, ignore.case = TRUE) ~ "Beta3",
+    grepl("TAU1",  DATA_TYPE_FM, ignore.case = TRUE) ~ "Tau1",
+    grepl("TAU2",  DATA_TYPE_FM, ignore.case = TRUE) ~ "Tau2",
+    TRUE ~ NA_character_
+  )) %>%
+  filter(!is.na(Parameter))
+
+# 3) Pivot wider: one row per Date, columns = Beta0..Tau2
+df_ECB_wide <- df_ECB %>%
+  select(Date, Parameter, OBS_VALUE) %>%
+  pivot_wider(names_from = Parameter, values_from = OBS_VALUE)
+
+# 4) Convert parameter values to numeric
+df_ECB_wide <- df_ECB_wide %>%
+  mutate(across(c(Beta0, Beta1, Beta2, Beta3, Tau1, Tau2), as.numeric))
+
+# 5) If Tau1 or Tau2 missing, set defaults
+df_ECB_wide <- df_ECB_wide %>%
+  mutate(
+    Tau1 = if_else(is.na(Tau1), 1.0, Tau1),
+    Tau2 = if_else(is.na(Tau2), 3.0, Tau2)
+  )
 # 2) Suppose df_ECB_wide has the ECB Svensson parameters, 1 row per Date:
 #    (Date, Beta0, Beta1, Beta2, Beta3, Tau1, Tau2)
+
+df_for_matching_clean <- df_for_matching_clean %>%
+  mutate(Date = as.Date(Date, format = "%d/%m/%Y"))
 
 #    We do an INNER JOIN to keep only dates that appear in both sets.
 df_merged <- df_for_matching_clean %>%
@@ -477,8 +510,8 @@ df_green <- df_merged %>% filter(is_green == 1)
 df_conv  <- df_merged %>% filter(is_green == 0)
 
 # 6) Fit smoothing splines (adjust 'spar' as needed)
-fit_green <- smooth.spline(x = df_green$maturity_years, y = df_green$diff, spar = 1)
-fit_conv  <- smooth.spline(x = df_conv$maturity_years,  y = df_conv$diff,  spar = 1)
+fit_green <- smooth.spline(x = df_green$maturity_years, y = df_green$diff, spar = 1.3)
+fit_conv  <- smooth.spline(x = df_conv$maturity_years,  y = df_conv$diff,  spar = 1.3)
 
 # 7) Predict on a maturity grid
 maturity_grid <- seq(
@@ -516,7 +549,7 @@ ggplot() +
   ) +
   geom_hline(yintercept = 0, linetype = "dashed") +
   labs(
-    title = "Distance from ECB Yield Curve (Bond YTM - ECB) vs. Maturity",
+    title = "Distance from ECB Yield Curve (Bond YTM - ECB) vs. Maturity - spar = 1.3",
     x     = "Maturity (years)",
     y     = "Spread (pct points)",
     color = "Bond Type"
@@ -528,81 +561,151 @@ ggplot() +
 
 ```{r}
 
-#bootstrapping  zéro coupon
-bootstrap_zero_coupon <- function(df) {
-  # Créer une copie du dataset et s'assurer qu'il est trié par maturité
-  bonds <- df %>% 
-    filter(!is.na(maturity_years), maturity_years > 0) %>%
-    arrange(maturity_years)
-  
-  # Initialiser la colonne des taux zéro-coupon
-  bonds$zero_coupon_rate <- NA
-  
-  # Pour chaque obligation, calculer une approximation du taux zéro-coupon
-  # Cette approche simplifiée évite les problèmes avec seq()
-  for (i in 1:nrow(bonds)) {
-    maturity <- bonds$maturity_years[i]
-    coupon <- bonds$Coupon[i]
-    price <- bonds$`last_price`[i]
-    
-    # Pour les obligations zéro-coupon ou approchant
-    if (coupon <= 0.001) {
-      # Formule directe pour obligation zéro-coupon
-      zero_rate <- (100/price)^(1/maturity) - 1
-    } else {
-      # Calcul simplifié pour les obligations avec coupon
-      # Méthode d'approximation de base
-      annual_payment <- coupon * 100
-      
-      # Calculer la valeur actualisée des coupons
-      # en supposant un taux constant (approximation)
-      pv_factor <- 0
-      for (t in 1:floor(maturity)) {
-        pv_factor <- pv_factor + 1/((1 + coupon)^t)
-      }
-      
-      # Si maturity < 1, nous devons gérer ce cas spécial
-      if (floor(maturity) < 1) {
-        pv_factor <- maturity  # Une approximation simple pour les maturités courtes
-      }
-      
-      # Valeur actualisée estimée des coupons
-      pv_coupons <- annual_payment * pv_factor
-      
-      # Valeur actualisée du principal
-      pv_principal <- price - pv_coupons
-      if (pv_principal <= 0) {
-        # Si cette méthode échoue, utiliser une approximation plus simple
-        zero_rate <- (100/price)^(1/maturity) - 1
-      } else {
-        # Calculer le taux zéro pour cette maturité
-        zero_rate <- (100 / pv_principal)^(1/maturity) - 1
-      }
+df_grouped <- df_subset %>%
+  mutate(maturity_rounded = round(maturity_years, 2)) %>%
+  group_by(maturity_rounded) %>%
+  summarize(
+    maturity_years = mean(maturity_years),       # average actual maturity
+    last_price     = mean(last_price, na.rm = TRUE),  # average price
+    Coupon    = mean(Coupon, na.rm = TRUE), # average coupon
+    .groups = "drop"
+  )
+
+bootstrap_zero_coupon_noninteger <- function(df, face_value = 100) {
+  # df must have columns: maturity_years, last_price, coupon_rate
+  # Already aggregated so 1 row per unique maturity
+  # Sort ascending by maturity
+  df <- df %>% arrange(maturity_years)
+
+  # We'll store discount_factor and zero_rate
+  df$discount_factor <- NA_real_
+  df$zero_rate       <- NA_real_
+
+  # Keep a list or data frame of (time, DF) we have solved so far
+  known_times <- numeric(0)
+  known_dfs   <- numeric(0)
+
+  # Helper: linear interpolation of DF(t)
+  get_df <- function(t) {
+    # If t == 0, define DF(0) = 1
+    if (abs(t) < 1e-12) return(1)
+    # If we already solved DF(t) exactly, return it
+    if (t %in% known_times) {
+      return(known_dfs[which(known_times == t)])
     }
-    
-    # Stocker le taux zéro
-    bonds$zero_coupon_rate[i] <- zero_rate
+    # If t < min(known_times), we can't discount. Return NA or extrapolate
+    if (t < min(known_times)) {
+      # naive extrapolation
+      return(NA_real_)
+    }
+    # If t > max(known_times), we can't discount that time either
+    # but let's do a naive extrapolation
+    if (t > max(known_times)) {
+      return(NA_real_)
+    }
+    # Otherwise, find nearest times for interpolation
+    # e.g. t1 < t < t2
+    all_times <- sort(known_times)
+    idx <- which(all_times > t)[1]
+    t2 <- all_times[idx]
+    t1 <- all_times[idx - 1]
+    df2 <- known_dfs[which(known_times == t2)]
+    df1 <- known_dfs[which(known_times == t1)]
+
+    # linear interpolation in [t1, t2]
+    w <- (t - t1) / (t2 - t1)
+    df_t <- df1 + w * (df2 - df1)
+    return(df_t)
+  }
+
+  for (i in seq_len(nrow(df))) {
+    maturity <- df$maturity_years[i]
+    price    <- df$last_price[i]
+    c_rate   <- df$Coupon[i]
+    coupon   <- face_value * c_rate  # annual coupon in currency
+
+    # Identify coupon payment times: integer years from 1..floor(maturity)
+    # plus a final payment at maturity (which might be fractional)
+    int_mats <- seq_len(floor(maturity))  # e.g. 1,2,..., floor(2.7)=2
+    # partial leftover
+    frac_part <- maturity - floor(maturity)
+
+    # Present value of known coupons
+    pv_coupons <- 0
+
+    # Discount each integer coupon
+    for (t_int in int_mats) {
+      # we must get DF(t_int) by interpolation or known
+      df_tint <- get_df(t_int)
+      if (is.na(df_tint)) {
+        # We can't discount if not known => can't bootstrap in strict order
+        # For simplicity, skip or set to 0. Or you might stop with an error.
+        next
+      }
+      pv_coupons <- pv_coupons + coupon * df_tint
+    }
+
+    # For the final payment at maturity (which might be fractional),
+    # the discount factor DF(maturity) is unknown => call it DF_x
+    # The final payment is coupon + principal if maturity is integer,
+    # or if there's a fractional leftover, you might pay partial coupon, etc.
+    # We'll assume a FULL coupon at final maturity for simplicity.
+    # So final payment = coupon + face_value.
+    # Price = pv_coupons + (coupon + face_value)*DF_x
+
+    # Solve for DF_x:
+    # DF_x = (price - pv_coupons) / (coupon + face_value)
+    # If the leftover fraction is truly partial, you might do:
+    # final_payment = coupon * frac_part + face_value
+    # Then DF_x = (price - pv_coupons)/(final_payment)
+    final_payment <- coupon + face_value
+    DF_x <- (price - pv_coupons) / final_payment
+
+    # Store in df
+    df$discount_factor[i] <- DF_x
+
+    # Convert DF_x to zero rate
+    # DF_x = 1/(1 + z)^(maturity) => z = (1/DF_x)^(1/maturity) - 1
+    zc_rate <- (1 / DF_x)^(1 / maturity) - 1
+    df$zero_rate[i] <- zc_rate
+
+    # Add maturity, DF_x to known sets so we can discount future bonds
+    known_times <- c(known_times, maturity)
+    known_dfs   <- c(known_dfs, DF_x)
   }
   
-  # Revenir au dataframe original avec les taux calculés
-  result <- df %>%
-    left_join(bonds %>% select(maturity_years, zero_coupon_rate), 
-              by = "maturity_years")
-  
-  return(result)
+    # reusing function from before
+  df$YTM <- mapply(
+    calc_ytm,
+    price    = df$last_price,
+    coupon_rate   = df$Coupon,
+    maturity_years = df$maturity_years,
+    MoreArgs = list(face_value = face_value, freq = 1)
+  )
+
+  return(df)
 }
 
-# Appliquer la fonction à votre dataframe
-df_subset_curve <- bootstrap_zero_coupon(df_subset)
+df_grouped <- df_subset %>%
+  mutate(maturity_rounded = round(maturity_years, 1)) %>%
+  group_by(maturity_rounded) %>%
+  summarize(
+    maturity_years = mean(maturity_years),
+    last_price     = mean(last_price),
+    Coupon         = mean(Coupon),
+    .groups = "drop"
+  ) %>%
+  arrange(maturity_years)
 
+# 2) Bootstrap
+df_boot <- bootstrap_zero_coupon_noninteger(df_grouped)
 
-# Afficher un résumé des taux zéro-coupon
-summary(df_subset_curve$zero_coupon_rates)
+df_boot
 ```
 
 ```{r}
 
-plot(df_feb4_euro$maturity_years, df_feb4_euro$zero_coupon_rates, 
+plot(df_boot$maturity_years, df_boot$zero_rate, 
      pch=19, col="red", 
      main="Scatter Plot: Zero Coupon Rates vs Maturity",
      xlab="Maturity (Years)", ylab="Zero Coupon Rate (%)",
@@ -613,30 +716,26 @@ grid()
 ```{r}
 #### YTM VS MATURITY 
 
-plot(df_feb4_euro$maturity_years, df_feb4_euro$YTM, 
-     main="Observed Yield Curve",
-     xlab="Maturity (years)", ylab="Yield (%)",
-     pch=19, col="blue", 
-     xlim=c(0, 20), ylim=c(0, 10))  # Fixe X max à 20 et Y max à 10
-grid()  # Ajouter une grille pour la lisibilité
-
+ggplot(df_boot, aes(x = maturity_years)) +
+  geom_point(aes(y = zero_rate, color = "Zero Coupon Rate"), size = 1) +
+  geom_point(aes(y = YTM * 100,color = "Bond YTM"), size = 1) +
+  labs(
+    title = "Comparing Zero-Coupon Curve vs. Bond YTM",
+    x = "Maturity (Years)",
+    y = "Yield / Rate (decimal)",
+    color = "Rate Type"
+  ) +
+  theme_minimal()
 ```
 
 ### Creating the NS curve for all bonds
 
 ```{r}
-
 library(YieldCurve)
-library(ggplot2)
 library(xts)
 
-# 1Put maturity in order 
-df_feb4_euro <- df_feb4_euro[order(df_feb4_euro$maturity_years), ]
-
-
-
-  # 2️adjust nelson siegelto zero coupon
-NS_params <- Nelson.Siegel(df_feb4_euro$zero_coupon_rates, df_feb4_euro$maturity_years)
+# 2️adjust nelson siegelto zero coupon
+NS_params <- Nelson.Siegel(df_boot$zero_rate, df_boot$maturity_years)
 
 # 3 check that the result is a matrix (needed for the followiong function)
 NS_params <- matrix(NS_params, nrow = 1)  # S'assurer que c'est une matrice 1 ligne, 4 colonnes
@@ -646,57 +745,105 @@ NS_params_xts <- xts(NS_params, order.by=Sys.Date())
 # 6⃣ results
 print(NS_params_xts)
 
-NSrates_fitted <- NSrates(NS_params_xts, df_feb4_euro$maturity_years)
+NSrates_fitted <- NSrates(NS_params_xts, df_boot$maturity_years)
 ```
 
 ```{r}
-### Plot the curve
 
-# Scatter plot pour les taux zéro-coupon observés
-plot(df_feb4_euro$maturity_years, df_feb4_euro$zero_coupon_rates, 
+### Plot the curve
+plot(df_boot$maturity_years, df_boot$zero_coupon_rates, 
      main="Fitting Nelson-Siegel Yield Curve",
      xlab="Maturity (years)", ylab="Yield (%)",
      pch=19, col="blue", xlim=c(0, 20), ylim=c(0, 10))  # Suppression de type="o" pour avoir uniquement un scatter
 
-# Ajouter la courbe ajustée Nelson-Siegel avec une ligne plus épaisse
-lines(df_feb4_euro$maturity_years, NSrates_fitted, col="red", lwd=2.5)
-
-# Ajouter une légende
+lines(df_boot$maturity_years, NSrates_fitted, col="red", lwd=2.5)
 legend("topleft",
        legend=c("Observed zero coupon rates", "Fitted Nelson-Siegel yield curve"),
        col=c("blue", "red"), pch=c(19, NA), lty=c(NA, 1), lwd=2.5)
-
-# Ajouter une grille pour améliorer la lisibilité
 grid()
-
-
-rmse <- sqrt(mean((df_feb4_euro$zero_coupon_rates - NSrates_fitted)^2))
+rmse <- sqrt(mean((df_boot$zero_rate - NSrates_fitted)^2))
 print(rmse)
-
-summary(df_feb4_euro$zero_coupon_rates)
-
-
+summary(df_boot$zero_rate)
 ```
 
-### Understanding why this damn curve is inverted
+Double checking data passed to plot.
 
 ```{r}
 
-# Créer un nouveau dataset avec uniquement les colonnes demandées
-df_maturity_YTM_NS <- df_feb4_euro[, c("maturity_years", "zero_coupon_rates", "YTM")]
-
-
-
-# Vérifier le nouveau dataset
-print(head(df_maturity_YTM_NS))
-
+df_boot_NS <- df_boot[, c("maturity_years", "zero_rate", "YTM")]
+print(head(df_boot_NS))
 ```
+
+# NS Curve on whole data set
 
 ```{r}
-# Do we have the parameters wrong ? 
-print(NS_params)
 
+# per date we take the last available price
+df_grouped_NS <- df_for_matching %>%
+  arrange(WKN, desc(Date)) %>%
+  group_by(WKN) %>%
+  slice(1) %>%  
+  ungroup()
 
-print(df_feb4_euro[, c("maturity_years", "zero_coupon_rates")])
+df_grouped_NS <- df_grouped_NS %>%
+  mutate(maturity_rounded = round(maturity_years, 1)) %>%
+  group_by(maturity_rounded) %>%
+  summarize(
+    maturity_years = mean(maturity_years),
+    last_price     = mean(last_price),
+    Coupon         = mean(Coupon),
+    .groups = "drop"
+  ) %>%
+  arrange(maturity_years)
 
+# 2) Bootstrap
+df_NS <- bootstrap_zero_coupon_noninteger(df_grouped_NS)
+df_NS
+
+# There are some outliers we remove, the calculation of the zero coupon rates goes wrong at some points
+df_NS <- df_NS |> filter(zero_rate <= 5.00)
+
+ggplot(df_NS, aes(x = maturity_years)) +
+  geom_point(aes(y = zero_rate, color = "Zero Coupon Rate"), size = 1) +
+  geom_point(aes(y = YTM * 100,color = "Bond YTM"), size = 1) +
+  labs(
+    title = "Comparing Zero-Coupon Curve vs. Bond YTM",
+    x = "Maturity (Years)",
+    y = "Yield / Rate (decimal)",
+    color = "Rate Type"
+  ) +
+  theme_minimal()
 ```
+
+Still not great, but we visualise our curve.
+
+```{r}
+
+# 2️adjust nelson siegelto zero coupon
+NS_params <- Nelson.Siegel(df_NS$zero_rate, df_NS$maturity_years)
+
+# 3 check that the result is a matrix (needed for the followiong function)
+NS_params <- matrix(NS_params, nrow = 1)  # S'assurer que c'est une matrice 1 ligne, 4 colonnes
+
+# 4 convert into xts (if needed)
+NS_params_xts <- xts(NS_params, order.by=Sys.Date())
+# 6⃣ results
+print(NS_params_xts)
+
+NSrates_fitted <- NSrates(NS_params_xts, df_NS$maturity_years)
+
+### Plot the curve
+plot(df_NS$maturity_years, df_NS$zero_coupon_rates, 
+     main="Fitting Nelson-Siegel Yield Curve",
+     xlab="Maturity (years)", ylab="Yield (%)",
+     pch=19, col="blue", xlim=c(0, 20), ylim=c(0, 10))  # Suppression de type="o" pour avoir uniquement un scatter
+
+lines(df_NS$maturity_years, NSrates_fitted, col="red", lwd=2.5)
+legend("topleft",
+       legend=c("Observed zero coupon rates", "Fitted Nelson-Siegel yield curve"),
+       col=c("blue", "red"), pch=c(19, NA), lty=c(NA, 1), lwd=2.5)
+grid()
+rmse <- sqrt(mean((df_NS$zero_rate - NSrates_fitted)^2))
+```
+
+Our curve is inverted and there seems to be an issue with the parameters.
