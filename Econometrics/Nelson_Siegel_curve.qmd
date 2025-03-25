@@ -620,7 +620,198 @@ model <- lm(diff ~ is_green, data = df_merged)
 coeftest(model, vcov = NeweyWest(model))
 ```
 
-# Here we use Boostraping to extract the zero coupon bonds use for the Nelson-Siegel fitting :
+# We fit a Nelson-Siegel Svensson Curve:
+
+we first re-calculate the avg ecb curve over all dates
+
+```{r}
+library(dplyr)
+library(tidyr)
+
+df_params <- df_merged %>%
+  select(Date, Beta0, Beta1, Beta2, Beta3, Tau1, Tau2) %>%
+  distinct()
+
+maturity_grid <- seq(0.1, 30, by = 0.1)
+
+df_grid <- df_params %>%
+  crossing(maturity = maturity_grid)
+
+# Your existing sven_yield function:
+sven_yield <- function(tau, beta0, beta1, beta2, beta3, tau1, tau2) {
+  term1 <- ifelse(tau == 0, 1, (1 - exp(-tau / tau1)) / (tau / tau1))
+  term2 <- ifelse(tau == 0, 0, term1 - exp(-tau / tau1))
+  term3 <- ifelse(tau == 0, 0, (1 - exp(-tau / tau2)) / (tau / tau2) - exp(-tau / tau2))
+  beta0 + beta1 * term1 + beta2 * term2 + beta3 * term3
+}
+
+# Calculate the yield for each row
+df_grid <- df_grid %>%
+  rowwise() %>%
+  mutate(ECB_Yield = sven_yield(
+    tau   = maturity,
+    beta0 = Beta0,
+    beta1 = Beta1,
+    beta2 = Beta2,
+    beta3 = Beta3,
+    tau1  = Tau1,
+    tau2  = Tau2
+  )) %>%
+  ungroup()
+
+df_avg_curve <- df_grid %>%
+  group_by(maturity) %>%
+  summarize(
+    Avg_Yield = mean(ECB_Yield, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+library(ggplot2)
+
+ggplot(df_avg_curve, aes(x = maturity, y = Avg_Yield)) +
+  geom_line(color = "blue", size = 1) +
+  labs(
+    title = "Average ECB Nelson–Siegels–Svensson Curve (All Dates)",
+    x     = "Maturity (Years)",
+    y     = "Average Yield (%)"
+  ) +
+  theme_minimal()
+```
+
+I create NSS curves for green and conventional bonds. I limit to 10 year bonds to eliminate outliers. We get better results in such a way
+
+```{r}
+
+# limit to 10 years for better curve
+# Split into green vs. conventional
+df_green <- df_merged |> filter(maturity_years <= 10) |> filter(is_green == 1)
+df_conv  <- df_merged |> filter(maturity_years <= 10) |> filter(is_green == 0)
+
+# we create our function
+# sven_yield(t, b0, b1, b2, b3, t1, t2):
+# Returns the NSS yield for a single maturity 't'.
+sven_yield <- function(t, b0, b1, b2, b3, t1, t2) {
+  # Avoid division by zero at t=0
+  term1 <- ifelse(t == 0, 1, (1 - exp(-t / t1)) / (t / t1))
+  term2 <- ifelse(t == 0, 0, term1 - exp(-t / t1))
+  term3 <- ifelse(t == 0, 0, (1 - exp(-t / t2)) / (t / t2) - exp(-t / t2))
+  b0 + b1 * term1 + b2 * term2 + b3 * term3
+}
+
+# Objective function to minimise
+objective_sse <- function(params, data) {
+  b0 <- params[1]
+  b1 <- params[2]
+  b2 <- params[3]
+  b3 <- params[4]
+  t1 <- params[5]
+  t2 <- params[6]
+
+  # Optionally, ensure tau1 > 0, tau2 > 0 by penalizing negative values:
+  if (t1 <= 0 || t2 <= 0) {
+    return(1e10)  # a large penalty
+  }
+
+  # Predict yields for each maturity
+  predicted <- mapply(
+    sven_yield,
+    data$maturity_years,
+    MoreArgs = list(b0 = b0, b1 = b1, b2 = b2, b3 = b3, t1 = t1, t2 = t2)
+  )
+
+  # Residuals
+  residuals <- data$YTM - predicted
+
+  # Sum of squared errors
+  sum(residuals^2)
+}
+
+
+# Running optimisation
+# Example initial guesses for (b0, b1, b2, b3, tau1, tau2)
+init_par <- c(b0 = 1, b1 = -1, b2 = 1, b3 = -1, t1 = 1, t2 = 3)
+
+fit_green <- optim(
+  par       = init_par,
+  fn        = objective_sse,
+  data      = df_green,
+  method    = "L-BFGS-B",  # bounded optimizer
+  lower     = c(-10, -10, -10, -10, 1e-4, 1e-4),
+  upper     = c( 10,  10,  10,  10,   10,   10)
+)
+
+fit_green$convergence   # 0 indicates successful convergence
+fit_green$value         # SSE at the optimum
+fit_green$par           # best-fit parameters
+
+# Repeat for conventional bonds
+fit_conv <- optim(
+  par    = init_par,
+  fn     = objective_sse,
+  data   = df_conv,
+  method = "L-BFGS-B",
+  lower  = c(-10, -10, -10, -10, 1e-4, 1e-4),
+  upper  = c( 10,  10,  10,  10,   10,   10)
+)
+
+fit_conv$convergence
+fit_conv$value
+fit_conv$par
+
+# Comparing results
+# Suppose we want a maturity grid from 0.1 to 30
+maturity_grid <- seq(0.1, 10, by = 0.1)
+
+# Extract the fitted parameters for green
+pg <- fit_green$par
+# Predicted yields
+green_curve <- sapply(maturity_grid, sven_yield,
+                      b0 = pg[1], b1 = pg[2], b2 = pg[3], b3 = pg[4],
+                      t1 = pg[5], t2 = pg[6])
+
+# Do the same for conventional
+pc <- fit_conv$par
+conv_curve <- sapply(maturity_grid, sven_yield,
+                     b0 = pc[1], b1 = pc[2], b2 = pc[3], b3 = pc[4],
+                     t1 = pc[5], t2 = pc[6])
+
+# Build a data frame for ggplot
+df_compare <- data.frame(
+  maturity = maturity_grid,
+  green_yield = green_curve,
+  conv_yield  = conv_curve
+)
+
+# only looking at 10 years for ecb curve
+library(ggplot2)
+ggplot(df_compare, aes(x = maturity)) +
+  geom_line(aes(y = green_yield, color = "Green NSS Curve"), size = 1.2) +
+  geom_line(aes(y = conv_yield,  color = "Conventional NSS Curve"), size = 1.2) +
+  geom_line(
+    data  = df_avg_curve |> filter(maturity <= 10),
+    aes(x = maturity, y = Avg_Yield, color = "Average ECB Curve"),
+    size  = 1.2, linetype = "dashed"
+  ) +
+  labs(
+    title = "Fitted Nelson–Siegel–Svensson Curves: Green vs. Conventional",
+    x = "Maturity (Years)",
+    y = "Yield (%)",
+    color = "Curve"
+  ) +
+  scale_color_manual(values = c(
+    "Green NSS Curve" = "#1b9e77",
+    "Conventional NSS Curve" = "#d95f02",
+    "Average ECB Curve" = "#7570b3"
+  )) +
+  theme_minimal(base_size = 14) +
+  theme(
+    plot.title = element_text(hjust = 0.5, face = "bold"),
+    legend.position = "bottom",
+    legend.title = element_blank()
+  )
+```
+
+# OLD CODE - Not working well
 
 ```{r}
 
